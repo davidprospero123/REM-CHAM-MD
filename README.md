@@ -95,8 +95,6 @@ REM-CHAM- Simple Multi Device WhatsApp bot.
 
  
  
- ## 🤩 Soporte
-
 ## 🤩 Soporte
 
 <div align="center">
