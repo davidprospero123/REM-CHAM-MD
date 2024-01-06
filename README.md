@@ -1,7 +1,7 @@
 <p align="center">  
   <a href="https://youtu.be/WcA7GZuaN0A">
     <img alt="Rem-Cham" height="300" src="https://telegra.ph/file/51bea8b59ef291ef5fc4b.jpg">
-    <h1 align="center">REM-CHAM 2.O</h1>
+    <h1 align="center">REM-CHAM BOT</h1>
   </a>
 </p>
 <p align="center">
