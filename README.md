@@ -16,7 +16,9 @@
 </p>
 
 ####  
-REM-CHAM- Simple Multi Device WhatsApp bot.
+REM-CHAM- Un sencillo bot de WhatsApp en español, diseñado 
+para ofrecer respuestas rápidas y realizar tareas simples
+mejorando la experiencia del usuario en la plataforma.
 
 ***
 
