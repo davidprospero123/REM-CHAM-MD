@@ -29,17 +29,6 @@ mejorando la experiencia del usuario en la plataforma.
 <a href='https://github.com/davidprospero123/REM-CHAM/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 
-
-2. Obtén el Session ID (Servidor 1)
-    <br>
-<a href='https://session.guruapi.tech' target="_blank"><img alt='SESSION ID' src='https://img.shields.io/badge/Session_id-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
-
-
-3. Obtén el Session ID (Servidor 2) (úselo si el servidor 1 no funciona)
-    <br>
-<a href='https://replit.com/@Gurucharan-saho/REM-CHAM-PAIR?v=1' target="_blank"><img alt='SESSION ID' src='https://img.shields.io/badge/Session_id-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
-
-
 #### DESPLIEGUE EN HEROKU
 
 1. Si no tienes una cuenta en Heroku, crea una cuenta.
