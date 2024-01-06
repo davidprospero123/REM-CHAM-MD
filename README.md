@@ -120,7 +120,8 @@ REM-CHAM- Simple Multi Device WhatsApp bot.
 `REM-CHAM - Por DavidProspero123`
 
 ### Agradecimientos Especiales
-- [Guru322](https://github.com/Guru322) por sus valiosos aportes y créditos.
+<a href="https://github.com/Guru322"><img src="https://github.com/Guru322.png" width="200" height="200" alt="Guru322"/></a> por sus valiosos aportes y créditos.
+
 
 <h2 align="center">  Recordatorio
 </h2>
