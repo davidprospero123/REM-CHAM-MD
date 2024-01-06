@@ -86,7 +86,7 @@ mejorando la experiencia del usuario en la plataforma.
 
  
  
-## 🤩 Soporte
+## 🤩 PAGINA WEB PRESIONA LA IMAGEN
 
 <div align="center">
   <a href="https://rem-cham.replit.app">
