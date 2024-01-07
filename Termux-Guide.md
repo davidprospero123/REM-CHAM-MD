@@ -1,22 +1,24 @@
-# Guru-bot Termux-Hosting-Guide
+# 𝙂𝙪𝙞𝙖 𝙥𝙖𝙧𝙖 𝙡𝙖 𝙞𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝙙𝙚 𝙧𝙚𝙢 𝙚𝙣 𝙩𝙚𝙧𝙢𝙪𝙭
 
-##  Prerequisites
+##  𝙋𝙧𝙚𝙧𝙚𝙦𝙪𝙞𝙨𝙞𝙩𝙤𝙨
 
- - [Git](https://git-scm.com/)
- - [Node.js](https://nodejs.org/en/)
- - [FFmpeg](https://ffmpeg.org/download.html)
- - [ImageMagick](https://imagemagick.org/script/download.php)
- - [webP](https://developers.google.com/speed/webp/download)
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en/)
+- [FFmpeg](https://ffmpeg.org/download.html)
+- [ImageMagick](https://imagemagick.org/script/download.php)
+- [webP](https://developers.google.com/speed/webp/download)
 
- ## 🚀 Installation
+## 🚀 Instalación
 
- Run the following commands to clone the repo (Use your fork)
- ```SH
-> git clone https://github.com/Guru322/GURU-BOT
-> cd GURU-BOT
+Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) y para instalar las dependencias:
+
+```sh
+> git clone https://github.com/davidprospero123/REM-CHAM
+> cd REM-CHAM
+> npm install
  ```
 
- Run this following command to install the dependencies 
+ Ejecute el siguiente comando para instalar las dependencias. 
  ```SH
  > npm install
  ```
@@ -26,7 +28,4 @@
  ```SH
  > npm start
  ```
- Running the above command will start the bot. To authenticate scan the QR which shows up in the terminal using the WA-Web Scanner on your WhatsApp . Good Luck!
-
-
- [Set it up on Heroku](https://github.com/Guru322/GURU-BOT/blob/master/Heroku-Hosting-Guide.md)
+ Al ejecutar el comando anterior se iniciará el bot. Para autentificarte escanea el QR que aparece en el terminal usando el WA-Web Scanner de tu WhatsApp. ¡Buena suerte!
