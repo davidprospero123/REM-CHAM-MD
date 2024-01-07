@@ -1,5 +1,5 @@
-import { translate } from '@vitalets/google-translate-api';
 import { Anime } from '@shineiichijo/marika';
+import fetch from 'node-fetch';
 
 const client = new Anime();
 
@@ -13,13 +13,13 @@ let handler = async (m, { conn, text, usedPrefix }) => {
             throw `*[❗] No se pudo obtener información sobre el anime. Por favor, inténtalo de nuevo.*`;
         }
 
-        // Traducir cada propiedad al español
-        let translatedTitle = await translate(result.title, { to: 'es', autoCorrect: true });
-        let translatedBackground = await translate(result.background, { to: 'es', autoCorrect: true });
-        let translatedSynopsis = await translate(result.synopsis, { to: 'es', autoCorrect: true });
+        // Traducir cada propiedad al español utilizando Traducción de Google (puede haber limitaciones)
+        let translatedTitle = await translateGoogle(result.title, 'en', 'es');
+        let translatedBackground = await translateGoogle(result.background, 'en', 'es');
+        let translatedSynopsis = await translateGoogle(result.synopsis, 'en', 'es');
 
         let AnimeInfo = `
-🎀 • *Título:* ${translatedTitle.text}
+🎀 • *Título:* ${translatedTitle}
 🎋 • *Formato:* ${result.type}
 📈 • *Estado:* ${result.status.toUpperCase().replace(/\_/g, ' ')}
 🍥 • *Episodios totales:* ${result.episodes}
@@ -33,8 +33,8 @@ let handler = async (m, { conn, text, usedPrefix }) => {
 🏅 • *Rango:* ${result.rank}
 ♦ • *Trailer:* ${result.trailer.url}
 🌐 • *URL:* ${result.url}
-🎆 • *Background:* ${translatedBackground.text}
-❄ • *Sinopsis:* ${translatedSynopsis.text}`;
+🎆 • *Background:* ${translatedBackground}
+❄ • *Sinopsis:* ${translatedSynopsis}`;
 
         conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, m);
     } catch (error) {
@@ -42,7 +42,14 @@ let handler = async (m, { conn, text, usedPrefix }) => {
     }
 };
 
+async function translateGoogle(text, sourceLang, targetLang) {
+    const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+    const result = await response.json();
+    return result[0][0][0];
+}
+
 handler.help = ['anime']
 handler.tags = ['anime']
 handler.command = /^(anime|animeinfo)$/i;
 export default handler;
+
