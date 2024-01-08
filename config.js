@@ -60,8 +60,8 @@ global.dygp = 'https://https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5'
 global.fgsc = 'https://github.com/davidprospero123/REM-CHAM' 
 global.fgyt = 'https://www.youtube.com/channel/UCjS8HOwW6KQpkVmZSa3N2-g'
 global.fgpyp = 'https://www.youtube.com/channel/UCjS8HOwW6KQpkVmZSa3N2-g'
-global.fglog = 'https://raw.githubusercontent.com/Guru322/api/Guru/guru.jpg' 
-global.thumb = fs.readFileSync('./Assets/Gurulogo.jpg')
+global.fglog = 'https://raw.githubusercontent.com/davidprospero123/REM-CHAM/main/logo.jpg' 
+global.thumb = fs.readFileSync('./Assets/Curilogo.jpg')
 
 
 global.wait = '*💙 _𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤..._*\n*▰▰▰▱▱▱▱▱*'
