@@ -557,7 +557,7 @@ export async function participantsUpdate({
                   let nthMember = groupMetadata.participants.length;
                   let secondText = `Welcome, ${await this.getName(user)}, our ${nthMember}th member`;
 
-                  let welcomeApiUrl = `https://welcome.guruapi.tech/welcome-image?username=${encodeURIComponent(
+                  let welcomeApiUrl = `https://telegra.ph/file/72084f63fee4d5152b2f4.jpg?username=${encodeURIComponent(
                     await this.getName(user)
                   )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
                     ppgp
@@ -610,7 +610,7 @@ export async function participantsUpdate({
                   let nthMember = groupMetadata.participants.length;
                   let secondText = `Goodbye, our ${nthMember}th group member`;
 
-                  let leaveApiUrl = `https://welcome.guruapi.tech/leave-image?username=${encodeURIComponent(
+                  let leaveApiUrl = `https://telegra.ph/file/e657782b6eb232c9b2d01.png?username=${encodeURIComponent(
                     await this.getName(user)
                   )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
                     ppgp
@@ -644,7 +644,7 @@ export async function participantsUpdate({
             }
             break;
             case "promote":
-                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *is now admin*`).replace("@user", "@" + participants[0].split("@")[0]);
+                const promoteText = (chat.sPromote || this.spromote || conn.spromote || `${emoji.promote} @user *Ahora es administrador*`).replace("@user", "@" + participants[0].split("@")[0]);
                 if (chat.detect) {
                     this.sendMessage(id, {
                         text: promoteText.trim(),
@@ -653,7 +653,7 @@ export async function participantsUpdate({
                 }
                 break;
             case "demote":
-                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @user *demoted from admin*`).replace("@user", "@" + participants[0].split("@")[0]);
+                const demoteText = (chat.sDemote || this.sdemote || conn.sdemote || `${emoji.demote} @user *Degradado de administrador*`).replace("@user", "@" + participants[0].split("@")[0]);
                 if (chat.detect) {
                     this.sendMessage(id, {
                         text: demoteText.trim(),
@@ -690,25 +690,25 @@ export async function groupsUpdate(groupsUpdate) {
         if (!chats.detect) continue
 
         if (groupUpdate.desc) {
-            text = (chats.sDesc || this.sDesc || conn.sDesc || `*${emoji.desc} Description has been changed to*\n@desc`)
+            text = (chats.sDesc || this.sDesc || conn.sDesc || `*${emoji.desc} La descripción ha sido cambiada a*\n@desc`)
                 .replace("@desc", groupUpdate.desc)
         } else if (groupUpdate.subject) {
-            text = (chats.sSubject || this.sSubject || conn.sSubject || `*${emoji.subject} Subject has been changed to*\n@subject`)
+            text = (chats.sSubject || this.sSubject || conn.sSubject || `*${emoji.subject} El tema ha sido cambiado a*\n@subject`)
                 .replace("@subject", groupUpdate.subject)
         } else if (groupUpdate.icon) {
-            text = (chats.sIcon || this.sIcon || conn.sIcon || `*${emoji.icon} Icon has been changed*`)
+            text = (chats.sIcon || this.sIcon || conn.sIcon || `*${emoji.icon} El icono ha sido cambiado.*`)
                 .replace("@icon", groupUpdate.icon)
         } else if (groupUpdate.revoke) {
-            text = (chats.sRevoke || this.sRevoke || conn.sRevoke || `*${emoji.revoke} Group link has been changed to*\n@revoke`)
+            text = (chats.sRevoke || this.sRevoke || conn.sRevoke || `*${emoji.revoke} El enlace del grupo ha sido cambiado a*\n@revoke`)
                 .replace("@revoke", groupUpdate.revoke)
         } else if (groupUpdate.announce === true) {
-            text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || `*${emoji.announceOn} Group is now closed!*`)
+            text = (chats.sAnnounceOn || this.sAnnounceOn || conn.sAnnounceOn || `*${emoji.announceOn} El grupo ya está cerrado!*`)
         } else if (groupUpdate.announce === false) {
-            text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || `*${emoji.announceOff} Group is now open!*`)
+            text = (chats.sAnnounceOff || this.sAnnounceOff || conn.sAnnounceOff || `*${emoji.announceOff} ¡El grupo ya está abierto!*`)
         } else if (groupUpdate.restrict === true) {
-            text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || `*${emoji.restrictOn} Group is now restricted to participants only!*`)
+            text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || `*${emoji.restrictOn} El grupo ahora está restringido solo a los participantes!*`)
         } else if (groupUpdate.restrict === false) {
-            text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || `*${emoji.restrictOff} Group is now restricted to admins only!*`)
+            text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || `*${emoji.restrictOff} El grupo ahora está restringido solo a administradores!*`)
         }
 
 
@@ -736,11 +736,11 @@ export async function deleteUpdate(message) {
         if (chat.antiDelete)
             return
             await this.reply(msg.chat, `
-            ≡ borro un mensaje 
+            ≡ Borro un Mensaje 
             ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
             ▢ *Number :* @${participant.split`@`[0]} 
             └─────────────
-            Para Desactivarlo , PREESIONE
+            Para Desactivarlo , PRESIONE
             */off antidelete*
             *.enable delete*
             `.trim(), msg, {
