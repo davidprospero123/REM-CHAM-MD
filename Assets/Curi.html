@@ -1,119 +1,255 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Rem-Cham ayuda con los comandos</title>
+    <meta name="description" content="Un bot de WhatsApp bien complejo y útil">
+    <meta name="keywords" content="Bot de Whatsapp">
+    <meta name="google-site-verification" content="zF16axjuO6NvVuDu5eQ9vn3UvZNy1KKlFpcD8s3MjyQ" />
+    <!-- Otras metaetiquetas -->
+    <title>Bot de WhatsApp Rem-Cham</title>
+    <!-- Favicon -->
+    <link rel="icon" href="ruta-de-tu-imagen-favicon.ico" type="image/x-icon">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .command-list, .response-list, .platform-links {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            font-size: 1em;
-            overflow: hidden;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .command-title, .response-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            list-style-type: none;
             padding: 0;
-            margin: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        li {
-            margin-bottom: 10px;
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://telegra.ph/file/81a438c33ede0ea41b740.mp4');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #4CAF50;
+            font-size: 24px;
+        }
+
+        .section p {
+            font-size: 16px;
+        }
+
+        .command-list,
+        .response-list,
+        .platform-links,
+        .whatsapp-group,
+        .donation-section {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .decorative-image {
+            max-width: 100%;
+            border-radius: 10px;
         }
 
         .platform-icon {
-            width: 20px;
-            height: auto;
+            width: 30px;
+            height: 30px;
             margin-right: 5px;
         }
 
-        .platform-links {
-            color: black;
+        .platform-links a,
+        .whatsapp-group-link,
+        .donation-link {
+            text-decoration: underline; /* Puedes cambiar esto según tus preferencias de decoración */
         }
 
-        .platform-links h2 {
-            color: black;
+        .whatsapp-group-link {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #007bff; /* Color azul brillante */
         }
 
-        video {
-            width: 100%;
-            max-width: 100%; /* Ajuste para dispositivos móviles */
-            height: auto; /* Ajuste para dispositivos móviles */
-            object-fit: cover;
+        .donation-button {
+            background-color: #f44336; /* Color rojo */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .donation-button:hover {
+            background-color: #d32f2f; /* Color rojo oscuro al pasar el ratón */
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
             position: fixed;
-            z-index: -1;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
         }
     </style>
 </head>
-<body>
-    <video autoplay loop muted>
-        <source src="https://telegra.ph/file/81a438c33ede0ea41b740.mp4" type="video/mp4">
-        Tu navegador no soporta la etiqueta de video.
-    </video>
 
-    <h1>Rem-Cham Bot</h1>
-    <div class="command-list" id="commandList">
-        <h2 class="command-title">Comandos</h2>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#home">Inicio</a>
+        <a href="https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5" target="_blank">Contáctanos</a>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-content">
+            <!-- Video de YouTube -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1y3Kj1DliBw" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <h1>Revoluciona tu vida cotidiana con el Bot de WhatsApp Rem-Cham</h1>
+            <p>¡Descubre el poder de la comunicación automatizada!</p>
+            <p>¡Todo el poder de internet en tu WhatsApp!</p>
+            <a href="https://remchambot.replit.app" target="_blank"><button class="button">Comienza Ahora</button></a>
+        </div>
+    </div>
+
+    <!-- Command Section -->
+    <div class="section command-list">
+        <img class="decorative-image" src="https://telegra.ph/file/703936b58c61def513ceb.gif" alt="Decoración">
+        <h2>Lista de Comandos</h2>
         <ul>
-          <li>/menu: 𝘿𝙚𝙨𝙥𝙡𝙞𝙚𝙜𝙖 𝙪𝙣𝙖 𝙡𝙞𝙨𝙩𝙖 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤𝙨 𝙥𝙖𝙧𝙖 𝙛𝙖𝙘𝙞𝙡𝙞𝙩𝙖𝙧 𝙡𝙖 𝙜𝙚𝙨𝙩𝙞ó𝙣 𝙙𝙚 𝙡𝙖 𝙡𝙞𝙨𝙩𝙖 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤𝙨. 𝙍𝙚𝙘𝙪𝙚𝙧𝙙𝙖 𝙧𝙚𝙨𝙥𝙤𝙣𝙙𝙚𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙣ú𝙢𝙚𝙧𝙤 𝙚𝙨𝙥𝙚𝙘í𝙛𝙞𝙘𝙤 𝙚𝙣 𝙩𝙪 𝙢𝙚𝙣ú, 𝙮 𝙖𝙨í 𝙥𝙤𝙙𝙧é 𝙚𝙣𝙫𝙞𝙖𝙧𝙩𝙚 𝙡𝙖 𝙥𝙖𝙧𝙩𝙚 𝙘𝙤𝙧𝙧𝙚𝙨𝙥𝙤𝙣𝙙𝙞𝙚𝙣𝙩𝙚 𝙙𝙚𝙡 𝙢𝙚𝙣ú.</li>
-            <li>/creador: 𝙀𝙨𝙩𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙩𝙚 𝙥𝙧𝙤𝙥𝙤𝙧𝙘𝙞𝙤𝙣𝙖 𝙚𝙡 𝙣ú𝙢𝙚𝙧𝙤 𝙤𝙛𝙞𝙘𝙞𝙖𝙡 𝙙𝙚 𝙢𝙞 𝙘𝙧𝙚𝙖𝙙𝙤𝙧, 𝘾𝙪𝙧𝙞. 𝙍𝙚𝙘𝙪𝙚𝙧𝙙𝙖 𝙪𝙩𝙞𝙡𝙞𝙯𝙖𝙧𝙡𝙤 ú𝙣𝙞𝙘𝙖𝙢𝙚𝙣𝙩𝙚 𝙥𝙖𝙧𝙖 𝙖𝙨𝙪𝙣𝙩𝙤𝙨 𝙞𝙢𝙥𝙤𝙧𝙩𝙖𝙣𝙩𝙚𝙨. 𝙀𝙫𝙞𝙩𝙖𝙧 𝙨𝙪 𝙪𝙨𝙤 𝙞𝙣𝙘𝙤𝙧𝙧𝙚𝙘𝙩𝙤 𝙤 𝙞𝙣𝙣𝙚𝙘𝙚𝙨𝙖𝙧𝙞𝙤 𝙥𝙤𝙙𝙧í𝙖 𝙧𝙚𝙨𝙪𝙡𝙩𝙖𝙧 𝙚𝙣 𝙪𝙣 𝙗𝙡𝙤𝙦𝙪𝙚𝙤 𝙖𝙪𝙩𝙤𝙢á𝙩𝙞𝙘𝙤 𝙙𝙚𝙡 𝙗𝙤𝙩. ¡𝘼𝙨𝙚𝙜ú𝙧𝙖𝙩𝙚 𝙙𝙚 𝙘𝙤𝙢𝙪𝙣𝙞𝙘𝙖𝙧𝙩𝙚 𝙘𝙤𝙣 𝙧𝙚𝙨𝙥𝙚𝙩𝙤 𝙮 𝙘𝙤𝙣𝙨𝙞𝙙𝙚𝙧𝙖𝙘𝙞ó𝙣!</li>
-            <li>/ping: 𝙈𝙪𝙚𝙨𝙩𝙧𝙖 𝙚𝙨𝙩𝙖𝙙í𝙨𝙩𝙞𝙘𝙖𝙨 𝙨𝙤𝙗𝙧𝙚 𝙡𝙖 𝙫𝙚𝙡𝙤𝙘𝙞𝙙𝙖𝙙 𝙙𝙚 𝙧𝙚𝙨𝙥𝙪𝙚𝙨𝙩𝙖 𝙙𝙚𝙡 𝙗𝙤𝙩. 𝙐𝙩𝙞𝙡𝙞𝙯𝙖 𝙚𝙨𝙩𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙥𝙖𝙧𝙖 𝙚𝙫𝙖𝙡𝙪𝙖𝙧 𝙡𝙖 𝙡𝙖𝙩𝙚𝙣𝙘𝙞𝙖 𝙙𝙚𝙡 𝙨𝙞𝙨𝙩𝙚𝙢𝙖.</li>
-          </ul>
+            <li>/menu: Despliega una lista de comandos para facilitar la interacción con el bot. Recuerda responder con un número específico para seleccionar la opción del menú.</li>
+            <li>/creador: Muestra información sobre el creador del bot, su experiencia en el desarrollo de bots y enlaces a sus perfiles en redes sociales.</li>
+            <li>/ping: Muestra estadísticas de respuesta del bot en tiempo real.</li>
         </ul>
     </div>
-    <div class="response-list" id="responseList">
-        <h2 class="response-title">Preguntas Frecuentes</h2>
+
+    <!-- Response Section -->
+    <div class="section response-list">
+        <img class="decorative-image" src="https://telegra.ph/file/d2db0a189007b37915d3b.gif" alt="Decoración">
+        <h2>Preguntas Frecuentes</h2>
         <ul>
-          <li>¿Quién creó el bot?: 𝙀𝙡 𝙗𝙤𝙩 𝙛𝙪𝙚 𝙘𝙧𝙚𝙖𝙙𝙤 𝙥𝙤𝙧 𝘾𝙪𝙧𝙞, 𝙪𝙩𝙞𝙡𝙞𝙯𝙖𝙣𝙙𝙤 𝙅𝙖𝙫𝙖𝙎𝙘𝙧𝙞𝙥𝙩 𝙮 𝙘𝙤𝙣 𝙡𝙖 𝙘𝙤𝙣𝙩𝙧𝙞𝙗𝙪𝙘𝙞ó𝙣 𝙙𝙚 𝙁𝙂. 𝙍𝙚𝙘𝙪𝙚𝙧𝙙𝙖 𝙫𝙖𝙡𝙤𝙧𝙖𝙧 𝙚𝙡 𝙚𝙨𝙛𝙪𝙚𝙧𝙯𝙤 𝙮 𝙡𝙖 𝙘𝙤𝙡𝙖𝙗𝙤𝙧𝙖𝙘𝙞ó𝙣 𝙙𝙚 𝙖𝙢𝙗𝙤𝙨 𝙚𝙣 𝙚𝙡 𝙙𝙚𝙨𝙖𝙧𝙧𝙤𝙡𝙡𝙤 𝙙𝙚𝙡 𝙗𝙤𝙩.</li>
-          <li>Reglas del bot: 𝙇𝙖𝙨 𝙣𝙤𝙧𝙢𝙖𝙨 𝙙𝙚𝙡 𝙗𝙤𝙩 𝙨𝙤𝙣 𝙨𝙞𝙢𝙥𝙡𝙚𝙨: 𝙚𝙫𝙞𝙩𝙖 𝙚𝙡 𝙚𝙣𝙫í𝙤 𝙚𝙭𝙘𝙚𝙨𝙞𝙫𝙤 𝙙𝙚 𝙢𝙚𝙣𝙨𝙖𝙟𝙚𝙨 𝙮 𝙨𝙤𝙡𝙞𝙘𝙞𝙩𝙪𝙙𝙚𝙨 𝙘𝙤𝙣𝙨𝙚𝙘𝙪𝙩𝙞𝙫𝙖𝙨 𝙙𝙚 𝙡𝙖 𝙢𝙞𝙨𝙢𝙖 𝙞𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 𝙥𝙖𝙧𝙖 𝙢𝙖𝙣𝙩𝙚𝙣𝙚𝙧 𝙪𝙣𝙖 𝙚𝙭𝙥𝙚𝙧𝙞𝙚𝙣𝙘𝙞𝙖 𝙙𝙚 𝙪𝙨𝙪𝙖𝙧𝙞𝙤 𝙛𝙡𝙪𝙞𝙙𝙖.</li>
-          <li>¿Puedo ser Sub Bot?: 𝙀𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 "𝙨𝙪𝙗 𝙗𝙤𝙩" 𝙚𝙨𝙩á 𝙤𝙥𝙚𝙧𝙖𝙩𝙞𝙫𝙤, 𝙮 𝙥𝙪𝙚𝙙𝙚𝙨 𝙨𝙪𝙨𝙘𝙧𝙞𝙗𝙞𝙧𝙩𝙚 𝙖𝙡 𝙘𝙖𝙣𝙖𝙡 𝙥𝙖𝙧𝙖 𝙧𝙚𝙘𝙞𝙗𝙞𝙧 𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙘𝙞𝙤𝙣𝙚𝙨 𝙨𝙤𝙗𝙧𝙚 𝙘𝙤𝙣𝙩𝙚𝙣𝙞𝙙𝙤 𝙮 𝙚𝙫𝙚𝙣𝙩𝙤𝙨 𝙚𝙨𝙥𝙚𝙘𝙞𝙖𝙡𝙚𝙨. 𝙇𝙖 𝙞𝙣𝙩𝙚𝙧𝙖𝙘𝙘𝙞ó𝙣 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙖 𝙘𝙤𝙣 𝘾𝙪𝙧𝙞 𝙥𝙧𝙤𝙢𝙤𝙫𝙚𝙧á 𝙩𝙪 𝙞𝙣𝙘𝙡𝙪𝙨𝙞ó𝙣 𝙚𝙣 𝙨𝙚𝙧 𝙨𝙪𝙗𝙗𝙤𝙩.</li>
+            <li>¿Quién creó el bot?: El bot fue creado por Curi, un entusiasta del desarrollo y la tecnología. Curi tiene experiencia en el desarrollo de bots y contribuye activamente a la comunidad de desarrolladores de bots en Figma.</li>
+            <li>Reglas del bot: Las normas del bot son simples: evita el envío de mensajes y solicitudes inapropiadas o cualquier contenido que viole las políticas del bot. La interacción con el bot se espera que sea respetuosa y conforme a las reglas de la comunidad.</li>
+            <li>¿Puedo ser Sub Bot?: El comando "sub bot" está operativo, y puedes suscribirte para recibir actualizaciones sobre nuevas funciones y eventos relacionados con el bot.</li>
         </ul>
     </div>
-    <div class="platform-links" id="platformLinks">
+
+    <!-- Platform Links Section -->
+    <div class="section platform-links">
+        <img class="decorative-image" src="https://telegra.ph/file/ab130f4d47bc4fde88202.gif" alt="Decoración">
         <h2>Enlaces a Plataformas</h2>
         <ul>
-          <li><img class="platform-icon" src="https://telegra.ph/file/ae5499d64be60b1d5f398.png" alt="Facebook"> <a href="https://www.facebook.com/josegabriel.curisoto.5">Facebook</a></li>
-          <li><img class="platform-icon" src="https://telegra.ph/file/995b91bc20929e06bada3.png" alt="YouTube"> <a href="https://www.youtube.com/channel/UCjS8HOwW6KQpkVmZSa3N2-g">YouTube</a></li>
-          <li><img class="platform-icon" src="https://telegra.ph/file/b488c7ff6c4d49a64e9d3.png" alt="GitHub"> <a href="https://github.com/davidprospero123">GitHub</a></li>
+            <li><img class="platform-icon" src="https://telegra.ph/file/ae5499d64be60b1d5f398.png" alt="Facebook"> <a href="https://www.facebook.com/josegabriel.curisoto.5" target="_blank">Facebook</a></li>
+            <li><img class="platform-icon" src="https://telegra.ph/file/995b91bc20929e06bada3.png" alt="YouTube"> <a href="https://www.youtube.com/channel/UCjS8HOwW6KQpkVmZSa3N2-g" target="_blank">YouTube</a></li>
+            <li><img class="platform-icon" src="https://telegra.ph/file/b488c7ff6c4d49a64e9d3.png" alt="GitHub"> <a href="https://github.com/davidprospero123" target="_blank">GitHub</a></li>
         </ul>
+    </div>
+
+    <!-- WhatsApp Group Section -->
+    <div class="section whatsapp-group">
+        <img class="decorative-image" src="https://telegra.ph/file/20de2569329583088aeee.gif" alt="Decoración">
+        <h2>Grupo de WhatsApp con el Bot</h2>
+        <p>Únete a nuestro grupo de WhatsApp para recibir noticias, actualizaciones y discutir sobre el bot. Además, podrás usarlo de manera gratuita. ¡Te esperamos!</p>
+        <a href="https://chat.whatsapp.com/your-group-link-here" class="whatsapp-group-link" target="_blank">Únete al Grupo de WhatsApp</a>
+    </div>
+
+    <!-- Donation Section -->
+    <div class="section donation-section">
+        <img class="decorative-image" src="https://telegra.ph/file/512326058019d8c8fb295.gif" alt="Decoración">
+        <h2 style="color: #4CAF50; font-size: 28px; text-align: center;">¡Apóyanos con una Donación!</h2>
+        <p style="font-size: 18px; text-align: center;">Tu apoyo nos ayuda a mantener y mejorar nuestros servicios. Si disfrutas del bot, considera hacer una donación a través de PayPal o Yape si eres de Perú.</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://paypal.me/JoseCuri123?country.x=PE&locale.x=es_XC" class="donation-button" target="_blank" style="background-color: #00457D; color: #fff; padding: 20px 40px; font-size: 24px; text-decoration: none; border-radius: 15px; transition: background-color 0.3s ease; display: inline-block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">¡Donar con PayPal!</a>
+        </div>
+        <p style="font-size: 16px; text-align: center; margin-top: 20px;">También puedes usar Yape para donaciones locales. Escanea el siguiente código QR o utiliza el número Yape proporcionado.</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="ruta-del-codigo-qr-de-yape" alt="Código QR de Yape" style="max-width: 100%; border-radius: 10px;">
+        </div>
+        <p style="font-size: 14px; text-align: center; margin-top: 10px;">¡Agradecemos tu generosidad y apoyo continuo!</p>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        © 2023 Rem-Cham-Bot. Todos los derechos reservados.
     </div>
 
     <script>
-        // Script para cargar más contenido al desplazar hacia abajo
-        window.addEventListener('scroll', function() {
-            var commandList = document.getElementById('commandList');
-            var responseList = document.getElementById('responseList');
-            var platformLinks = document.getElementById('platformLinks');
+        // Script para cargar más contenido al desplazar hacia abajo y desplazar con la rueda del ratón
+        window.addEventListener('scroll', function () {
+            var commandList = document.querySelector('.command-list');
+            var responseList = document.querySelector('.response-list');
+            var platformLinks = document.querySelector('.platform-links');
+            var whatsappGroup = document.querySelector('.whatsapp-group');
+            var donationSection = document.querySelector('.donation-section');
 
             if (isElementInViewport(commandList)) {
                 // Cargar más comandos si el contenedor de comandos está en la vista
@@ -129,6 +265,19 @@
                 // Cargar más enlaces a plataformas si el contenedor de enlaces está en la vista
                 // Puedes implementar lógica de carga adicional aquí
             }
+
+            if (isElementInViewport(whatsappGroup)) {
+                // Puedes implementar lógica adicional para cargar contenido cuando la sección de WhatsApp Group esté en la vista
+            }
+
+            if (isElementInViewport(donationSection)) {
+                // Puedes implementar lógica adicional para cargar contenido cuando la sección de Donaciones esté en la vista
+            }
+        });
+
+        // Script para desplazar con la rueda del ratón
+        document.addEventListener('wheel', function (event) {
+            window.scrollBy(0, event.deltaY);
         });
 
         // Función para verificar si un elemento está en la vista
@@ -143,5 +292,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>
