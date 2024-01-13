@@ -8,11 +8,11 @@
 
 let handler = m => m
 handler.all = async function (m, conn) {
-    var vn = "https://raw.githubusercontent.com/davidprospero123/Re-cha-guru/main/Guru1.mp3"
+    var vn = "https://raw.githubusercontent.com/davidprospero123/Musica/main/Re_Zero%20Rem%20AMV%20Edit%20_%20After%20Effects%20Edit.mp3"
     let url = "https://github.com/davidprospero123"
     let murl = "https://www.instagram.com/Josecurisoto"
     let hash = global.botname
-    let img = "https://telegra.ph/file/338aeac0a302502463562.jpg"
+    let img = "https://i.imgur.com/1Rtxrty.jpg"
     let num = "51913091648"
 
     let doc = {
@@ -27,7 +27,7 @@ handler.all = async function (m, conn) {
         contextInfo: {
           mentionedJid: [m.sender],
           externalAdReply: {
-          title: "¿ꜱᴀʙɪᴀꜱ Qᴜᴇ ᴇʟ ᴀɴɪᴍᴇ ꜰᴀᴠᴏʀɪᴛᴏ ᴅᴇ ᴍɪ ᴄʀᴇᴀᴅᴏʀ ᴇꜱ ʙᴏʀᴜᴛᴏ?",
+          title: "˚₊· ͟͟͞͞➳❥ 𝙈𝙄 𝘾𝙍𝙀𝘼𝘿𝙊𝙍 𝙀𝙎 𝘾𝙐𝙍𝙄 :3",
           body: hash,
           thumbnailUrl: img,
           sourceUrl: url,
