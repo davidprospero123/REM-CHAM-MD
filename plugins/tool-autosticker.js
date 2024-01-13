@@ -31,7 +31,7 @@ if (isUrl(m.text)) stiker = await createSticker(false, args[0], '', author, 20)
 else return
 }
 if (stiker) {
-let img = await(await fetch('https://raw.githubusercontent.com/Guru322/api/Guru/guru.jpg')).buffer()  
+let img = await(await fetch('https://raw.githubusercontent.com/davidprospero123/REM-CHAM/main/logo.jpg')).buffer()  
 await this.sendFile(m.chat, stiker, 'error.jpg', null, m, false, { contextInfo: { showAdAttribution: true }})    
 }}
 return !0
