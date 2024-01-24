@@ -46,27 +46,28 @@ let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './logo.jpg')
 let user = global.db.data.users[who]
 
 let infobt = `
-–  *I N F O  C H A T*
+———❅——————❅——————❅——————❅
+  *ɪɴꜰᴏ ᴅᴇ ʟᴏꜱ ɢʀᴜᴘᴏꜱ*
 
-┌  ✩  *${groupsIn.length}* Chats en Grupos
-│  ✩  *${groupsIn.length}* Grupos Unidos
-│  ✩  *${groupsIn.length - groupsIn.length}* Grupos Salidos
-│  ✩  *${chats.length - groupsIn.length}* Chats Privados
-└  ✩  *${chats.length}* Chats Totales
+┌   ؂ *${groupsIn.length}* Chats en Grupos
+│   ؂ *${groupsIn.length}* Grupos Unidos
+│   ؂ *${groupsIn.length - groupsIn.length}* Grupos Salidos
+│   ؂ *${chats.length - groupsIn.length}* Chats Privados
+└   ؂ *${chats.length}* Chats Totales
 
-–  *I N F O  B O T*
+  *ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇʟ ʙᴏᴛ ʀᴇᴍ*
 
-┌  ✩  *Creador* : Curi
-│  ✩  *Prefijo* : [  ${usedPrefix}  ]
-│  ✩  *Plataforma* : linux
-│  ✩  *Servidor* : BoxMine Host
-│  ✩  *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}
-│  ✩  *FreeRAM* : ${format(freemem())}
-│  ✩  *Modo* : Publico
-└  ✩  *Nombre* : Rem-Cham
-     ᴘᴀɢɪɴᴀ ᴡᴇʙ
+┌   ؂ *Creador* : Curi
+│   ؂ *Prefijo* : [  ${usedPrefix}  ]
+│   ؂ *Plataforma* : linux
+│   ؂ *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}
+│   ؂ *FreeRAM* : ${format(freemem())}
+│   ؂ *Modo* : Publico
+└   ؂ *Nombre* : Rem-Cham
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+   💙  ᴘᴀɢɪɴᴀ ᴡᴇʙ 💙
 – https://rem-cham.replit.app
-
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 *≡  _NodeJS Uso de memoria_*
 ${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
 `
