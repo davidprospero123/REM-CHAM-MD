@@ -142,18 +142,6 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
   
 `REM-CHAM - Por DavidProspero123`
 
-## Agradecimientos Especiales
-
-<p align="center">
-  <a href="https://github.com/Guru322">
-    <img src="https://github.com/Guru322.png" width="200" height="200" alt="Guru322"/>
-  </a>
-</p>
-<p align="center">
-  ᴇɴ ʟᴀ ᴄʀᴇᴀᴄɪÓɴ ʏ ᴅᴇꜱᴀʀʀᴏʟʟᴏ ᴅᴇ ᴇꜱᴛᴇ ᴘʀᴏʏᴇᴄᴛᴏ, ʜᴀɢᴏ ᴇɴᴛʀᴇɢᴀ ᴛᴏᴛᴀʟ ᴅᴇ ʟᴏꜱ ᴄʀÉᴅɪᴛᴏꜱ ᴀ ɢᴜʀᴜ, ᴄᴜʏᴀ ʙʀɪʟʟᴀɴᴛᴇᴢ ʏ ᴘᴇʀꜱᴘɪᴄᴀᴄɪᴀ ʜᴀɴ ꜱɪᴅᴏ ᴜɴᴀ ʟᴜᴢ ɢᴜÍᴀ ꜰᴜɴᴅᴀᴍᴇɴᴛᴀʟ. ꜱᴜ ɪɴɢᴇɴɪᴏ ʜᴀ ᴅᴇᴊᴀᴅᴏ ᴜɴᴀ ʜᴜᴇʟʟᴀ ɪɴᴅᴇʟᴇʙʟᴇ, ᴜɴ ᴀᴘᴏʀᴛᴇ ɪɴᴠᴀʟᴜᴀʙʟᴇ Qᴜᴇ ᴍᴇʀᴇᴄᴇ ʀᴇᴄᴏɴᴏᴄɪᴍɪᴇɴᴛᴏ. ᴄᴏɴ ɢʀᴀᴛɪᴛᴜᴅ ɪɴꜰɪɴɪᴛᴀ.
-</p>
-
-
 
 <h2 align="center">  Recordatorio
 </h2>
