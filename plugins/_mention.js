@@ -1,5 +1,5 @@
-//Guru ka Maal Hai 
-//Made For Guru Bot
+//Curi ka Maal Hai 
+//Made For Curi Bot
 //created on Diwali(12th Nov)
 //copy with credits
 //lodusheks stay away
