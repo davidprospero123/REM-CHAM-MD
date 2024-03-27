@@ -12,7 +12,7 @@ handler.all = async function (m, conn) {
     let url = "https://github.com/davidprospero123"
     let murl = "https://www.instagram.com/Josecurisoto"
     let hash = global.botname
-    let img = "https://i.imgur.com/1Rtxrty.jpg"
+    let img = "https://i.imgur.com/qiUXqFF.png"
     let num = "51913091648"
 
     let doc = {
@@ -22,7 +22,7 @@ handler.all = async function (m, conn) {
         mimetype: 'audio/mpeg',
         ptt: true,
         waveform: [0,99,0,99,0,99,0],
-        fileName: "Guru1",
+        fileName: "Rem4",
 
         contextInfo: {
           mentionedJid: [m.sender],
