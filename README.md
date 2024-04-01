@@ -69,7 +69,7 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
 
 2. Mira el siguiente tutorial en video para obtener asistencia.
     <br>
-<p align="center"><a href="https://youtu.be/yfdzckCcbPk?si=doxesZtn87BepUBw"> <img src="https://img.shields.io/badge/heroku%20Tutorial-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://img.shields.io/badge/heroku%20Tutorial-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
 3. Ahora, despliega
