@@ -22,6 +22,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ["bot"];
 handler.tags = ["fun"];
-handler.command = ["bot", "rem"];
+handler.command = ["bot", "rem", "remgpt"];
 
 export default handler;
