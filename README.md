@@ -128,7 +128,31 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
     <br>
 <p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
- 
+#### DESPLIEGUE EN CODESANDBOX
+Si no tienes una cuenta en CodeSandbox, crea una cuenta.
+<br>
+<p align="center"><a href="https://codesandbox.io/signup"> <img src="https://img.shields.io/badge/Cuenta%20CodeSandbox-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
+Haz un fork y agrega una estrella a este repositorio.
+
+Ahora ve a CodeSandbox y selecciona "Crear Sandbox".
+
+Selecciona la opción "Importar Proyecto" y elige la opción de "GitHub".
+
+Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
+
+Configura el entorno siguiendo los mismos pasos que en el repositorio local. Puedes abrir una terminal en CodeSandbox para ejecutar los comandos.
+Ejecute el siguiente comando para instalar las dependencias. 
+ ```SH
+ > npm install
+ ```
+
+ ##  Run
+
+ ```SH
+ > npm start
+ ```
+ Al ejecutar el comando anterior se iniciará el bot. Para autentificarte escanea el QR que aparece en el terminal usando el WA-Web Scanner de tu WhatsApp. ¡Buena suerte!
+
  
 ## 🤩 PAGINA WEB PRESIONA LA IMAGEN
 
