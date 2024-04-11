@@ -23,7 +23,7 @@ async function handler(m, { conn, usedPrefix }) {
       const userList = [...connectedUsers].join(`\n`);
       await m.reply(`𝐄𝐒𝐓𝐎𝐒 𝐒𝐎𝐍 𝐋𝐎𝐒 𝐒𝐔𝐁 𝐁𝐎𝐓𝐒 𝐀𝐂𝐓𝐈𝐕𝐎𝐒 𝐃𝐄 𝐑𝐄𝐌:\n${userList}`);
     } else {
-      await m.reply("");
+      await m.reply("𝙽𝚘 𝚑𝚊𝚢 𝚗𝚒𝚗𝚐𝚞𝚗 𝚜𝚞𝚋 𝚋𝚘𝚝 𝚍𝚎 𝚛𝚎𝚖 𝚊𝚌𝚝𝚒𝚟𝚘 𝚊𝚌𝚝𝚞𝚊𝚕𝚖𝚎𝚗𝚝𝚎");
     }
   } catch (error) {
     console.error("Error:", error);
