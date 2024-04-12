@@ -4,10 +4,10 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
 
     // Sound
     let name = m.pushName || conn.getName(m.sender)
-    var vn = "https://raw.githubusercontent.com/Kai0071/A17/master/Assets/audio/🔥.mp3"
+    var vn = "https://raw.githubusercontent.com/davidprospero123/Musica/main/Re_Zero%20Rem%20AMV%20Edit%20_%20After%20Effects%20Edit.mp3"
     let url = "https://github.com/davidprospero123/REM-CHAM"
-    let murl = "https://youtu.be/DibiLc17dh0?si=xp9bQ-_frEyDB1-i"
-    let img = "https://telegra.ph/file/068ad375f7c4b256bd786.jpg"
+    let murl = "https://www.youtube.com/watch?v=QIr_XOKyah0"
+    let img = "https://i.imgur.com/APg4Nl7.jpg"
     let con = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
     let doc = {
         audio: {
@@ -21,7 +21,7 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
         contextInfo: {
           mentionedJid: [m.sender],
           externalAdReply: {
-          title: "Estoy vivo",
+          title: "𝙴𝚂𝚃𝙾𝚈 𝚅𝙸𝚅𝙰 𝚈 𝙲𝙾𝙻𝙴𝙰𝙽𝙳𝙾 :𝟹",
           body: "ʀᴇᴍ-ᴄʜᴀᴍ",
           thumbnailUrl: img,
           sourceUrl: 'https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5',
@@ -36,6 +36,6 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
 
     handler.help = ['Vives']
     handler.tags = ['main']
-    handler.command = /^(alive)$/i 
+    handler.command = /^(vives)$/i 
 
     export default handler;
