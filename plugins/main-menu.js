@@ -482,8 +482,8 @@ let botmenu = `
 `
 let pluginmenu = `
 ✦ ───『 *𝙋𝙇𝙐𝙂𝙄𝙉* 』─── ⚝
-🖋️ .plugins
-🖋️ .install <Gist URL>
+🖋️.𝚙𝚕𝚞𝚐𝚒𝚗𝚜
+🖋️.𝚒𝚗𝚜𝚝𝚊𝚕𝚕 <𝙶𝚒𝚜𝚝 𝚄𝚁𝙻>
 ╰──────────⳹
 `
 let serbot = `
@@ -629,7 +629,7 @@ ${readMore}
 const { result, key, timeout } = await conn.sendMessage(m.chat, { video: { url: menuvid }, caption: infoText.trim(),  gifPlayback: true,
 gifAttribution: 0}, { quoted: fcontact })
 
-// Save the menu options to gurumenu
+// Save the menu options to remmenu
 conn.gurumenu[m.sender] = {
   result,
   key,
@@ -739,7 +739,7 @@ if (choice === "1") {
 
 handler.help = ["play"];
 handler.tags = ["downloader"];
-handler.command = /^(menu)$/i;
+handler.command = /^(menu|help)$/i;
 handler.limit = true;
 export default handler;
 
