@@ -1,42 +1,52 @@
 import fetch from 'node-fetch';
 
-let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `ᴅᴇʙᴇꜱ ᴘʀᴏᴘᴏʀᴄɪᴏɴᴀʀ ʟᴀ ᴜʀʟ ᴅᴇ ᴄᴜᴀʟQᴜɪᴇʀ ᴠɪᴅᴇᴏ, ᴘᴜʙʟɪᴄᴀᴄɪÓɴ, ᴄᴀʀʀᴇᴛᴇ ᴏ ɪᴍᴀɢᴇɴ ᴅᴇ ɪɴꜱᴛᴀɢʀᴀᴍ.`;
-  m.reply(wait);
+const apiURL = 'https://delirius-api-oficial.vercel.app/api/instagram';
 
-  let res;
-  try {
-    res = await fetch(`${gurubot}/igdlv1?url=${text}`);
-  } catch (error) {
-    throw `ᴏᴄᴜʀʀɪÓ ᴜɴ ᴇʀʀᴏʀ: ${error.message}`;
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+  if (!args[0] || !args[0].match(/instagram\.com/i)) 
+    throw `Usa el comando así: ${usedPrefix}${command} [enlace de Instagram]`;
+
+  const url = args[0].trim();
+  const apiUrl = `${apiURL}?url=${encodeURIComponent(url)}`;
+
+  const response = await fetch(apiUrl);
+  if (!response.ok) {
+    console.error('Error al buscar el contenido de Instagram:', response.statusText);
+    throw 'Ocurrió un error al buscar el contenido de Instagram';
   }
+  
+  const data = await response.json();
+  const mediaData = data.data;
 
-  let api_response = await res.json();
+  if (!mediaData || mediaData.length === 0) 
+    throw 'No se encontraron datos válidos de la publicación de Instagram';
 
-  if (!api_response || !api_response.data) {
-    throw `ɴᴏ ꜱᴇ ᴇɴᴄᴏɴᴛʀÓ ɴɪɴɢÚɴ ᴠɪᴅᴇᴏ ᴏ ɪᴍᴀɢᴇɴ ᴏ ʀᴇꜱᴘᴜᴇꜱᴛᴀ ɴᴏ ᴠÁʟɪᴅᴀ ᴅᴇ ʟᴀ ᴀᴘɪ.`;
-  }
-
-  const mediaArray = api_response.data;
-
-  for (const mediaData of mediaArray) {
-    const mediaType = mediaData.type;
-    const mediaURL = mediaData.url_download;
-
-    let cap = `ᴀQᴜÍ ᴇꜱᴛÁ ᴇʟ ${mediaType.toUpperCase()} >,<`;
-
-    if (mediaType === 'video') {
-
-      conn.sendFile(m.chat, mediaURL, 'instagram.mp4', cap, m);
-    } else if (mediaType === 'image') {
-
-      conn.sendFile(m.chat, mediaURL, 'instagram.jpg', cap, m);
+  for (const media of mediaData) {
+    if (!media.url) continue;
+    
+    const mediaResponse = await fetch(media.url);
+    if (!mediaResponse.ok) {
+      console.error('Error al descargar el contenido de Instagram:', mediaResponse.statusText);
+      throw 'Ocurrió un error al descargar el contenido de Instagram';
     }
+  
+    const mediaBuffer = await mediaResponse.buffer();
+
+    const caption = `𝙳𝙴𝚂𝙲𝙰𝙶𝙰𝚁𝙳𝙾𝚁 𝙳𝙴 𝙸𝙽𝚂𝚃𝙰𝙶𝚁𝙰𝙼:\n${url}\n𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 - 𝙲𝚄𝚁𝙸`;
+
+    conn.sendFile(
+      m.chat,
+      mediaBuffer,
+      'video.mp4',
+      caption,
+      m
+    );
   }
 };
 
-handler.help = ['instagram'];
+handler.help = ['instagram <enlace>'];
 handler.tags = ['downloader'];
-handler.command = /^(instagram|igdl|ig|insta)$/i;
+handler.command = ['instagram', 'ig'];
+handler.register = true;
 
 export default handler;
