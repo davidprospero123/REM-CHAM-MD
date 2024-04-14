@@ -30,13 +30,13 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
         let vid = res.videos[0];
         let q = '128kbps';
         
-        let txt = `❏*𝚃𝙸𝚃𝚄𝙻𝙾:* ${vid.title}\n`;
-        txt += `❏*𝙳𝚄𝚁𝙰𝙲𝙸𝙾𝙽:* ${vid.timestamp}\n`;
-        txt += `❏*𝚅𝙸𝚂𝙸𝚃𝙰𝚂:* ${vid.views}\n`;
-        txt += `❏*𝙰𝚄𝚃𝙾𝚁:* ${vid.author.name}\n`;
-        txt += `❏*𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘:* ${vid.ago}\n`;
-        txt += `❏*𝚄𝚁𝙻:* https://youtu.be/${vid.videoId}\n\n`;
-        txt += `❄𝚁𝚎𝚌𝚞𝚎𝚛𝚍𝚊 @${m.sender.split('@')[0]}, 𝙲𝚞𝚛𝚒 𝚎𝚜 𝚖𝚒 𝚘𝚠𝚗𝚎𝚛❄`;
+        let txt = `❏ 𝚃𝙸𝚃𝚄𝙻𝙾: ${vid.title}\n`;
+        txt += `❏ 𝙳𝚄𝚁𝙰𝙲𝙸𝙾𝙽: ${vid.timestamp}\n`;
+        txt += `❏ 𝚅𝙸𝚂𝙸𝚃𝙰𝚂: ${vid.views}\n`;
+        txt += `❏ 𝙰𝚄𝚃𝙾𝚁: ${vid.author.name}\n`;
+        txt += `❏ 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘: ${vid.ago}\n`;
+        txt += `❏ 𝚄𝚁𝙻: https://youtu.be/${vid.videoId}\n\n`;
+        txt += `❄𝚁𝚎𝚌𝚞𝚎𝚛𝚍𝚊 @${m.sender.split('@')[0]}, 𝙲𝚞𝚛𝚒 𝚎𝚜 𝚖𝚒 𝚘𝚠𝚗𝚎𝚛 𝚜𝚒 𝚟𝚊𝚜 𝚊 𝚌𝚊𝚛𝚐𝚊𝚛 𝚕𝚘𝚜 𝚙𝚕𝚞𝚐𝚒𝚗𝚜 𝚍𝚊 𝚌𝚛𝚎𝚍𝚒𝚝𝚘𝚜❄`;
 
         
         await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", txt, m);
