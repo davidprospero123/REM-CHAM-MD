@@ -53,7 +53,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
             await conn.sendFile(m.chat, dl_url, 'yt.mp3', `${vid.title}.mp3`, m);
             await m.react('✅');
         } else if (format == "mp4" || format == "ytv" || format == "video" || format == "mp4doc" || format == "ytvdoc" || format == "videodoc" || format == "videodoc") {
-            let q = '1080p';
+            let q = '720p';
             let yt = await fg.ytv(vid.url, q);
             let { title, dl_url, size } = yt;
             let limit = 500;
