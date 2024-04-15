@@ -1,84 +1,84 @@
-import { cpus as _cpus, totalmem, freemem } from 'os'
-import util from 'util'
-import { performance } from 'perf_hooks'
-import { sizeFormatter } from 'human-readable'
-let format = sizeFormatter({
-  std: 'JEDEC', // 'SI' (default) | 'IEC' | 'JEDEC'
-  decimalPlaces: 2,
-  keepTrailingZeroes: false,
-  render: (literal, symbol) => `${literal} ${symbol}B`,
-})
+import { createHash } from 'crypto';
+import { canLevelUp, xpRange } from '../lib/levelling.js';
+
 let handler = async (m, { conn, usedPrefix, command }) => {
-  const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
-  const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) //groups.filter(v => !v.read_only)
-  const used = process.memoryUsage()
-  const cpus = _cpus().map(cpu => {
-    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-    return cpu
-  })
-  const cpu = cpus.reduce((last, cpu, _, { length }) => {
-    last.total += cpu.total
-    last.speed += cpu.speed / length
-    last.times.user += cpu.times.user
-    last.times.nice += cpu.times.nice
-    last.times.sys += cpu.times.sys
-    last.times.idle += cpu.times.idle
-    last.times.irq += cpu.times.irq
-    return last
-  }, {
-    speed: 0,
-    total: 0,
-    times: {
-      user: 0,
-      nice: 0,
-      sys: 0,
-      idle: 0,
-      irq: 0
+    
+    if (typeof conn.profilePictureUrl !== 'function' || typeof conn.fetchStatus !== 'function') {
+        console.error('Los métodos conn.profilePictureUrl y/o conn.fetchStatus no están disponibles.');
+        return;
     }
-  })
-  let old = performance.now()
 
-  let neww = performance.now()
-  let speed = neww - old
-  let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-if (!(who in global.db.data.users)) throw `✳️ ᴇʟ ᴜꜱᴜᴀʀɪᴏ ɴᴏ ᴇꜱᴛᴀ ᴇɴ ᴍɪ ʙᴀꜱᴇ ᴅᴇ ᴅᴀᴛᴏꜱ :ᴄ`
-let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './logo.jpg')
-let user = global.db.data.users[who]
+    let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    if (!(who in global.db.data.users)) throw `✳️ 𝙴𝚕 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚗𝚘 𝚜𝚎 𝚎𝚗𝚌𝚞𝚎𝚗𝚝𝚛𝚊 𝚎𝚗 𝚖𝚒 𝚋𝚊𝚜𝚎 𝚍𝚎 𝚍𝚊𝚝𝚘𝚜`;
 
-let infobt = `
-———❅——————❅——————❅——————❅
-  *ɪɴꜰᴏ ᴅᴇ ʟᴏꜱ ɢʀᴜᴘᴏꜱ*
+    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './logo.jpg');
+    let user = global.db.data.users[who];
+    let about = (await conn.fetchStatus(who).catch(console.error))?.status || '';
+    let { name, exp, credit, lastclaim, registered, regTime, age, level, role, wealth, warn, vault } = global.db.data.users[who];
+    let { min, xp, max } = xpRange(user.level, global.multiplier);
+    let username = conn.getName(who);
+    let math = max - xp;
+    let prem = global.prems.includes(who.split`@`[0]);
+    let sn = createHash('md5').update(who).digest('hex');
 
-┌   ؂ *${groupsIn.length}* Chats en Grupos
-│   ؂ *${groupsIn.length}* Grupos Unidos
-│   ؂ *${groupsIn.length - groupsIn.length}* Grupos Salidos
-│   ؂ *${chats.length - groupsIn.length}* Chats Privados
-└   ؂ *${chats.length}* Chats Totales
+    let levelProgress = Math.min(Math.floor((exp - min) / (max - min) * 20), 20); 
+    let progressBar = '';
+    for (let i = 0; i < 20; i++) {
+        progressBar += i < levelProgress ? '▰' : '▱';
+    }
 
-  *ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇʟ ʙᴏᴛ ʀᴇᴍ*
+    let profileMessage = `
+👤 𝙿𝙴𝚁𝙵𝙸𝙻 𝙳𝙴 ${username}
 
-┌   ؂ *Creador* : Curi
-│   ؂ *Prefijo* : [  ${usedPrefix}  ]
-│   ؂ *Plataforma* : linux
-│   ؂ *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}
-│   ؂ *FreeRAM* : ${format(freemem())}
-│   ؂ *Modo* : Publico
-└   ؂ *Nombre* : Rem-Cham
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-   💙  ᴘᴀɢɪɴᴀ ᴡᴇʙ 💙
-– https://rem-cham.replit.app
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-*≡  _NodeJS Uso de memoria_*
-${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}
-`
-conn.sendFile(m.chat, pp, 'prefil.jpg', infobt, m, false, { mentions: [who] })
-m.react(done)
+📝 𝙽𝙾𝙼𝙱𝚁𝙴: ${name}
+⭐ 𝚁𝙾𝙻: ${role}
+⚠️ 𝙰𝚍𝚟𝚎𝚛𝚝𝚎𝚗𝚌𝚒𝚊𝚜: ${warn}
 
+🎖️ 𝙽𝙸𝚅𝙴𝙻: ${level}
+🆙 𝙴𝚇𝙿𝙴𝚁𝙸𝙴𝙽𝙲𝙸𝙰: ${exp} / ${xp} (${math <= 0 ? 'ʟɪꜱᴛᴏ ᴘᴀʀᴀ ꜱᴜʙɪʀ ᴅᴇ ɴɪᴠᴇʟ' : `𝙵𝚊𝚕𝚝𝚊𝚗 ${math} 𝚇𝙿 𝚙𝚊𝚛𝚊 𝚜𝚞𝚋𝚒𝚛 𝚍𝚎 𝚗𝚒𝚟𝚎𝚕`})
+
+💰 𝙲𝚁𝙴𝙳𝙸𝚃𝙾: ${credit}
+🔒 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙾: ${registered ? '𝚂𝙸' : '𝙽𝙾'}
+🌟 𝙿𝚁𝙴𝙼𝙸𝚄𝙼: ${prem ? '𝚂𝙸' : '𝙽𝙾'}
+
+📆 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚘: ${regTime}
+🔗 𝙸𝙳: ${sn}
+
+📝 𝙱𝙸𝙾𝙶𝚁𝙰𝙵𝙸𝙰:
+${about}
+`;
+
+   
+    let decoratedProfileMessage = `
+╭────「 𝙿𝚎𝚛𝚏𝚒𝚕 𝚍𝚎 ${username} 」
+│${profileMessage.trim().split('\n').join('\n│')}
+│
+│ 𝙿𝚛𝚘𝚐𝚛𝚎𝚜𝚘 𝚍𝚎𝚕 𝚗𝚒𝚟𝚎𝚕:
+│
+│ [${progressBar}] (${levelProgress * 5}%)
+│
+│────────────────────
+│ 𝚈𝙾 𝚂𝙾𝚈 𝚁𝙴𝙼 𝙲𝙷𝙰𝙼 :𝟹
+│
+│ 𝚅𝚒𝚜𝚒𝚝𝚊 𝚗𝚞𝚎𝚜𝚝𝚛𝚘 𝚜𝚒𝚝𝚒𝚘 𝚠𝚎𝚋:
+│
+│(https://rem-cham.replit.app/)
+│
+│ 𝚁𝚎𝚙𝚘𝚜𝚒𝚝𝚘𝚛𝚒𝚘: [𝙶𝚒𝚝𝙷𝚞𝚋]
+│
+│(https://github.com/davidprospero123/REM-CHAM)
+│────────────────────
+│ 𝙿𝙾𝚆𝙴𝚁𝙴𝙳 𝙱𝚈 𝙲𝚄𝚁𝙸
+╰────────────────────
+`;
+
+    conn.sendFile(m.chat, pp, 'profile.jpg', decoratedProfileMessage, m, false, { mentions: [who] });
+    m.react('✅');
 }
-handler.help = ['info']
-handler.tags = ['main']
-handler.command = ['info', 'infobot', 'botinfo']
 
-export default handler
+handler.help = ['profile'];
+handler.tags = ['group'];
+handler.command = ['profile', 'perfil'];
+handler.register = true
 
-
+export default handler;
