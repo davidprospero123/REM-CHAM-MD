@@ -559,7 +559,7 @@ setTimeout(resolve, 1000)
  let totalfeatures = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
  let totalreg = Object.keys(glb).length
 
-  conn.gurumenu = conn.gurumenu ? conn.gurumenu : {};
+  conn.remmenu = conn.remmenu ? conn.remmenu : {};
 
 
   global.fcontact = { key: { fromMe: false, participant: `0@s.whatsapp.net`, remoteJid: 'status@broadcast' }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
@@ -572,7 +572,7 @@ setTimeout(resolve, 1000)
   乂───『𝚄𝚂𝚄𝙰𝚁𝙸𝙾』───乂
   🆔 *𝙽𝙾𝙼𝙱𝚁𝙴:* ${name}
   🪙 *𝙾𝚁𝙾:* ${credit}
-  🗞️ *𝚁𝙾𝙻:* ${role}
+  🗞️ *𝚁𝙾𝙻:* ${global.rpg.role(level)}
   🆙 *𝙻𝙴𝚅𝙴𝙻:* ${level}
   🕹️ *𝚇𝙿:* ${exp}
   ╰──────────⳹
