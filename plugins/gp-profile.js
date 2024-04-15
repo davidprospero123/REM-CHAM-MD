@@ -31,7 +31,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 👤 𝙿𝙴𝚁𝙵𝙸𝙻 𝙳𝙴 ${username}
 
 📝 𝙽𝙾𝙼𝙱𝚁𝙴: ${name}
-⭐ 𝚁𝙾𝙻: ${role}
+⭐ 𝚁𝙾𝙻: ${global.rpg.role(level)}
 ⚠️ 𝙰𝚍𝚟𝚎𝚛𝚝𝚎𝚗𝚌𝚒𝚊𝚜: ${warn}
 
 🎖️ 𝙽𝙸𝚅𝙴𝙻: ${level}
