@@ -1,26 +1,26 @@
 import axios from 'axios';
 
 let handler = async (m, { conn, usedPrefix, args }) => {
-    let target = m.mentionedJid[0] ? m.mentionedJid[0] : m.from;
+    let target = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
     let user = global.db.data.users[target];
-    let username = conn.getName(target);
+    let username = m.sender ? conn.getName(m.sender) : null;
 
-    if (!(target in global.db.data.users)) 
-        throw `🟨 𝙴𝚕 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚗𝚘 𝚎𝚜𝚝á 𝚎𝚗 𝚖𝚒 𝚋𝚊𝚜𝚎 𝚍𝚎 𝚍𝚊𝚝𝚘𝚜`;
+    if (!user) 
+        throw `🟨 El usuario no está registrado en la base de datos`;
 
     let xpToAdd = args[1] ? parseInt(args[1]) : 1;
 
     if (isNaN(xpToAdd) || xpToAdd < 1) 
-        throw '𝙿𝚘𝚛 𝚏𝚊𝚟𝚘𝚛, 𝚒𝚗𝚝𝚛𝚘𝚍𝚞𝚌𝚎 𝚞𝚗𝚊 𝚌𝚊𝚗𝚝𝚒𝚍𝚊𝚍 𝚟á𝚕𝚒𝚍𝚊 𝚍𝚎 𝚇𝙿 𝚙𝚊𝚛𝚊 𝚊ñ𝚊𝚍𝚒𝚛. 𝙴𝚓𝚎𝚖𝚙𝚕𝚘: .𝚍𝚊𝚛𝚡𝚙 @𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝟻𝟶';
+        throw 'Por favor, introduce una cantidad válida de XP para añadir. Por ejemplo: .darxp @usuario 50';
 
     user.exp += xpToAdd;
 
     let message = `
 ━━━━━━━━━━━━━━━━━
-🌟 *𝙳𝙰𝙽𝙳𝙾 𝚇𝙿* 🌟
+🌟 *DANDO XP* 🌟
 ━━━━━━━━━━━━━━━━━
-👤 *𝚄𝚂𝚄𝙰𝚁𝙸𝙾*: ${username}
-💬 *𝙲𝙰𝙽𝚃𝙸𝙳𝙰𝙳 𝙳𝙰𝙳𝙰*: ${xpToAdd} XP
+👤 *Usuario*: ${username}
+💬 *XP añadida*: ${xpToAdd}
 ━━━━━━━━━━━━━━━━━
 `.trim();
 
