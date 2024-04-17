@@ -2,7 +2,7 @@ import axios from 'axios';
 import { canLevelUp, xpRange } from '../lib/levelling.js';
 
 const sendMessageWithImage = async (conn, m, message) => {
-    const imgUrl = 'https://i.imgur.com/5fXIZYJ.png';
+    const imgUrl = 'https://i.imgur.com/xoOa8pn.png';
     try {
         const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
         await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", message, m);
@@ -12,70 +12,56 @@ const sendMessageWithImage = async (conn, m, message) => {
     }
 }
 
-const line = '━━━━━━━━━━━━━━━━━';
-const decorLine = '═'.repeat(line.length);
-
-const challenges = [
-    { name: '𝙴𝚗𝚟𝚒𝚊𝚛 𝟷𝟶𝟶 𝚖𝚎𝚗𝚜𝚊𝚓𝚎𝚜', xpReward: 50 },
-    { name: '𝙿𝚊𝚛𝚝𝚒𝚌𝚒𝚙𝚊𝚛 𝚎𝚗 𝟻 𝚎𝚟𝚎𝚗𝚝𝚘𝚜 𝚍𝚎𝚕 𝚐𝚛𝚞𝚙𝚘', xpReward: 100 },
-    { name: '𝙸𝚗𝚟𝚒𝚝𝚊𝚛 𝚊 𝟹 𝚗𝚞𝚎𝚟𝚘𝚜 𝚖𝚒𝚎𝚖𝚋𝚛𝚘𝚜 700xᴘ', xpReward: 700 }
-];
-
-const completedChallenges = {};
-
-function hasCompletedChallenge(userId, challengeName) {
-    return completedChallenges[userId]?.includes(challengeName);
-}
-
-function completeChallenge(userId, challengeName) {
-    completedChallenges[userId] = completedChallenges[userId] || [];
-    completedChallenges[userId].push(challengeName);
-}
+const decorLine = '══════════════════════════════';
 
 let handler = async (m, { conn, args }) => {
     let name = conn.getName(m.sender);
     let user = global.db.data.users[m.sender];
 
     if (!args[0] || isNaN(args[0]) || args[0] < 1) {
-        throw 'Por favor, ingresa una cantidad válida de oro para comprar experiencia.';
+        throw '𝙿𝚘𝚛 𝚏𝚊𝚟𝚘𝚛, 𝚒𝚗𝚐𝚛𝚎𝚜𝚊 𝚞𝚗𝚊 𝚌𝚊𝚗𝚝𝚒𝚍𝚊𝚍 𝚟á𝚕𝚒𝚍𝚊 𝚍𝚎 𝚘𝚛𝚘 𝚙𝚊𝚛𝚊 𝚌𝚘𝚖𝚙𝚛𝚊𝚛 𝚎𝚡𝚙𝚎𝚛𝚒𝚎𝚗𝚌𝚒𝚊.';
     }
 
-    let xpAmount = parseInt(args[0]);
-    let before = user.level * 1;
+    let goldSpent = parseInt(args[0]);
+    let experienceReward = goldSpent * 0.5; // Ajusta este factor según tus necesidades
 
-    user.credit -= xpAmount;
-
-    while (xpAmount > 0) {
-        if (canLevelUp(user.level, user.exp, global.multiplier)) {
-            let { min, xp, max } = xpRange(user.level, global.multiplier);
-            let xpNeeded = max - user.exp;
-            let xpToAdd = Math.min(xpAmount, xpNeeded);
-            user.exp += xpToAdd;
-            xpAmount -= xpToAdd;
-            if (user.exp >= max) {
-                user.level++;
-            }
-        } else {
-            break;
-        }
+    if (user.credit < goldSpent) {
+        throw '𝙽𝚘 𝚝𝚒𝚎𝚗𝚎𝚜 𝚜𝚞𝚏𝚒𝚌𝚒𝚎𝚗𝚝𝚎 𝚘𝚛𝚘 𝚙𝚊𝚛𝚊 𝚌𝚘𝚖𝚙𝚛𝚊𝚛 𝚎𝚜𝚊 𝚌𝚊𝚗𝚝𝚒𝚍𝚊𝚍 𝚍𝚎 𝚎𝚡𝚙𝚎𝚛𝚒𝚎𝚗𝚌𝚒𝚊.';
     }
 
-    let after = user.level * 1;
+    user.credit -= goldSpent;
+    user.exp += experienceReward;
+
+    let before = user.level;
+
+    while (canLevelUp(user.level, user.exp, global.multiplier)) {
+        user.level++;
+    }
+
+    let after = user.level;
+
+    let remainingGold = user.credit;
 
     let str = `
-${decorLine}
-📊 *Compra de Experiencia* 📊
-${decorLine}
+📊 *𝙲𝚘𝚖𝚙𝚛𝚊 𝚍𝚎 𝙴𝚡𝚙𝚎𝚛𝚒𝚎𝚗𝚌𝚒𝚊* 📊
 
-🌟 *Nombre*: ${name}
-🎖️ *Nivel Actual*: ${before}
-🎖️ *Nivel Nuevo*: ${after}
-💰 *Oro Gastado*: ${args[0]}
+👤 *𝙽𝚘𝚖𝚋𝚛𝚎*: ${name}
+🎖️ *𝙽𝚒𝚟𝚎𝚕 𝙰𝚌𝚝𝚞𝚊𝚕*: ${before}
+🎖️ *Nuevo Nivel*: ${after}
+💰 *Oro Gastado*: ${goldSpent} 💰
+🌟 *Experiencia Obtenida*: ${experienceReward} 🌟
+💰 *Oro Restante*: ${remainingGold} 💰
 
+${decorLine}
 `.trim();
 
     try {
         await sendMessageWithImage(conn, m, str);
+        
+        
+        const emojis = ['✅', '👍', '😊', '💎', '🚀']; 
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        await m.react(randomEmoji);
     } catch (e) {
         await conn.reply(m.chat, str, m);
     }
@@ -83,8 +69,8 @@ ${decorLine}
 
 handler.help = ['comprarexp'];
 handler.tags = ['rpg'];
-handler.command = ['comprarexp', 'buyxp'];
+handler.command = ['comprarexp', 'buyxp', 'buy'];
 handler.register = true;
-handler.group = true
+handler.group = true;
 
 export default handler;
