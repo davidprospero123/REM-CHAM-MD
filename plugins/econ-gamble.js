@@ -1,10 +1,10 @@
-import axios from 'axios'; 
+import axios from 'axios'; // Importar axios para enviar la imagen
 
 const rouletteBets = {};
 const rouletteResult = {};
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
-    const resolveRoulette = async (chatId, conn) => { 
+    const resolveRoulette = async (chatId, conn) => { // Hacer la función asíncrona para usar await
         let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
         let username = conn.getName(who);
         if (!(who in global.db.data.users)) throw `✳️ 𝙴𝙻 𝚄𝚂𝚄𝙰𝚁𝙸𝙾 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙴𝙽 𝙼𝙸 𝙱𝙰𝚂𝙴 𝙳𝙴 𝙳𝙰𝚃𝙾𝚂 :c`;
@@ -44,7 +44,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     };
 
     const runRoulette = (chatId, conn) => {
-        const delay = 10 * 1000;
+        const delay = 10 * 1000; // 10 segundos
 
         setTimeout(() => {
             resolveRoulette(chatId, conn);
@@ -89,5 +89,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 handler.help = ['ruleta <cantidad> <color(rojo/negro)>'];
 handler.tags = ['economía'];
 handler.command = ['ruleta', 'apostar', 'gamble'];
+handler.register = true
+handler.group = true
 
 export default handler;
