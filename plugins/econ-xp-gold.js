@@ -85,7 +85,6 @@ handler.help = ['comprarexp'];
 handler.tags = ['rpg'];
 handler.command = ['comprarexp', 'buyxp'];
 handler.register = true;
-handler.register = true
 handler.group = true
 
 export default handler;
