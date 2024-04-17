@@ -47,5 +47,7 @@ ${line}
 handler.help = ['wallet'];
 handler.tags = ['economy'];
 handler.command = ['wallet', 'gold', 'billetera'];
+handler.register = true
+handler.group = true
 
 export default handler;
