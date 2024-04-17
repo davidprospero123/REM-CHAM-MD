@@ -42,6 +42,8 @@ _🔹 ¡𝙳𝚒𝚗𝚎𝚛𝚘, 𝚍𝚒𝚗𝚎𝚛𝚘, 𝚍𝚒𝚗𝚎𝚛
 handler.help = ['daroro'];
 handler.tags = ['economy'];
 handler.command = ['daroro', 'transferiroro', 'dor'];
+handler.register = true
+handler.group = true
 
 export default handler;
 
