@@ -1,64 +1,60 @@
-import fetch from 'node-fetch';
+import fg from 'api-dylux';
+import yts from 'yt-search';
+import axios from 'axios';
 
-let limit = 500;
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-  let chat = global.db.data.chats[m.chat];
-  if (!args || !args[0]) throw `✳️ _Ejemplo_:\n${usedPrefix + command} https://youtu.be/4c9ew0TSygg`;
-  if (!args[0].match(/youtu/gi)) throw `❎ _Verifica bien tu link de YouTube_`;
+const imgUrl = 'https://i.imgur.com/j66eqjB.png';
 
-  const apiUrl = 'https://delirius-api-oficial.vercel.app/api/ytmp4';
-  const ggapi = `${apiUrl}?url=${encodeURIComponent(args[0])}`;
+let handler = async (m, { conn, text }) => {
+    try {
+        let [url] = text.split(/\s+/);
 
-  const response = await fetch(ggapi);
-  if (!response.ok) {
-      console.log('Error al buscar el video:', response.statusText);
-      throw 'Error al buscar el video';
-  }
-  
-  const data = await response.json();
-  const videoData = data.data;
+        if (!url || !url.match(/youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/|c\/[a-zA-Z0-9-_]{11})/))
+            return conn.reply(m.chat, '* 𝙿𝚛𝚘𝚙𝚘𝚛𝚌𝚒𝚘𝚗𝚎 𝚞𝚗𝚊 𝚄𝚁𝙻 𝚍𝚎 𝚞𝚗 𝚟𝚒𝚍𝚎𝚘 𝚍𝚎 𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚟á𝚕𝚒𝚍𝚊.*', m);
 
-  if (!videoData) {
-    throw '𝙽𝚘 𝚜𝚎 𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚊𝚛𝚘𝚗 𝚍𝚊𝚝𝚘𝚜 𝚍𝚎 𝚟𝚒𝚍𝚎𝚘 𝚎𝚗 𝚕𝚊 𝚛𝚎𝚜𝚙𝚞𝚎𝚜𝚝𝚊 𝚍𝚎 𝚕𝚊 𝙰𝙿𝙸';
-  }
+        let who = m.sender;
+        let user = global.db.data.users[who];
+        if (user.credit < 100) throw '𝙽𝚘 𝚝𝚒𝚎𝚗𝚎𝚜 𝚜𝚞𝚏𝚒𝚌𝚒𝚎𝚗𝚝𝚎𝚜 𝚖𝚘𝚗𝚎𝚍𝚊𝚜 𝚍𝚎 𝚘𝚛𝚘 𝚙𝚊𝚛𝚊 𝚛𝚎𝚊𝚕𝚒𝚣𝚊𝚛 𝚎𝚜𝚝𝚊 𝚊𝚌𝚌𝚒ó𝚗.';
 
-  const caption = ` •⊱─━ 𝚈𝙾𝚄𝚃𝚄𝙱𝙴 ━─⊰• 
-	  
-  ❏ ᴛɪᴛᴜʟᴏ: ${videoData.title}
-  ❏ ᴄᴀɴᴀʟ: ${videoData.author}
-  ❐ ᴅᴜʀᴀᴄɪᴏɴ: ${videoData.duration} ꜱᴇɢᴜɴᴅᴏꜱ
-  ❑ ᴠɪꜱɪᴛᴀꜱ: ${videoData.views}
-  ❒ ᴘᴜʙʟɪᴄᴀᴅᴏ: ${videoData.publicDate}
-  ❒ ʟɪɴᴋ: ${args[0]}
-  ❒ ᴄʀᴇᴀᴅᴏʀ ᴅᴇʟ ʙᴏᴛ - ᴄᴜʀɪ
-  
-  ⊱─━⊱༻●༺⊰━─⊰`;
+        user.credit -= 100;
+        global.db.data.users[who] = user;
 
-  const videoUrl = videoData.download.url;
+        await m.reply('🔎 *𝙱𝚞𝚜𝚌𝚊𝚗𝚍𝚘 𝚎𝚕 𝚟𝚒𝚍𝚎𝚘 𝚎𝚗 𝚈𝚘𝚞𝚃𝚞𝚋𝚎...*');
+        let result = await yts(text);
+        let vid = result.all[0];
 
-  const videoResponse = await fetch(videoUrl);
-  if (!videoResponse.ok) {
-      console.log('Error al descargar el video:', videoResponse.statusText);
-      throw 'Error al descargar el video';
-  }
-  
-  const videoBuffer = await videoResponse.buffer();
+        const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
 
-  conn.sendFile(
-    m.chat,
-    videoBuffer,
-    'video.mp4',
-    caption,
-    m,
-    false,
-    { asDocument: chat.useDocument }
-  );
+        let yt = await fg.ytmp4(url, '720p');
+        let { title, size, dl_url } = yt;
 
-};
+        if (parseFloat(size.split('MB')[0]) >= 1000) {
+            return conn.reply(m.chat, '*⚠️ 𝙴𝚕 𝚊𝚛𝚌𝚑𝚒𝚟𝚘 𝚙𝚎𝚜𝚊 𝚖á𝚜 𝚍𝚎 𝟷𝟶𝟶𝟶 𝙼𝙱, 𝚜𝚎 𝚌𝚊𝚗𝚌𝚎𝚕ó 𝚕𝚊 𝚍𝚎𝚜𝚌𝚊𝚛𝚐𝚊.*', m);
+        }
 
-handler.help = ['ytmp4 <yt-link>'];
+        let message = `
+🍭 *𝚃í𝚝𝚞𝚕𝚘*: ${title}
+⚖️ *𝚃𝚊𝚖𝚊ñ𝚘*: ${size}
+   𝚁𝙴𝙼-𝙱𝙾𝚃 𝙱𝚢 𝙲𝚄𝚁𝙸
+
+🔄 *𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊𝚗𝚍𝚘 𝚎𝚕 𝚟𝚒𝚍𝚎𝚘, 𝚙𝚘𝚛 𝚏𝚊𝚟𝚘𝚛 𝚎𝚜𝚙𝚎𝚛𝚊...*
+━━━━━━━━━━━━━━━━━━━
+        `;
+
+        await conn.sendFile(m.chat, responseImg.data, 'thumbnail.jpg', message, m);
+
+        await conn.sendFile(m.chat, dl_url, 'video.mp4', `${vid.title}.mp4`, m);
+
+        await conn.reply(m.chat, `━━━━━━━━━━━━━━━━━━━\n*✅ 𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊 𝚌𝚘𝚖𝚙𝚕𝚎𝚝𝚊𝚍𝚊!*\n\n*𝚃𝚒𝚎𝚗𝚎𝚜 ${user.credit} 𝚖𝚘𝚗𝚎𝚍𝚊𝚜 𝚍𝚎 𝚘𝚛𝚘 𝚛𝚎𝚜𝚝𝚊𝚗𝚝𝚎𝚜.*`, m);
+
+    } catch (error) {
+        await conn.reply(m.chat, `*𝙴𝚛𝚛𝚘𝚛 𝚍𝚎𝚝𝚎𝚌𝚝𝚊𝚍𝚘 𝚖𝚊𝚗𝚍𝚊𝚗𝚍𝚘 𝙴𝚛𝚛𝚘𝚛 𝚊 𝙲𝚞𝚛𝚒:*\n${error}`, m);
+        console.error(error);
+    }
+}
+
+handler.help = ['ytmp4 <url yt>'];
 handler.tags = ['downloader'];
-handler.command = ['ytmp4', 'video', 'ytv'];
-handler.diamond = false;
+handler.command = /^(ytmp4|descargar)$/i;
+handler.register = true;
 
 export default handler;
