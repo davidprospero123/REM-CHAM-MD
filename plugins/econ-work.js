@@ -18,7 +18,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['work']
 handler.tags = ['economy']
 handler.command = ['work', 'w','trabajar']
-
+handler.register = true
 handler.group = true
 
 export default handler
