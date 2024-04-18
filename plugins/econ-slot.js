@@ -1,28 +1,38 @@
+import axios from 'axios';
 
-let reg = 40
+const sendMessageWithImage = async (conn, m, message) => {
+    const imgUrl = 'https://i.imgur.com/QeY0qzN.png';
+    try {
+        const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
+        await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", message, m);
+    } catch (error) {
+        console.error(error);
+        await conn.reply(m.chat, message, m);
+    }
+}
+
+const decorLine = '══════════════════════════════════════════';
+
 let handler = async (m, { conn, args, usedPrefix, command }) => {
+    let fa = `🟥 *𝙿𝚛𝚘𝚙𝚘𝚛𝚌𝚒𝚘𝚗𝚊 𝚕𝚊 𝚌𝚊𝚗𝚝𝚒𝚍𝚊𝚍 𝚍𝚎 𝚘𝚛𝚘 𝚙𝚊𝚛𝚊 𝚊𝚙𝚘𝚜𝚝𝚊𝚛*
 
-
-   /* if (global.db.data.users[m.sender].level < 5) {
-        return conn.reply(m.chat, 'You must be at least level 5 to use this command.', m);
-    }*/
-
-    let fa = `🟥 *Proporciona la cantidad de oro para apostar*
-
-*Ejemplo:
+*𝙴𝚓𝚎𝚖𝚙𝚕𝚘:
 ${usedPrefix + command} 500*`.trim()
+    
     if (!args[0]) throw fa
     if (isNaN(args[0])) throw fa
+    
     let amount = parseInt(args[0])
     m.react('🎰')
+    
     let users = global.db.data.users[m.sender]
     let time = users.lastslot + 10000
-    if (new Date - users.lastslot < 10000) throw `⏳ Wait *${msToTime(time - new Date())}* para usar de nuevo`
-    if (amount < 500) throw `🟥 *No puedes apostar oro por menos de 500*`
-    if (users.credit < amount) {
-        throw `🟥 *No tienes suficiente oro para apostar*`
-    }
-    if (amount > 100000) throw `🟥 *No puedes apostar oro más de 100000*`
+    
+    if (new Date - users.lastslot < 10000) throw `⏳ Espera *${msToTime(time - new Date())}* para usarlo de nuevo`
+    
+    if (amount < 500) throw `🟥 *𝙽𝚘 𝚙𝚞𝚎𝚍𝚎𝚜 𝚊𝚙𝚘𝚜𝚝𝚊𝚛 𝚖𝚎𝚗𝚘𝚜 𝚍𝚎 𝟻𝟶𝟶 𝚍𝚎 𝚘𝚛𝚘*`
+    if (amount > 100000) throw `🟥 *𝙽𝚘 𝚙𝚞𝚎𝚍𝚎𝚜 𝚊𝚙𝚘𝚜𝚝𝚊𝚛 𝚖á𝚜 𝚍𝚎 𝟷𝟶𝟶𝟶𝟶𝟶 𝚍𝚎 𝚘𝚛𝚘*`
+    if (users.credit < amount) throw `🟥 *𝙽𝚘 𝚝𝚒𝚎𝚗𝚎𝚜 𝚜𝚞𝚏𝚒𝚌𝚒𝚎𝚗𝚝𝚎 𝚘𝚛𝚘 𝚙𝚊𝚛𝚊 𝚊𝚙𝚘𝚜𝚝𝚊𝚛*`
 
     let emojis = ["🕊️", "🦀", "🦎"];
     let a = Math.floor(Math.random() * emojis.length);
@@ -31,6 +41,7 @@ ${usedPrefix + command} 500*`.trim()
     let x = [],
         y = [],
         z = [];
+    
     for (let i = 0; i < 3; i++) {
         x[i] = emojis[a];
         a++;
@@ -46,45 +57,51 @@ ${usedPrefix + command} 500*`.trim()
         c++;
         if (c == emojis.length) c = 0;
     }
+    
     let end;
+    let winMultiplier = 0.5; 
+
     if (a == b && b == c) {
-        end = `🎊 *¡Bote!* Tu Ganaste ${amount + amount} gold`
-        users.credit += amount + amount
-   // } else if (a == b || a == c || b == c) {
-   //     end = `You lost  *₹${amount}*\n*But you almost made it keep trying*`
-   //     users.credit -= amount
+        let winAmount = amount * winMultiplier; 
+        end = `🎊 ¡𝙱𝚘𝚝𝚎! 𝙷𝚊𝚜 𝚐𝚊𝚗𝚊𝚍𝚘 ${winAmount} 𝚍𝚎 𝚘𝚛𝚘`
+        users.credit += winAmount
+    } else if (a == b || a == c || b == c) {
+        let winAmount = amount * winMultiplier; 
+        end = `🎉 ¡𝙲𝚊𝚜𝚒! 𝙷𝚊𝚜 𝚐𝚊𝚗𝚊𝚍𝚘 ${winAmount} 𝚍𝚎 𝚘𝚛𝚘`
+        users.credit += winAmount
     } else {
-        end = `      Tu perdiste :c ${amount} gold`
+        // Mantener la penalización por pérdida igual
+        end = `¡𝙷𝚊𝚜 𝚙𝚎𝚛𝚍𝚒𝚍𝚘! 𝙿𝚒𝚎𝚛𝚍𝚎𝚜 ${amount} 𝚍𝚎 𝚘𝚛𝚘 :𝚌`
         users.credit -= amount
     }
+    
     users.lastslot = new Date * 1
-    return await m.reply(
-        `
-     🎰 ┃ *SLOTS* ┃ 🎰
-     ───────────
-         ${x[0]} : ${y[0]} : ${z[0]}
-         ${x[1]} : ${y[1]} : ${z[1]}
-         ${x[2]} : ${y[2]} : ${z[2]}
-     ───────────     
-${end}`) 
+    
+    let str = `
+🎰 ┃𝚃𝚁𝙰𝙶𝙰𝙼𝙾𝙽𝙴𝙳𝙰┃ 🎰
+${decorLine}
+${x[0]} : ${y[0]} : ${z[0]}
+${x[1]} : ${y[1]} : ${z[1]}
+${x[2]} : ${y[2]} : ${z[2]}
+${decorLine}
+${end}`.trim();
+    
+    try {
+        await sendMessageWithImage(conn, m, str);
+    } catch (e) {
+        await conn.reply(m.chat, str, m);
+    }
 }
+
 handler.help = ['slot <amount>']
 handler.tags = ['game']
-handler.command = ['slot','tragamonedas']
-
+handler.command = ['slot', 'tragamonedas']
 handler.group = true
+handler.register = true
 
 export default handler
 
 function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-        seconds = Math.floor((duration / 1000) % 60),
-        minutes = Math.floor((duration / (1000 * 60)) % 60),
-        hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
-
-    hours = (hours < 10) ? "0" + hours : hours
-    minutes = (minutes < 10) ? "0" + minutes : minutes
-    seconds = (seconds < 10) ? "0" + seconds : seconds
-
+    var seconds = Math.floor((duration / 1000) % 60)
     return seconds + " segundos"
 }
