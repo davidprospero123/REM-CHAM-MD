@@ -189,7 +189,8 @@ Ejecute el siguiente comando para instalar las dependencias.
 <div><button id="boton" type="button">Base - Por FG98F</button></div>
 <a href="https://github.com/FG98F"><img src="https://github.com/FG98F.png" width="150" height="150" alt="adiwajshing"/></a>
 
-<a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" width="300" height="600" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
+<a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" width="350" height="600" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
+
 
 
 
