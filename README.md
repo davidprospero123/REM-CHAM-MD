@@ -153,6 +153,22 @@ Ejecute el siguiente comando para instalar las dependencias.
  ```
  Al ejecutar el comando anterior se iniciará el bot. Para autentificarte escanea el QR que aparece en el terminal usando el WA-Web Scanner de tu WhatsApp. ¡Buena suerte!
 
+
+ ## <img src="https://i.pinimg.com/originals/73/69/6e/73696e022df7cd5cb3d999c6875361dd.gif" alt="Características" width="42" height="42"> Características
+> Bot en creación pronto se agregaran más cosas 
+- [x] Interacción con voz y texto
+- [x] Configuración de grupo
+- [x] antidelete, antilink, antispam, etc
+- [x] Bienvenida personalizada
+- [x] Juegos, tictactoe, mate, etc
+- [x] Chatbot (simsimi)
+- [x] Crear sticker de image/video/gif/url
+- [x] SubBot (Jadibot)
+- [x] Juego RPG
+- [x] Descarga de música y video de YT
+- [x] ChatGpt
+- [x] Gemini
+- [ ] Muy pronto lenguaje Ingles 
  
 ## 🤩 PAGINA WEB PRESIONA LA IMAGEN
 
@@ -173,10 +189,9 @@ Ejecute el siguiente comando para instalar las dependencias.
 <div><button id="boton" type="button">Base - Por FG98F</button></div>
 <a href="https://github.com/FG98F"><img src="https://github.com/FG98F.png" width="150" height="150" alt="adiwajshing"/></a>
 
-### Créditos Principales
-<a href="https://github.com/davidprospero123"><img src="https://github.com/davidprospero123.png" width="250" height="250" alt="DavidProspero123"/></a>
-  
-`REM-CHAM - Por DavidProspero123`
+<a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" width="300" height="300" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
+
+`© REM-BOT - By 𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷`
 
 
 <h2 align="center">  Recordatorio
