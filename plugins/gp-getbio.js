@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, command }) => {
       let bio = await conn.fetchStatus(who)
       m.reply(bio.status)
     } catch {
-      throw `La briografia es privada`
+      throw `𝙻𝚊 𝙱𝚒𝚘𝚐𝚛𝚊𝚏𝚒𝚊 𝙴𝚜 𝙿𝚛𝚒𝚟𝚊𝚍𝚊 :𝚌`
     }
   }
 }
@@ -20,4 +20,5 @@ handler.help = ['getbio <@tag/reply>']
 handler.tags = ['group']
 handler.command = /^(getb?io)$/i
 handler.limit = true
+handler.register = true
 export default handler
