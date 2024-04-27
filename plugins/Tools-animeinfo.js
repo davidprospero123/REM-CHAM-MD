@@ -19,22 +19,24 @@ let handler = async (m, { conn, text, usedPrefix }) => {
         let translatedSynopsis = await translateGoogle(result.synopsis, 'en', 'es');
 
         let AnimeInfo = `
-🎀 • *Título:* ${translatedTitle}
-🎋 • *Formato:* ${result.type}
-📈 • *Estado:* ${result.status.toUpperCase().replace(/\_/g, ' ')}
-🍥 • *Episodios totales:* ${result.episodes}
-🎈 • *Duración: ${result.duration}*
-✨ • *Basado en:* ${result.source.toUpperCase()}
-💫 • *Estrenado:* ${result.aired.from}
-🎗 • *Finalizado:* ${result.aired.to}
-🎐 • *Popularidad:* ${result.popularity}
-🎏 • *Favoritos:* ${result.favorites}
-🎇 • *Clasificación:* ${result.rating}
-🏅 • *Rango:* ${result.rank}
-♦ • *Trailer:* ${result.trailer.url}
-🌐 • *URL:* ${result.url}
-🎆 • *Background:* ${translatedBackground}
-❄ • *Sinopsis:* ${translatedSynopsis}`;
+╭─━━━━━━━━━━━━━━━━━─╮
+🌟 𝙻𝚎𝚝𝚛𝚊: ${translatedTitle}
+📺 𝙵𝚘𝚛𝚖𝚊𝚝𝚘: ${result.type}
+📈 𝚎𝚜𝚝𝚊𝚍𝚘: ${result.status.toUpperCase().replace(/\_/g, ' ')}
+🎬 𝙴𝚙𝚒𝚜𝚘𝚍𝚒𝚘𝚜 𝚝𝚘𝚝𝚊𝚕𝚎𝚜: ${result.episodes}
+⏱ 𝙳𝚞𝚛𝚊𝚌𝚒ó𝚗: ${result.duration}
+📚 𝙱𝚊𝚜𝚊𝚍𝚘 𝚎𝚗: ${result.source.toUpperCase()}
+📅 𝙴𝚜𝚝𝚛𝚎𝚗𝚘: ${result.aired.from}
+🏁 𝙵𝚒𝚗𝚊𝚕𝚒𝚣𝚊𝚍𝚘: ${result.aired.to}
+🌟 𝙿𝚘𝚙𝚞𝚕𝚊𝚛𝚒𝚍𝚊𝚍: ${result.popularity}
+❤️ 𝙵𝚊𝚟𝚘𝚛𝚒𝚝𝚘𝚜: ${result.favorites}
+🌟 𝙲𝚕𝚊𝚜𝚒𝚏𝚒𝚌𝚊𝚌𝚒ó𝚗: ${result.rating}
+🎖 𝚁𝚊𝚗𝚐𝚘: ${result.rank}
+🎬 𝚃𝚛𝚊𝚒𝚕𝚎𝚛: ${result.trailer.url}
+🔗 𝚄𝚁𝙻: ${result.url}
+🎨 𝙱𝚊𝚌𝚔𝚐𝚛𝚘𝚞𝚗𝚍: ${translatedBackground}
+📝 𝚂𝚒𝚗𝚘𝚙𝚜𝚒𝚜: ${translatedSynopsis}
+╰─━━━━━━━━━━━━━━━━━─╯`;
 
         conn.sendFile(m.chat, result.images.jpg.image_url, 'error.jpg', AnimeInfo, m);
     } catch (error) {
