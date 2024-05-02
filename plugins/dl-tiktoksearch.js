@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
   if (!text)
     return conn.reply(
       m.chat,
-      "*🚩 Ingresa lo que desees buscar en TikTok.*",
+      "*🚩 𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚕𝚘 𝚚𝚞𝚎 𝚍𝚎𝚜𝚎𝚊𝚜 𝚋𝚞𝚜𝚌𝚊𝚛 𝚎𝚗 𝚃𝚒𝚔𝚃𝚘𝚔.*",
       m,
     );
   await m.react("💙");
@@ -42,6 +42,6 @@ let handler = async (m, { conn, usedPrefix, text }) => {
 };
 handler.help = ["tiktoksearch"];
 handler.tags = ["search"];
-handler.command = ["tiktoksearch", "tts"];
+handler.command = ["tiktoksearch", "tiks"];
 handler.register = true;
 export default handler;
