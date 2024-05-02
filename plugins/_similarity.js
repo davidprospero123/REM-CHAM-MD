@@ -2,7 +2,6 @@
 import didyoumean from 'didyoumean'
 
 import similarity from 'similarity'
-//import { plugins } from '../lib/plugins.js'
 
 export async function before(m, { conn, match, usedPrefix, command }) {
 
@@ -18,9 +17,9 @@ export async function before(m, { conn, match, usedPrefix, command }) {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
 
-    let caption = `Hey ${name} senpai :3 ¿estás tratando de usar?  *${usedPrefix + mean} ?*`
+    let caption = `𝙴𝚙𝚊𝚊𝚊 ${name} 𝚚𝚞𝚎𝚛𝚒𝚍𝚘 :3 ¿𝙳𝚎 𝚌𝚊𝚜𝚞𝚊𝚕𝚒𝚍𝚊𝚍 𝚗𝚘 𝚎𝚜𝚝𝚊𝚛𝚊𝚜 𝚚𝚞𝚎𝚛𝚒𝚎𝚗𝚍𝚘 𝚞𝚜𝚊𝚛?  *${usedPrefix + mean} ?*`
  if (mean) this.reply(m.chat, `${caption}`, m)
       }
 }
-export const disabled = true
+export const disabled = false
 
