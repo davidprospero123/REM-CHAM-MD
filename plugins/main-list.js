@@ -2,7 +2,7 @@ let handler = async (m, { conn, usedPrefix, command}) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
   if (!(who in global.db.data.users)) throw `✳️ 𝙀𝙡 𝙪𝙨𝙪𝙖𝙧𝙞𝙤 𝙣𝙤 𝙨𝙚 𝙚𝙣𝙘𝙪𝙚𝙣𝙩𝙧𝙖 𝙚𝙣 𝙢𝙞 𝙗𝙖𝙨𝙚 𝙙𝙚 𝙙𝙖𝙩𝙤𝙨`;
 
-  let pp = './Assets/Curilogo.jpg'
+  let pp = './Assets/Remlogo.jpg'
   let more = String.fromCharCode(8206);
   let readMore = more.repeat(850); 
 
