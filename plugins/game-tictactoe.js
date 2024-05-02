@@ -50,18 +50,18 @@ ${arr.slice(6).join('')}
             x: m.chat,
             o: '',
             game: new TicTacToe(m.sender, 'o'),
-            state: 'ESPERANDO
+            state: 'ESPERANDO'
         }
         if (text) room.name = text
         
-     conn.reply(m.chat, `⏳ *esperando pareja*\nEscriba el siguiente comando para aceptar
-▢ *${usedPrefix + command} ${text}*
+        conn.reply(m.chat, `⏳ *esperando pareja*\nEscriba el siguiente comando para aceptar
+▢ *${usedPrefix + command} ${room.name}*
 
 🎁 Reward:  *4999 XP*`, m, {
-            mentions: conn.parseMention(text)
+            mentions: conn.parseMention(room.name)
         })
         
-   conn.game[room.id] = room
+        conn.game[room.id] = room
     }
     
 }
