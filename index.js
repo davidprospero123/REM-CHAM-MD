@@ -1,1 +1,129 @@
-const _0x43bed9=_0x388e;function _0x2628(){const _0x52332a=['ndo\x20bot...','PazjA','ZHgTu','en\x20el\x20puer','hex','ZBFcb','cyan','do\x20con\x20cód','pathname','blue','slice','8213793hUOcWx','to\x20','yznEo','ADO\x20POR\x20CU','908009NtxsuL','transparen','unhandledR','igo\x20','no\x20captura','url','56830010DjkxOE','SdvZs','JmazJ','block','padEnd','2826952xNSYXc','Curi.js','LPWor','\x20del\x20bot\x20h','El\x20proceso','Error\x20al\x20i','iNtHI','niciar\x20el\x20','UN\x20BOT\x20CRE','da:\x20','eNaGf','\x20promesa\x20n','dirname','Reiniciand','l\x20bot:\x20','say','scuchando\x20','\x20\x20│','REM-BOT','DqIpQ','proceso\x20de','Oqgoy','uncaughtEx','jGvDO','listen','.html','ESJSv','red','PORT','chrome','o\x20bot...','a\x20finaliza','sendFile','log','ejection','6aajjrW','error','Hzutl','9RXjDLx','1215780GvXMUr','6yfqNxW','env','Rechazo\x20de','Servidor\x20e','Excepción\x20','4105775oalBBV','join','Curi','#FFFFFF','│\x20\x20','argv','.\x20Reinicia','o\x20manejado','KieGL','Assets','ception','get','inherit','qTTtr','exit','center','2311204frCjRI','KXKrW'];_0x2628=function(){return _0x52332a;};return _0x2628();}(function(_0x929909,_0x5629c4){const _0xa5c3bb=_0x388e,_0x506435=_0x929909();while(!![]){try{const _0x185fdf=-parseInt(_0xa5c3bb(0xbb))/(0x1a84+-0x2*-0x41b+-0x1*0x22b9)+parseInt(_0xa5c3bb(0x95))/(-0x171*0x1b+0x2647+0xa6)*(-parseInt(_0xa5c3bb(0x94))/(0x5f1+-0x23be+-0x1dd0*-0x1))+-parseInt(_0xa5c3bb(0xaa))/(0x1fd2+0x1*0x221e+-0x41ec)+parseInt(_0xa5c3bb(0x9a))/(-0x910+-0x437*-0x7+-0x146c)*(-parseInt(_0xa5c3bb(0x90))/(-0x3e*0x66+0x2*0xe96+-0x472))+-parseInt(_0xa5c3bb(0xb7))/(-0x13ac+0x1*-0xd39+0x25a*0xe)+-parseInt(_0xa5c3bb(0xc6))/(-0x1*-0x52f+0x1f88+0x1*-0x24af)*(parseInt(_0xa5c3bb(0x93))/(0xa6*0x1b+0x16b9+-0x2832))+parseInt(_0xa5c3bb(0xc1))/(-0xb24+0x605+0x529*0x1);if(_0x185fdf===_0x5629c4)break;else _0x506435['push'](_0x506435['shift']());}catch(_0x5eee54){_0x506435['push'](_0x506435['shift']());}}}(_0x2628,0x10f035+-0x1*0x5ee3+-0x6e6c2));import _0x174ceb from'express';import{spawn}from'child_process';function _0x388e(_0x1c1676,_0x3ba8ed){const _0x154e01=_0x2628();return _0x388e=function(_0x50ff97,_0x49d058){_0x50ff97=_0x50ff97-(-0xe43+-0x566*0x2+0x197e);let _0x4324ba=_0x154e01[_0x50ff97];return _0x4324ba;},_0x388e(_0x1c1676,_0x3ba8ed);}import _0x34d508 from'path';import _0x218817 from'chalk';import _0x560e02 from'cfonts';const {say}=_0x560e02,showStyledTextWithBox=(_0x3def3a,_0x409b55,_0x53874b,_0x3545bb,_0x2887bb,_0x105cc6)=>{const _0x14ac9b=_0x388e,_0x1c211b={'KieGL':function(_0x52202d,_0x156719){return _0x52202d+_0x156719;},'SdvZs':function(_0x5b7ac8,_0x2df541){return _0x5b7ac8+_0x2df541;}},_0x4991bb=_0x1c211b[_0x14ac9b(0xa2)]('╭'[_0x14ac9b(0xc5)](_0x1c211b[_0x14ac9b(0xc2)](_0x105cc6,0x6f6+0x1ce7+0x1e3*-0x13),'─'),'╮'),_0xac290f=_0x14ac9b(0x9e)+_0x3def3a+_0x14ac9b(0x7e),_0x3cfa3b=_0x1c211b[_0x14ac9b(0xa2)]('╰'[_0x14ac9b(0xc5)](_0x1c211b[_0x14ac9b(0xc2)](_0x105cc6,0xfc3+-0x69d+-0x14e*0x7),'─'),'╯');console[_0x14ac9b(0x8e)](_0x218817[_0x14ac9b(0xb0)](_0x2887bb)(_0x4991bb)),console[_0x14ac9b(0x8e)](_0x218817[_0x14ac9b(0xb0)](_0x2887bb)(_0xac290f)),console[_0x14ac9b(0x8e)](_0x218817[_0x14ac9b(0xb0)](_0x2887bb)(_0x3cfa3b));};showStyledTextWithBox(_0x43bed9(0x75)+_0x43bed9(0xba)+'RI',_0x43bed9(0x8a),_0x43bed9(0xa9),[_0x43bed9(0xb2),_0x43bed9(0xb5)],_0x43bed9(0x9d),0x1eea+-0x2e9*-0x5+0x16af*-0x2),_0x560e02[_0x43bed9(0x7c)](_0x43bed9(0x7f),{'font':_0x43bed9(0xc4),'align':_0x43bed9(0xa9),'colors':[_0x43bed9(0xb2),_0x43bed9(0xb5)],'background':_0x43bed9(0xbc)+'t','letterSpacing':0x1,'lineHeight':0x1,'space':!![],'maxLength':0x19});const app=_0x174ceb(),port=process[_0x43bed9(0x96)][_0x43bed9(0x89)]||-0x1*0x2d54+0x57f+0x4765,basePath=new URL(import.meta[_0x43bed9(0xc0)])[_0x43bed9(0xb4)],htmlDir=_0x34d508[_0x43bed9(0x9b)](_0x34d508[_0x43bed9(0x79)](basePath),_0x43bed9(0xa3)),sendHtml=(_0x3c07ac,_0x9c2ec6,_0x5f2a77)=>{const _0x3f5485=_0x43bed9,_0x557eca={'KXKrW':function(_0x35d064,_0x24122c){return _0x35d064+_0x24122c;},'LPWor':_0x3f5485(0x86)};_0x9c2ec6[_0x3f5485(0x8d)](_0x34d508[_0x3f5485(0x9b)](htmlDir,_0x557eca[_0x3f5485(0xab)](_0x5f2a77,_0x557eca[_0x3f5485(0x6f)])));};app[_0x43bed9(0xa5)]('/',(_0x2fc62f,_0x3eaf1e)=>sendHtml(_0x2fc62f,_0x3eaf1e,_0x43bed9(0x9c))),app[_0x43bed9(0x85)](port,()=>{const _0x154de5=_0x43bed9;console[_0x154de5(0x8e)](_0x218817[_0x154de5(0xb5)](_0x154de5(0x98)+_0x154de5(0x7d)+_0x154de5(0xaf)+_0x154de5(0xb8)+port));});let isRunning=![];async function start(_0x22b1b9){const _0x14b870=_0x43bed9,_0x388066={'iNtHI':function(_0x3e20d8,_0xc0d2a8){return _0x3e20d8(_0xc0d2a8);},'DqIpQ':function(_0x305914,_0x162b6f){return _0x305914(_0x162b6f);},'Oqgoy':function(_0x25ccd4,_0x384505,_0x43fcaf,_0x45e5ed){return _0x25ccd4(_0x384505,_0x43fcaf,_0x45e5ed);},'ESJSv':_0x14b870(0xa6),'PazjA':_0x14b870(0xa8),'ZBFcb':_0x14b870(0x91)};if(isRunning)return;isRunning=!![];const _0x5af7dc=new URL(import.meta[_0x14b870(0xc0)])[_0x14b870(0xb4)],_0x47cab9=[_0x34d508[_0x14b870(0x9b)](_0x34d508[_0x14b870(0x79)](_0x5af7dc),_0x22b1b9),...process[_0x14b870(0x9f)][_0x14b870(0xb6)](0x2440+0x3b*-0xc+0x359*-0xa)],_0x28a6a2=_0x388066[_0x14b870(0x82)](spawn,process[_0x14b870(0x9f)][-0xc0*0x8+-0x2*-0xd5d+0x2f6*-0x7],_0x47cab9,{'stdio':_0x388066[_0x14b870(0x87)]});_0x28a6a2['on'](_0x388066[_0x14b870(0xad)],_0x28e593=>{const _0x4e3f58=_0x14b870;console[_0x4e3f58(0x8e)](_0x218817[_0x4e3f58(0xb5)](_0x4e3f58(0x71)+_0x4e3f58(0x70)+_0x4e3f58(0x8c)+_0x4e3f58(0xb3)+_0x4e3f58(0xbe)+_0x28e593)),isRunning=![],_0x388066[_0x4e3f58(0x73)](start,_0x22b1b9);}),_0x28a6a2['on'](_0x388066[_0x14b870(0xb1)],_0x1fa9a6=>{const _0x45edf0=_0x14b870;console[_0x45edf0(0x91)](_0x218817[_0x45edf0(0x88)](_0x45edf0(0x72)+_0x45edf0(0x74)+_0x45edf0(0x81)+_0x45edf0(0x7b)+_0x1fa9a6)),isRunning=![],_0x388066[_0x45edf0(0x80)](start,_0x22b1b9);});}start(_0x43bed9(0xc7)),process['on'](_0x43bed9(0xbd)+_0x43bed9(0x8f),_0x5c11a4=>{const _0x2eb1c9=_0x43bed9,_0x139dfb={'yznEo':_0x2eb1c9(0x97)+_0x2eb1c9(0x78)+_0x2eb1c9(0xa1)+_0x2eb1c9(0xa0)+_0x2eb1c9(0xac),'eNaGf':function(_0x3b5692,_0x1f662b){return _0x3b5692(_0x1f662b);},'jGvDO':_0x2eb1c9(0xc7)};console[_0x2eb1c9(0x91)](_0x218817[_0x2eb1c9(0x88)](_0x139dfb[_0x2eb1c9(0xb9)])),_0x139dfb[_0x2eb1c9(0x77)](start,_0x139dfb[_0x2eb1c9(0x84)]);}),process['on'](_0x43bed9(0x83)+_0x43bed9(0xa4),_0x337cba=>{const _0x1e3400=_0x43bed9,_0x20d04a={'ZHgTu':_0x1e3400(0x99)+_0x1e3400(0xbf)+_0x1e3400(0x76),'Hzutl':_0x1e3400(0x7a)+_0x1e3400(0x8b),'JmazJ':function(_0x1c1a10,_0x1beaf2){return _0x1c1a10(_0x1beaf2);},'qTTtr':_0x1e3400(0xc7)};console[_0x1e3400(0x91)](_0x218817[_0x1e3400(0x88)](_0x20d04a[_0x1e3400(0xae)],_0x337cba)),console[_0x1e3400(0x91)](_0x218817[_0x1e3400(0x88)](_0x20d04a[_0x1e3400(0x92)])),_0x20d04a[_0x1e3400(0xc3)](start,_0x20d04a[_0x1e3400(0xa7)]);});
+import chalk from "chalk";
+import { spawn } from "child_process";
+import express from "express";
+import figlet from "figlet";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+function printBanner(text, color) {
+  figlet(
+    text,
+    {
+      font: "AMC Razor",
+      horizontalLayout: "default",
+      verticalLayout: "default",
+    },
+    (err, data) => {
+      if (err) {
+        console.error(chalk.red("Figlet error:", err));
+        return;
+      }
+      console.log(chalk[color](data));
+    },
+  );
+}
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "Assets")));
+
+app.get("/", (req, res) => {
+  res.redirect("/Curi.html");
+});
+
+app.listen(port, () => {
+  console.log(chalk.green(`🟢 Port ${port} escuchando al Servidor`));
+  console.log(chalk.yellow("🚀 Servidor INICIANDO"));
+});
+
+let isRunning = false;
+
+async function start(file) {
+  if (isRunning) return;
+  isRunning = true;
+
+  const currentFilePath = new URL(import.meta.url).pathname;
+  const args = [
+    path.join(path.dirname(currentFilePath), file),
+    ...process.argv.slice(2),
+  ];
+  const p = spawn(process.argv[0], args, {
+    stdio: ["inherit", "inherit", "inherit", "ipc"],
+  });
+
+  p.on("message", (data) => {
+    console.log(chalk.green(`🤖 ENVIANDO MENU :3 ${data}`));
+    switch (data) {
+      case "reset":
+        p.kill();
+        isRunning = false;
+        start.apply(this, arguments);
+        break;
+      case "By Gabriel Curi":
+        p.send(process.uptime());
+        break;
+    }
+  });
+
+  p.on("exit", (code) => {
+    isRunning = false;
+    console.error(chalk.blue(`💔 Salida de codigo: ${code}`));
+
+    if (code === 0) return;
+
+    fs.watchFile(args[0], () => {
+      fs.unwatchFile(args[0]);
+      start("Curi.js");
+    });
+  });
+
+  p.on("error", (err) => {
+    console.error(chalk.red(`❌ Error: ${err}`));
+    p.kill();
+    isRunning = false;
+    start("Curi.js");
+  });
+
+  const pluginsFolder = path.join(path.dirname(currentFilePath), "plugins");
+  fs.readdir(pluginsFolder, async (err, files) => {
+    if (err) {
+      console.error(chalk.red(`❌ Error en este Plugin: ${err}`));
+      return;
+    }
+    console.log(chalk.green(`✅ Instalamos ${files.length} plugins`));
+
+    try {
+      const { default: baileys } = await import("@whiskeysockets/baileys");
+      const version = (await baileys.fetchLatestBaileysVersion()).version;
+      console.log(chalk.green(`🚀 Usando Baileys ${version}`));
+    } catch (e) {
+      console.error(chalk.red("❌ Error en la instalacion de Baileys"));
+    }
+  });
+}
+
+start("Curi.js");
+
+process.on("unhandledRejection", () => {
+  console.error(chalk.red(`❌ El bot detecto un error. Reinicio requerido`));
+  start("Curi.js");
+});
+
+process.on("exit", (code) => {
+  console.error(chalk.red(`❌ Salida por codigo: ${code}`));
+  console.error(chalk.red(`🔄 REM-BOT REINICIANDO...`));
+  start("Curi.js");
+});
+
+printBanner("REM - BOT 😊", "cyan");
+printBanner("Un bot creado por Curi 😄", "cyan");
+
+console.log(chalk.yellow("==============================================="));
+console.log(chalk.yellow("🔥 REM---BOT BY Gabriel Curi! 🔥"));
+console.log(chalk.yellow("==============================================="));
+console.log(chalk.yellow("🚀 VAMOSSS CON TODO :3 🚀"));
+console.log(chalk.yellow("==============================================="));
