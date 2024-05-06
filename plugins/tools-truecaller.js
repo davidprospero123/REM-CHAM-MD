@@ -1,67 +1,72 @@
-//GURU ka maal hai
-//https://github.com/Guru322/GURU-BOT
+import fetch from "node-fetch";
 
-import fetch from 'node-fetch';
-
-let handler = async (m, { conn, text }) => {
-  let phoneNumber = '';
-  if (text) {
-    phoneNumber = text.replace(/[^0-9]/g, '');
-  } else if (m.quoted) {
-    phoneNumber = m.quoted.sender.replace(/[^0-9]/g, '');
-  } else if (m.mentionedJid && m.mentionedJid[0]) {
-    phoneNumber = m.mentionedJid[0].replace(/[^0-9]/g, '');
-  } else {
-    throw `Proporcione un número en formato internacional sin +, cite un usuario o mencione un usuario`;
-  }
-
-  try {
-    const installationId = 'a1i0D--jTBiKAks-Y9FHnPk_XG-YIsKEIa_eWiBwjH68LKn-zKRx9vaZq731KL0x';
-    const apiurl = `https://truecaller-api.vercel.app/search?phone=${encodeURIComponent(phoneNumber)}&id=${installationId}`;
-
-    let response = await fetch(apiurl);
-    console.log(response);
-    let json = await response.json();
-
-    json.creator = 'GURU';
-
-    let milf = '';
-    for (let prop in json) {
-      
-      if (prop === 'flagURL') {
-        continue;
-      }
+async function fetchTruecallerData(phoneNumber) {
+    const installationId = "a1i0D--jTBiKAks-Y9FHnPk_XG-YIsKEIa_eWiBwjH68LKn-zKRx9vaZq731KL0x";
+    const apiUrl = `https://truecaller-api.vercel.app/search?phone=${encodeURIComponent(phoneNumber)}&id=${installationId}`;
     
-      if (prop === 'addresses') {
-        milf += `⚝ *${prop}:*\n`;
-        for (let addressProp in json[prop][0]) {
-          milf += `  ⚝ *${addressProp}:* ${json[prop][0][addressProp]}\n`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`Error al obtener datos de Truecaller. Código de estado: ${response.status}`);
         }
-      } else if (prop === 'countryDetails') {
-        milf += `⚝ *${prop}:*\n`;
-        for (let countryProp in json[prop]) {
-          if (Array.isArray(json[prop][countryProp])) {
-            milf += `  ⚝ *${countryProp}:* ${json[prop][countryProp].join(', ')}\n`;
-          } else {
-            milf += `  ⚝ *${countryProp}:* ${json[prop][countryProp]}\n`;
-          }
-        }
-      } else {
-        if (prop !== 'flagURL') {
-          milf += `⚝ *${prop}:* ${json[prop]}\n`;
-        }
-      }
+        return await response.json();
+    } catch (error) {
+        throw new Error(`Error al obtener datos de Truecaller: ${error.message}`);
     }
-    
+}
 
-    m.reply(milf);
-  } catch (error) {
-    console.error(error);
-  }
-};
+function formatTruecallerData(data) {
+    let formattedData = "";
+    for (const prop in data) {
+        if (prop === "flagURL") continue;
+        
+        formattedData += `⚝ *${prop}:* ${formatPropertyValue(data[prop])}\n`;
+    }
+    return formattedData;
+}
 
-handler.help = ['true'];
-handler.tags = ['tools'];
+function formatPropertyValue(value) {
+    if (Array.isArray(value)) {
+        return value.join(", ");
+    } else if (typeof value === "object") {
+        return formatObjectPropertyValue(value);
+    }
+    return value;
+}
+
+function formatObjectPropertyValue(obj) {
+    let formattedValue = "";
+    for (const key in obj) {
+        formattedValue += `${key}: ${obj[key]}\n`;
+    }
+    return formattedValue;
+}
+
+async function handler(m, { text, quoted, mentionedJid }) {
+    let phoneNumber = "";
+    if (text) {
+        phoneNumber = text.replace(/[^0-9]/g, "");
+    } else if (quoted) {
+        phoneNumber = quoted.sender.replace(/[^0-9]/g, "");
+    } else if (mentionedJid && mentionedJid[0]) {
+        phoneNumber = mentionedJid[0].replace(/[^0-9]/g, "");
+    } else {
+        throw `Proporcione un número en formato internacional sin +, cite un usuario o mencione un usuario`;
+    }
+
+    try {
+        const truecallerData = await fetchTruecallerData(phoneNumber);
+        truecallerData.creator = "Gabriel Curi BY REM-BOT";
+        const formattedData = formatTruecallerData(truecallerData);
+        m.reply(formattedData);
+    } catch (error) {
+        console.error(error);
+        throw "Ocurrió un error al obtener los datos de Truecaller";
+    }
+}
+
+handler.help = ["true"];
+handler.tags = ["tools"];
 handler.command = /^(true|caller)$/i;
 
 export default handler;
