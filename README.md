@@ -58,27 +58,75 @@ mejorando la experiencia del usuario en la plataforma.
 
 ## 🚀 Instalación
 
-Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) y para instalar las dependencias:
+#### DESPLIEGUE EN HEROKU
 
-```sh
-> git clone https://github.com/davidprospero123/REM-CHAM
-> cd REM-CHAM
-> npm install
- ```
+1. Si no tienes una cuenta en Heroku, crea una cuenta.
+    <br>
+<p align="center"><a href="https://signup.heroku.com"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
- Ejecute el siguiente comando para instalar las dependencias. 
- ```SH
- > npm install
+2. Mira el siguiente tutorial en video para obtener asistencia.
+    <br>
+<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
- ```
 
- ##  Run
+3. Ahora, despliega
+    <br>
+<p align="center"><a href="https://web-rem-cham-bot.vercel.app"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
- ```SH
- > npm start
- ```
- Al ejecutar el comando anterior se iniciará el bot. Para autentificarte escanea el QR que aparece en el terminal usando el WA-Web Scanner de tu WhatsApp. ¡Buena suerte!
+#### DESPLIEGUE EN RAILWAY
 
+1. Si no tienes una cuenta en Railway, crea una cuenta.
+    <br>
+<p align="center"><a href="https://railway.app"> <img src="https://www.vectorlogo.zone/logos/railway/railway-icon.svg" width="120" height="120"/></a></p>
+
+ - Haz un fork y agrega una estrella a este repositorio.
+- Ahora ve a https://railway.app/new, selecciona Deploy from repo.
+- Ahora selecciona el repositorio forked, selecciona la rama.
+- Ve a <b>Variables</b> y agrega las variables que se enumeran a continuación.
+   - DATABASE_URL, SESSION_ID, REMOVEBG_KEY, PREFIX
+- Ve a <b>Deployments</b> y espera a que se complete el despliegue.
+- y listo.
+
+2. TUTORIAL (PRÓXIMAMENTE)
+#### DESPLIEGUE EN OKTETO 
+
+1. Si no tienes una cuenta en Okteto, crea una cuenta.
+    <br>
+<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://www.vectorlogo.zone/logos/okteto/okteto-icon.svg" width="120" height="120"/></a></p>
+
+ - Haz un fork y agrega una estrella a este repositorio.
+- Ahora dirígete a Lunch Dev Environment
+- Ahora selecciona el repositorio forked de REM-CHAM.
+- Ve a <b>Variables</b> y agrega las variables que se enumeran a continuación.
+   - DATABASE_URL, SESSION_ID, REMOVEBG_KEY, PREFIX
+- Luego haz clic en Lunch y espera a que se complete el despliegue.
+- y listo.
+
+2. TUTORIAL (PRÓXIMAMENTE)
+#### DESPLIEGUE EN REPL.IT 
+
+1. Si no tienes una cuenta en Replit, crea una cuenta.
+    <br>
+<p align="center"><a href="https://replit.com/signup"> <img src="https://www.vectorlogo.zone/logos/replit/replit-icon.svg" width="120" height="120"/></a></p>
+
+2. Ahora, despliega
+    <br>
+<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://www.vectorlogo.zone/logos/replit/replit-icon.svg" width="120" height="120"/></a></p>
+
+#### DESPLIEGUE EN CODESANDBOX
+Si no tienes una cuenta en CodeSandbox, crea una cuenta.
+<br>
+<p align="center"><a href="https://codesandbox.io/signup"> <img src="https://www.vectorlogo.zone/logos/codesandbox/codesandbox-icon.svg" width="120" height="120"/></a></p>
+Haz un fork y agrega una estrella a este repositorio.
+
+Ahora ve a CodeSandbox y selecciona "Crear Sandbox".
+
+Selecciona la opción "Importar Proyecto" y elige la opción de "GitHub".
+
+Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
+
+Configura el entorno siguiendo los mismos pasos que en el repositorio local. Puedes abrir una terminal en CodeSandbox para ejecutar los comandos.
+Ejecute el siguiente comando para instalar las dependencias. 
 
  ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Características" width="42" height="42"> Características
 > REM-BOT
