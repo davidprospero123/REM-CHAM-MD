@@ -27,8 +27,16 @@ REM-CHAM- Un sencillo bot de WhatsApp en español, diseñado
 para ofrecer respuestas rápidas y realizar tareas simples
 mejorando la experiencia del usuario en la plataforma.
 
-***
 ---------
+
+
+#### CONFIGURACIÓN
+
+1. Haz un fork del repositorio
+    <br>
+<a href='https://github.com/davidprospero123/REM-CHAM/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+
+# 𝙂𝙪𝙞𝙖 𝙥𝙖𝙧𝙖 𝙡𝙖 𝙞𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝙙𝙚 𝙧𝙚𝙢 𝙚𝙣 𝙩𝙚𝙧𝙢𝙪𝙭
 
 ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Herramientas" width="35" height="35"> Herramientas
 
@@ -39,15 +47,6 @@ mejorando la experiencia del usuario en la plataforma.
 ```
 - Descarga termux dando clic [aqui](https://termux.uptodown.com/android)
 
----------
-
-#### CONFIGURACIÓN
-
-1. Haz un fork del repositorio
-    <br>
-<a href='https://github.com/davidprospero123/REM-CHAM/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
-# 𝙂𝙪𝙞𝙖 𝙥𝙖𝙧𝙖 𝙡𝙖 𝙞𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝙙𝙚 𝙧𝙚𝙢 𝙚𝙣 𝙩𝙚𝙧𝙢𝙪𝙭
-
 ##  𝙋𝙧𝙚𝙧𝙚𝙦𝙪𝙞𝙨𝙞𝙩𝙤𝙨
 
 - [Git](https://git-scm.com/)
@@ -57,6 +56,44 @@ mejorando la experiencia del usuario en la plataforma.
 - [webP](https://developers.google.com/speed/webp/download)
 
 ## 🚀 Instalación
+
+## <img src="https://i.giphy.com/media/nWGRHBnAl5Kmc/giphy.gif" alt="Instalacion" width="40" height="40"> Instalación en [termux](https://f-droid.org/repo/com.termux_118.apk)
+
+```bash
+cd && termux-setup-storage
+```
+
+```bash
+apt-get update -y && apt-get upgrade -y
+```
+
+```bash
+pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn 
+```
+
+```bash
+git clone https://github.com/davidprospero123/REM-CHAM.git && cd REM-CHAM
+```
+
+```bash
+yarn install
+```
+
+```bash
+npm install
+```
+
+```bash
+npm update
+```
+
+```bash
+npm start
+```
+
+- Después de eso te aparecerά un código **QR** lo escaneas con el Whatsapp web y listo
+
+---------
 
 #### DESPLIEGUE EN HEROKU
 
