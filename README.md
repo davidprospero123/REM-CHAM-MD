@@ -4,25 +4,17 @@
     <h1 align="center">REM-BOT</h1>
   </a>
 </p>
+<p>
+    <a href="https://github.com/davidprospero123"><img title="Autor"    src="https://img.shields.io/badge/Autor-davidprospero123-purple.svg?style=for-the-badge&logo=github"></a>
+</p>
 <p align="center">
-<a href="https://github.com/davidprospero123"><img title="Autor" src="https://img.shields.io/badge/Autor-davidprospero123-black?style=for-the-badge&logo=telegram"></a>
-<p/>
-<p align="center">
-    <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?&style=social"></a>
-    <a href="https://github.com/davidprospero123/REM-CHAM/network/members"><img title="Forks" src="https://img.shields.io/github/forks/davidprospero123/REM-CHAM?style=social"></a>
-    <a href="https://github.com/davidprospero123/REM-CHAM/watchers"><img title="Observadores" src="https://img.shields.io/github/watchers/davidprospero123/REM-CHAM?label=Observadores&style=social"></a>
-    <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdavidprospero123%2FREM-CHAM?ref=badge_shield" alt="Estado de FOSSA"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdavidprospero123%2FREM-CHAM.svg?type=shield"/></a>
+    <a href="https://github.com/davidprospero123"><img title="Seguidores" src="https://img.shields.io/github/followers/davidprospero123?color=blue&style=flat-square"></a>
+    <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
 </p>
 <p align="center">
     <a href="#"><img title="Avanzado WhatsApp Bot" src="https://img.shields.io/badge/-Avanzado%20WhatsApp%20Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 <p>
-    <a href="https://github.com/davidprospero123"><img title="Autor"    src="https://img.shields.io/badge/Autor-davidprospero123-purple.svg?style=for-the-badge&logo=github"></a>
-</p>
-<p>
-    <a href="https://github.com/davidprospero123"><img title="Seguidores" src="https://img.shields.io/github/followers/davidprospero123?color=blue&style=flat-square"></a>
-    <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
-    <a href="https://github.com/davidprospero123/REM-CHAM/network/members"><img title="Forks" src="http://img.shields.io/github/forks/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
     <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"</a>
     <img src="https://img.shields.io/github/repo-size/davidprospero123/REM-CHAM" /> <br> 
 </p>
