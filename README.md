@@ -1,23 +1,26 @@
-<p align="center">  
-  <a href="https://www.youtube.com/watch?v=MoiO-2NorRA&t=3s">
-    <img alt="Rem-Cham" height="300" src="https://telegra.ph/file/20de2569329583088aeee.gif">
-    <h1 align="center">REM-BOT</h1>
-  </a>
-</p>
-<p>
-    <a href="https://github.com/davidprospero123"><img title="Autor"    src="https://img.shields.io/badge/Autor-davidprospero123-purple.svg?style=for-the-badge&logo=github"></a>
-</p>
-<p align="center">
-    <a href="https://github.com/davidprospero123"><img title="Seguidores" src="https://img.shields.io/github/followers/davidprospero123?color=blue&style=flat-square"></a>
-    <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
-</p>
-<p align="center">
-    <a href="#"><img title="Avanzado WhatsApp Bot" src="https://img.shields.io/badge/-Avanzado%20WhatsApp%20Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
-</p>
-<p>
-    <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"</a>
-    <img src="https://img.shields.io/github/repo-size/davidprospero123/REM-CHAM" /> <br> 
-</p>
+<div align="center">
+    <p>  
+        <a href="https://www.youtube.com/watch?v=MoiO-2NorRA&t=3s">
+            <img alt="Rem-Cham" height="300" src="https://telegra.ph/file/20de2569329583088aeee.gif">
+            <h1>REM-BOT</h1>
+        </a>
+    </p>
+    <p>
+        <a href="https://github.com/davidprospero123"><img title="Autor" src="https://img.shields.io/badge/Autor-davidprospero123-purple.svg?style=for-the-badge&logo=github"></a>
+    </p>
+    <p>
+        <a href="https://github.com/davidprospero123"><img title="Seguidores" src="https://img.shields.io/github/followers/davidprospero123?color=blue&style=flat-square"></a>
+        <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
+    </p>
+    <p>
+        <a href="#"><img title="Avanzado WhatsApp Bot" src="https://img.shields.io/badge/-Avanzado%20WhatsApp%20Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+    </p>
+    <p>
+        <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"></a>
+        <img src="https://img.shields.io/github/repo-size/davidprospero123/REM-CHAM"> <br> 
+    </p>
+</div>
+
 
 ####  
 REM-CHAM- Un sencillo bot de WhatsApp en español, diseñado 
