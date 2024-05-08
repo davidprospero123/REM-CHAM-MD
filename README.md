@@ -99,7 +99,7 @@ npm start
 
 1. Si no tienes una cuenta en Heroku, crea una cuenta.
     <br>
-<p align="center"><a href="https://signup.heroku.com"> <img src="https://img.shields.io/badge/heroku%20Account-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://signup.heroku.com"> <img src="https://img.shields.io/badge/heroku%20Cuenta-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 2. Mira el siguiente tutorial en video para obtener asistencia.
     <br>
@@ -108,13 +108,13 @@ npm start
 
 3. Ahora, despliega
     <br>
-<p align="center"><a href="https://web-rem-cham-bot.vercel.app"> <img src="https://img.shields.io/badge/Heroku%20Deploy-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://web-rem-cham-bot.vercel.app"> <img src="https://img.shields.io/badge/Heroku%20Despegar-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 #### DESPLIEGUE EN RAILWAY
 
 1. Si no tienes una cuenta en Railway, crea una cuenta.
     <br>
-<p align="center"><a href="https://railway.app"> <img src="https://img.shields.io/badge/RailWay%20Account-blue?style=for-the-badge&logo=Railway" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://railway.app"> <img src="https://img.shields.io/badge/RailWay%20Cuenta-blue?style=for-the-badge&logo=Railway" width="220" height="38.45"/></a></p>
 
  - Haz un fork y agrega una estrella a este repositorio.
 - Ahora ve a https://railway.app/new, selecciona Deploy from repo.
@@ -129,7 +129,7 @@ npm start
 
 1. Si no tienes una cuenta en Okteto, crea una cuenta.
     <br>
-<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://img.shields.io/badge/Okteto%20Account-blue?style=for-the-badge&logo=okteto" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://img.shields.io/badge/Okteto%20Cuenta-blue?style=for-the-badge&logo=okteto" width="220" height="38.45"/></a></p>
 
  - Haz un fork y agrega una estrella a este repositorio.
 - Ahora dirígete a Lunch Dev Environment
@@ -144,11 +144,11 @@ npm start
 
 1. Si no tienes una cuenta en Replit, crea una cuenta.
     <br>
-<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Cuenta-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
 2. Ahora, despliega
     <br>
-<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://img.shields.io/badge/replit%20Despegar-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
 #### DESPLIEGUE EN CODESANDBOX
 Si no tienes una cuenta en CodeSandbox, crea una cuenta.
@@ -161,6 +161,11 @@ Ahora ve a CodeSandbox y selecciona "Crear Sandbox".
 Selecciona la opción "Importar Proyecto" y elige la opción de "GitHub".
 
 Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
+
+2. Mira el siguiente tutorial en video para obtener asistencia.
+    <br>
+<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://img.shields.io/badge/codesandbox%20Tutorial-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
+
 
 
  ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Características" width="42" height="42"> Características
