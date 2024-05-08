@@ -151,6 +151,9 @@ Configura el entorno siguiendo los mismos pasos que en el repositorio local. Pue
 Ejecute el siguiente comando para instalar las dependencias. 
  ```SH
  > npm install
+
+ ```SH
+ > npm install
  ```
 
  ##  Run
