@@ -84,22 +84,22 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
 
 1. Si no tienes una cuenta en Heroku, crea una cuenta.
     <br>
-<p align="center"><a href="https://signup.heroku.com"> <img src="https://img.shields.io/badge/heroku%20Account-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://signup.heroku.com"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
 2. Mira el siguiente tutorial en video para obtener asistencia.
     <br>
-<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://img.shields.io/badge/heroku%20Tutorial-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
 
 3. Ahora, despliega
     <br>
-<p align="center"><a href="https://web-rem-cham-bot.vercel.app"> <img src="https://img.shields.io/badge/Heroku%20Deploy-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://web-rem-cham-bot.vercel.app"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" width="120" height="120"/></a></p>
 
 #### DESPLIEGUE EN RAILWAY
 
 1. Si no tienes una cuenta en Railway, crea una cuenta.
     <br>
-<p align="center"><a href="https://railway.app"> <img src="https://img.shields.io/badge/RailWay%20Account-blue?style=for-the-badge&logo=Railway" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://railway.app"> <img src="https://www.vectorlogo.zone/logos/railway/railway-icon.svg" width="120" height="120"/></a></p>
 
  - Haz un fork y agrega una estrella a este repositorio.
 - Ahora ve a https://railway.app/new, selecciona Deploy from repo.
@@ -114,7 +114,7 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
 
 1. Si no tienes una cuenta en Okteto, crea una cuenta.
     <br>
-<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://img.shields.io/badge/Okteto%20Account-blue?style=for-the-badge&logo=okteto" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://www.okteto.com/pricing/?plan=SaaS"> <img src="https://www.vectorlogo.zone/logos/okteto/okteto-icon.svg" width="120" height="120"/></a></p>
 
  - Haz un fork y agrega una estrella a este repositorio.
 - Ahora dirígete a Lunch Dev Environment
@@ -129,16 +129,16 @@ Ejecuta los siguientes comandos para clonar el repositorio (Usa tu propio fork) 
 
 1. Si no tienes una cuenta en Replit, crea una cuenta.
     <br>
-<p align="center"><a href="https://replit.com/signup"> <img src="https://img.shields.io/badge/replit%20Account-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://replit.com/signup"> <img src="https://www.vectorlogo.zone/logos/replit/replit-icon.svg" width="120" height="120"/></a></p>
 
 2. Ahora, despliega
     <br>
-<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://img.shields.io/badge/replit%20Deploy-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://www.vectorlogo.zone/logos/replit/replit-icon.svg" width="120" height="120"/></a></p>
 
 #### DESPLIEGUE EN CODESANDBOX
 Si no tienes una cuenta en CodeSandbox, crea una cuenta.
 <br>
-<p align="center"><a href="https://codesandbox.io/signup"> <img src="https://img.shields.io/badge/Cuenta%20CodeSandbox-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://codesandbox.io/signup"> <img src="https://www.vectorlogo.zone/logos/codesandbox/codesandbox-icon.svg" width="120" height="120"/></a></p>
 Haz un fork y agrega una estrella a este repositorio.
 
 Ahora ve a CodeSandbox y selecciona "Crear Sandbox".
@@ -149,6 +149,9 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 
 Configura el entorno siguiendo los mismos pasos que en el repositorio local. Puedes abrir una terminal en CodeSandbox para ejecutar los comandos.
 Ejecute el siguiente comando para instalar las dependencias. 
+ ```SH
+ > npm install
+
  ```SH
  > npm install
 
