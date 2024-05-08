@@ -164,7 +164,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 
 2. Mira el siguiente tutorial en video para obtener asistencia.
     <br>
-<p align="center"><a href="https://www.youtube.com/watch?v=GDcExsC31hQ"> <img src="https://img.shields.io/badge/codesandbox%20Tutorial-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=h7kMNdm6dZ4"> <img src="https://img.shields.io/badge/codesandbox%20Tutorial-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
 
 
 
