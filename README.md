@@ -154,9 +154,6 @@ Ejecute el siguiente comando para instalar las dependencias.
 
  ```SH
  > npm install
-
- ```SH
- > npm install
  ```
 
  ##  Run
