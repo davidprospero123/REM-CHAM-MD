@@ -642,21 +642,43 @@ ${readMore}
 ;
 
 
-const { result, key, timeout } = await conn.sendMessage(m.chat, { video: { url: menuvid }, caption: infoText.trim(),  gifPlayback: true,
-gifAttribution: 0}, { quoted: fcontact })
+const { result, key, timeout } = await conn.sendMessage(
+  m.chat,
+  { video: { url: menuvid }, caption: infoText.trim(),
+  contextInfo: {
+    mentionedJid: [m.sender],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363299269381797@newsletter',
+      newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+      serverMessageId: -1,
+    },
+    forwardingScore: 999,
+    externalAdReply: {
+      title: 'ＲＥＭ－ＢＯＴ',
+      body: '𝙼𝙴𝙽𝚄',
+      thumbnailUrl: 'https://telegra.ph/file/daaf1d574dc2264307c5c.jpg',
+      sourceUrl: 'https://github.com/davidprospero123/REM-CHAM-MD.git',
+      mediaType: 1,
+      renderLargerThumbnail: false,
+    },
+  },
 
+  gifPlayback: true, gifAttribution: 0 },
+  { quoted: fcontact }
+)
 
 conn.remmenu[m.sender] = {
   result,
   key,
   timeout: setTimeout(() => {
     conn.sendMessage(m.chat, {
-        delete: key
-    });
-    delete conn.remmenu[m.sender];
-}, 30 * 60 * 1000),
-};
-};
+      delete: key,
+    })
+    delete conn.remmenu[m.sender]
+  }, 3600 * 1000),
+}
+}
 
 
 handler.before = async (m, { conn }) => {
