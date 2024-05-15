@@ -21,7 +21,7 @@ stiker = await mp4ToWebp(img, { pack: packname || global.packname, author: autho
 stiker = await createSticker(false, args[0], '', author, 20)
 } else throw `*RESPOND TO A IMAGE OR VIDEO OR GIF ${usedPrefix + command}*`
 } catch {
-stiker = '*huh*'	
+stiker = '`𝚈 𝚕𝚊 𝚒𝚖𝚊𝚐𝚎𝚗 𝚘 𝚐𝚒𝚏? :𝚌`'	
 } finally {
 m.reply(stiker)}}
 handler.help = ['sfull']
