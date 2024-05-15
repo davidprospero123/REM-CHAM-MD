@@ -2,7 +2,7 @@
   "name": "whatsapp-bot (REM-BOT)",
   "description": " Whatsapp bot.",
   "keywords": ["whatsapp bot"],
-  "repository": "https://github.com/davidprospero123/REM-CHAM",
+  "repository": "https://github.com/davidprospero123/REM-CHAM-MD",
   "stack": "container",
   "env": {
     "DATABASE_URL": {
