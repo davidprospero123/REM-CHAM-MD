@@ -47,8 +47,19 @@ mejorando la experiencia del usuario en la plataforma.
 ```
 - Descarga termux dando clic [aqui](https://termux.uptodown.com/android)
 
-##  𝙋𝙧𝙚𝙧𝙚𝙦𝙪𝙞𝙨𝙞𝙩𝙤𝙨
+##  𝙍𝙀𝙌𝙐𝙄𝙎𝙄𝙏𝙊𝙎 𝙎𝙐𝙈𝘼𝙈𝙀𝙉𝙏𝙀 𝙉𝙀𝘾𝙀𝙎𝘼𝙍𝙄𝙊𝙎 𝙏𝘼𝙉𝙏𝙊𝙎 𝘾𝙊𝙈𝙊 𝙀𝙉 𝙋𝘾 𝙔 𝙏𝙀𝙍𝙈𝙐𝙓
+```bash
+sudo apt-get install pkg-config
+```
 
+```bash
+sudo apt-get install libpangocairo-1.0 libpango1.0-dev
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install ffmpeg
+```
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en/)
 - [FFmpeg](https://ffmpeg.org/download.html)
