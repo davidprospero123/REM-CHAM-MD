@@ -2,7 +2,7 @@ import axios from "axios";
 let handler = async (m, { conn, usedPrefix, command }) => {
   let cristiano = (
     await axios.get(
-      `https://raw.githubusercontent.com/Guru322/api/Guru/BOT-JSON/CristianoRonaldo.json`,
+      `https://raw.githubusercontent.com/davidprospero123/api-anime/main/BOT-JSON/CristianoRonaldo.json`,
     )
   ).data;
   let ronaldo = await cristiano[Math.floor(cristiano.length * Math.random())];
