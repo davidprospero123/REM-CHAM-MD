@@ -13,35 +13,35 @@ switch (type) {
 
 case 'ass':
 case 'gand':
-    let as = await conn.getFile(`${gurubot}/rnsfw/gand`)
+    let as = await conn.getFile(`${rembot}/rnsfw/gand`)
     conn.sendFile(m.chat, as.data, 'img.jpg', `✅ Random ${command}`, m)
     m.react(xmoji) 
 break
 
 case 'boobs':
 case 'boobies':
-   let xb = await conn.getFile(`${gurubot}/rnsfw/tits`)
+   let xb = await conn.getFile(`${rembot}/rnsfw/tits`)
    conn.sendFile(m.chat, xb.data, 'img.jpg', `✅ Random ${command}`, m)
    m.react(xmoji) 
 break
 
 case 'pussy':
 case 'chut':		
-   let xp = await conn.getFile(`${gurubot}/rnsfw/porn`)
+   let xp = await conn.getFile(`${rembot}/rnsfw/porn`)
    conn.sendFile(m.chat, xp.data, 'img.jpg', `✅ Random ${command}`, m)
    m.react(xmoji) 
 break
 
 case 'lesbians':
 case 'lesbian':
-   let les = await conn.getFile(`${gurubot}/rnsfw/imglesbian`)
+   let les = await conn.getFile(`${rembot}/rnsfw/imglesbian`)
    conn.sendFile(m.chat, les.data, 'img.jpg', `✅ Random ${command}`, m)
    m.react(xmoji) 
 break
 
 case 'pack':
 case 'cosplay':
-	     let img = await conn.getFile(`${gurubot}/rnsfw/packgirl`)
+	     let img = await conn.getFile(`${rembot}/rnsfw/packgirl`)
         conn.sendFile(m.chat, img.data, 'img.jpg', `✅ Result 🤭`, m)
 	     m.react(xmoji) 
 	break
