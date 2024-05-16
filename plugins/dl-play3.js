@@ -66,7 +66,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
             await m.react('✅');
         }
     } catch (error) {
-        await conn.reply(m.chat, `𝙿𝚕𝚞𝚐𝚒𝚗 𝚎𝚗 𝚎𝚛𝚛𝚘𝚛 𝚖𝚊𝚗𝚍𝚊𝚗𝚍𝚘 𝚎𝚕 𝚎𝚛𝚛𝚘𝚛 𝚊 𝚌𝚞𝚛𝚒`, m);
+        await conn.reply(m.chat, `ɴᴏ ᴇꜱᴛᴀ ɪɴꜱᴛᴀʟᴀᴅᴏ ꜰꜰᴍᴘɢ ᴠᴜᴇʟᴠᴀ ᴀʟ ʀᴇᴘᴏꜱɪᴛᴏʀɪᴏ ᴘᴀʀᴀ ᴄʜᴇᴄᴀʀ ᴄᴏᴍᴏ ɪɴꜱᴛᴀʟᴀʀʟᴏ`, m);
         console.error(error);
     }
 };
