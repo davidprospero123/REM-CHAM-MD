@@ -47,13 +47,13 @@ mejorando la experiencia del usuario en la plataforma.
 ```
 - Descarga termux dando clic [aqui](https://termux.uptodown.com/android)
 
-##  𝙍𝙀𝙌𝙐𝙄𝙎𝙄𝙏𝙊𝙎 𝙎𝙐𝙈𝘼𝙈𝙀𝙉𝙏𝙀 𝙉𝙀𝘾𝙀𝙎𝘼𝙍𝙄𝙊𝙎 𝙏𝘼𝙉𝙏𝙊𝙎 𝘾𝙊𝙈𝙊 𝙀𝙉 𝙋𝘾 𝙔 𝙏𝙀𝙍𝙈𝙐𝙓 𝙀𝙅𝙀𝘾𝙐𝙏𝙀 𝙀𝙉 𝙇𝘼 𝙏𝙀𝙍𝙈𝙄𝙉𝘼𝙇
+##  𝙍𝙀𝙌𝙐𝙄𝙎𝙄𝙏𝙊𝙎 𝙎𝙐𝙈𝘼𝙈𝙀𝙉𝙏𝙀 𝙉𝙀𝘾𝙀𝙎𝘼𝙍𝙄𝙊𝙎 𝙏𝘼𝙉𝙏𝙊𝙎 𝘾𝙊𝙈𝙊 𝙀𝙉 𝙋𝘾 
 ```bash
 sudo apt-get install pkg-config
 ```
 
 ```bash
-sudo apt-get install libpangocairo-1.0 libpango1.0-dev
+sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev libpango1.0-dev build-essential g++
 ```
 
 # 𝘾𝙊𝙈𝙊 𝙄𝙉𝙎𝙏𝘼𝙇𝙊 𝙁𝙁𝙈𝙋𝙀𝙂 𝘿𝙀𝙎𝘿𝙀 𝙇𝘼 𝙏𝙀𝙍𝙈𝙄𝙉𝘼𝙇?
