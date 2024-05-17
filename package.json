@@ -115,7 +115,7 @@
     "xfarr-api": "^1.0.3",
     "yargs": "^17.6.0",
     "youtube-yts": "^2.0.0",
-    "youtubedl-core": "git+ssh://git@github.com:khlevon/node-ytdl-core.git#v4.11.4-patch.2",
+    "youtubedl-core": "npm:@distube/ytdl-core",
     "url-file-size": "^1.0.5-1",
     "figlet": "^1.7.0"
   },
