@@ -117,7 +117,8 @@
     "youtube-yts": "^2.0.0",
     "youtubedl-core": "npm:@distube/ytdl-core",
     "url-file-size": "^1.0.5-1",
-    "figlet": "^1.7.0"
+    "figlet": "^1.7.0",
+    "pastebin-js": "^1.0.3"
   },
   "overrides": {
     "cache-manager": "5.2.2"
