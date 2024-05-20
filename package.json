@@ -1,6 +1,6 @@
 {
-  "name": "rem",
-  "version": "2.0.0",
+  "name": "REM-BOT",
+  "version": "3.1.0",
   "description": "Bot de WhatsApp avanzado",
   "main": "index.js",
   "type": "module",
@@ -48,7 +48,7 @@
     "@hapi/boom": "^10.0.1",
     "@shineiichijo/marika": "^2.0.6",
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "npm:@whiskeysockets/baileys",
+    "@whiskeysockets/baileys": "v6.7.2",
     "@xct007/frieren-scraper": "*",
     "@xct007/tiktok-scraper": "*",
     "acrcloud": "^1.4.0",
