@@ -2,14 +2,14 @@ import { smsg } from "./lib/simple.js";
 import { format } from "util";
 import { fileURLToPath } from "url";
 import path, { join } from "path";
-import { unwatchFile, watchFile } from "fs";
+import { unwatchFile, watchFile, readFileSync } from "fs";
 import chalk from "chalk";
 import fetch from "node-fetch";
 
+import { WelcomeLeave } from "./lib/welcome.js";
 /**
- * @type {import('@whiskeysockets/baileys')}
+ * @type {import("@whiskeysockets/baileys")}
  */
-const { proto } = (await import("@whiskeysockets/baileys")).default;
 const isNumber = (x) => typeof x === "number" && !isNaN(x);
 const delay = (ms) =>
   isNumber(ms) &&
@@ -22,8 +22,18 @@ const delay = (ms) =>
 
 /**
  * Handle messages upsert
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
  */
+const { getAggregateVotesInPollMessage, makeInMemoryStore } = await (
+  await import("@whiskeysockets/baileys")
+).default;
+import Pino from "pino";
+const store = makeInMemoryStore({
+  logger: Pino().child({
+    level: "fatal",
+    stream: "store",
+  }),
+});
 export async function handler(chatUpdate) {
   this.msgqueque = this.msgqueque || [];
   if (!chatUpdate) return;
@@ -35,17 +45,18 @@ export async function handler(chatUpdate) {
     m = smsg(this, m) || m;
     if (!m) return;
     m.exp = 0;
-    m.coin = 0;
-    m.diamond = false;
+    m.credit = false;
+    m.bank = false;
+    m.chicken = false;
     try {
       // TODO: use loop to insert data instead of this
       let user = global.db.data.users[m.sender];
       if (typeof user !== "object") global.db.data.users[m.sender] = {};
       if (user) {
         if (!isNumber(user.exp)) user.exp = 0;
-        if (!isNumber(user.coin)) user.coin = 0;
-        if (!isNumber(user.diamond)) user.diamond = 20;
+        if (!isNumber(user.credit)) user.credit = 10;
         if (!isNumber(user.bank)) user.bank = 0;
+        if (!isNumber(user.chicken)) user.chicken = 0;
         if (!isNumber(user.lastclaim)) user.lastclaim = 0;
         if (!("registered" in user)) user.registered = false;
         //-- user registered
@@ -60,19 +71,14 @@ export async function handler(chatUpdate) {
         if (!("banned" in user)) user.banned = false;
         if (!isNumber(user.warn)) user.warn = 0;
         if (!isNumber(user.level)) user.level = 0;
-        if (!("role" in user)) user.role = "Novato";
+        if (!("role" in user)) user.role = "Tadpole";
         if (!("autolevelup" in user)) user.autolevelup = false;
-        if (!("chatbot" in user)) user.chatbot = false;
-        if (!("genero" in user)) user.genero = "Indeciso";
-        if (!("language" in user)) user.language = "es";
-        if (!("prem" in user)) user.prem = false;
-        if (!user.premiumTime) user.premiumTime = 0;
-      } else
+      } else {
         global.db.data.users[m.sender] = {
           exp: 0,
-          coin: 0,
-          diamond: 20,
+          credit: 0,
           bank: 0,
+          chicken: 0,
           lastclaim: 0,
           registered: false,
           name: m.name,
@@ -83,83 +89,81 @@ export async function handler(chatUpdate) {
           banned: false,
           warn: 0,
           level: 0,
-          role: "Novato",
+          role: "Tadpole",
           autolevelup: false,
-          chatbot: false,
-          genero: "Indeciso",
-          language: "es",
-          prem: false,
-          premiumTime: 0,
         };
+      }
       let chat = global.db.data.chats[m.chat];
       if (typeof chat !== "object") global.db.data.chats[m.chat] = {};
       if (chat) {
-        if (!("isBanned" in chat)) chat.isBanned = false;
-        if (!("welcome" in chat)) chat.welcome = false;
-        if (!("detect" in chat)) chat.detect = false;
-        if (!("sWelcome" in chat)) chat.sWelcome = "";
-        if (!("sBye" in chat)) chat.sBye = "";
-        if (!("sPromote" in chat)) chat.sPromote = "";
-        if (!("sDemote" in chat)) chat.sDemote = "";
-        if (!("delete" in chat)) chat.delete = true;
+        if (!("antiDelete" in chat)) chat.antiDelete = true;
         if (!("antiLink" in chat)) chat.antiLink = false;
-        if (!("viewonce" in chat)) chat.viewonce = false;
-        if (!("captcha" in chat)) chat.captcha = false;
-        if (!("antiBotClone" in chat)) chat.antiBotClone = false;
+        if (!("antiSticker" in chat)) chat.antiSticker = false;
+        if (!("antiToxic" in chat)) chat.antiToxic = false;
+        if (!("detect" in chat)) chat.detect = false;
+        if (!("getmsg" in chat)) chat.getmsg = true;
+        if (!("isBanned" in chat)) chat.isBanned = false;
         if (!("nsfw" in chat)) chat.nsfw = false;
+        if (!("sBye" in chat)) chat.sBye = "";
+        if (!("sDemote" in chat)) chat.sDemote = "";
+        if (!("simi" in chat)) chat.simi = false;
+        if (!("sPromote" in chat)) chat.sPromote = "";
+        if (!("sWelcome" in chat)) chat.sWelcome = "";
+        if (!("useDocument" in chat)) chat.useDocument = false;
+        if (!("viewOnce" in chat)) chat.viewOnce = false;
+        if (!("viewStory" in chat)) chat.viewStory = false;
+        if (!("welcome" in chat)) chat.welcome = false;
+        if (!("chatbot" in chat)) chat.chatbot = false;
         if (!isNumber(chat.expired)) chat.expired = 0;
-        if (!("rules" in chat)) chat.rules = "";
       } else
         global.db.data.chats[m.chat] = {
-          isBanned: false,
-          welcome: false,
-          detect: false,
-          sWelcome: "",
-          sBye: "",
-          sPromote: "",
-          sDemote: "",
-          delete: true,
+          antiDelete: true,
           antiLink: false,
-          viewonce: false,
-          useDocument: true,
-          captcha: false,
-          antiBotClone: false,
-          nsfw: false,
+          antiSticker: false,
+          antiToxic: false,
+          detect: false,
           expired: 0,
-          rules: "",
+          getmsg: true,
+          isBanned: false,
+          nsfw: false,
+          sBye: "",
+          sDemote: "",
+          simi: false,
+          sPromote: "",
+          sticker: false,
+          sWelcome: "",
+          useDocument: false,
+          viewOnce: false,
+          viewStory: false,
+          welcome: false,
+          chatbot: false,
         };
-      var settings = global.db.data.settings[this.user.jid];
+
+      let settings = global.db.data.settings[this.user.jid];
       if (typeof settings !== "object")
         global.db.data.settings[this.user.jid] = {};
       if (settings) {
         if (!("self" in settings)) settings.self = false;
         if (!("autoread" in settings)) settings.autoread = false;
         if (!("restrict" in settings)) settings.restrict = false;
+        if (!("restartDB" in settings)) settings.restartDB = 0;
         if (!("status" in settings)) settings.status = 0;
-        if (!("solopv" in settings)) settings.solopv = false; // el bot responde solo por dm
-        if (!("sologp" in settings)) settings.sologp = false; // el bot responde solo en grupos
       } else
         global.db.data.settings[this.user.jid] = {
           self: false,
           autoread: false,
           restrict: false,
-          solopv: false,
-          sologp: false,
+          restartDB: 0,
           status: 0,
         };
     } catch (e) {
       console.error(e);
     }
     if (opts["nyimak"]) return;
-    if (!m.fromMe && opts["self"]) return;
-    if (settings && settings.solopv && m.chat.endsWith("g.us")) return;
-    if (settings.sologp && !m.chat.endsWith("g.us")) return;
-    //if (settings.sologp && !m.chat.endsWith('g.us') && !/jadibot|bebot|getcode|serbot|bots|stop|support|donate|off|on|s|tiktok|code|newcode|join/gim.test(m.text)) return
+    if (opts["pconly"] && m.chat.endsWith("g.us")) return;
+    if (opts["gconly"] && !m.chat.endsWith("g.us")) return;
     if (opts["swonly"] && m.chat !== "status@broadcast") return;
     if (typeof m.text !== "string") m.text = "";
-
-    let _user =
-      global.db.data && global.db.data.users && global.db.data.users[m.sender];
 
     const isROwner = [
       conn.decodeJid(global.conn.user.id),
@@ -177,8 +181,7 @@ export async function handler(chatUpdate) {
       isROwner ||
       global.prems
         .map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net")
-        .includes(m.sender) ||
-      _user.prem == true;
+        .includes(m.sender);
 
     if (opts["queque"] && m.text && !(isMods || isPrems)) {
       let queque = this.msgqueque,
@@ -190,12 +193,19 @@ export async function handler(chatUpdate) {
         await delay(time);
       }, time);
     }
+    if (
+      process.env.MODE &&
+      process.env.MODE.toLowerCase() === "private" &&
+      !(isROwner || isOwner)
+    )
+      return;
 
     if (m.isBaileys) return;
     m.exp += Math.ceil(Math.random() * 10);
 
     let usedPrefix;
-    //let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
+    let _user =
+      global.db.data && global.db.data.users && global.db.data.users[m.sender];
 
     const groupMetadata =
       (m.isGroup
@@ -209,7 +219,7 @@ export async function handler(chatUpdate) {
         : {}) || {}; // User Data
     const bot =
       (m.isGroup
-        ? participants.find((u) => conn.decodeJid(u.id) == this.user.jid)
+        ? participants.find((u) => conn.decodeJid(u.id) == conn.user.jid)
         : {}) || {}; // Your Data
     const isRAdmin = user?.admin == "superadmin" || false;
     const isAdmin = isRAdmin || user?.admin == "admin" || false; // Is User Admin?
@@ -232,18 +242,23 @@ export async function handler(chatUpdate) {
             __filename,
           });
         } catch (e) {
-          // if (typeof e === 'string') continue
+          // if (typeof e === "string") continue
           console.error(e);
-          /*for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
-                        let data = (await conn.onWhatsApp(jid))[0] || {}
-                        if (data.exists)
-                            m.reply(`*Plugin:* ${name}\n*Sender:* ${m.sender}\n*Chat:* ${m.chat}\n*Command:* ${m.text}\n\n${format(e)}.trim(), data.jid)
-                    }*/
+          for (let [jid] of global.owner.filter(
+            ([number, _, isDeveloper]) => isDeveloper && number,
+          )) {
+            let data = (await conn.onWhatsApp(jid))[0] || {};
+            if (data.exists)
+              m.reply(
+                `*🗂️ Plugin:* ${name}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Command:* ${m.text}\n\n\${format(e)}`.trim(),
+                data.jid,
+              );
+          }
         }
       }
       if (!opts["restrict"])
         if (plugin.tags && plugin.tags.includes("admin")) {
-          // global.dfail('restrict', m, this)
+          // global.dfail("restrict", m, this)
           continue;
         }
       const str2Regex = (str) => str.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
@@ -348,7 +363,7 @@ export async function handler(chatUpdate) {
           continue;
         }
         if (plugin.premium && !isPrems) {
-          // Usuarios Premium
+          // Premium
           fail("premium", m, this);
           continue;
         }
@@ -376,26 +391,21 @@ export async function handler(chatUpdate) {
           continue;
         }
         m.isCommand = true;
-        let xp = "exp" in plugin ? parseInt(plugin.exp) : 17; // Ganancia de XP por comando
-        if (xp > 200)
-          m.reply("chirrido -_-"); // Hehehe
+        let xp = "exp" in plugin ? parseInt(plugin.exp) : 17; // XP Earning per command
+        if (xp > 200) m.reply("cheater");
         else m.exp += xp;
         if (
           !isPrems &&
-          plugin.diamond &&
-          global.db.data.users[m.sender].diamond < plugin.diamond * 1
+          plugin.credit &&
+          global.db.data.users[m.sender].credit < plugin.credit * 1
         ) {
-          this.reply(
-            m.chat,
-            `✳️ Tus diamantes se agotaron\nuse el siguiente comando para comprar más diamantes\n\n*${usedPrefix}buy*`,
-            m,
-          );
-          continue; // Limit habis
+          this.reply(m.chat, `🟥 ɴᴏ ᴛɪᴇɴᴇꜱ ꜱᴜꜰɪᴄɪᴇɴᴛᴇ ᴏʀᴏ`, m);
+          continue; // Gold finished
         }
         if (plugin.level > _user.level) {
           this.reply(
             m.chat,
-            `✳️ nivel requerido ${plugin.level} para usar este comando. \nTu nivel ${_user.level}`,
+            `🟥 ɴɪᴠᴇʟ ʀᴇQᴜᴇʀɪᴅᴏ ${plugin.level} ᴘᴀʀᴀ ᴜꜱᴀʀ ᴇꜱᴛᴇ ᴄᴏᴍᴀɴᴅᴏ. \nTu nivel ${_user.level}`,
             m,
           );
           continue; // If the level has not been reached
@@ -425,7 +435,7 @@ export async function handler(chatUpdate) {
         };
         try {
           await plugin.call(this, m, extra);
-          if (!isPrems) m.diamond = m.diamond || plugin.diamond || false;
+          if (!isPrems) m.credit = m.credit || plugin.credit || false;
         } catch (e) {
           // Error occured
           m.error = e;
@@ -434,6 +444,17 @@ export async function handler(chatUpdate) {
             let text = format(e);
             for (let key of Object.values(global.APIKeys))
               text = text.replace(new RegExp(key, "g"), "#HIDDEN#");
+            if (e.name)
+              for (let [jid] of global.owner.filter(
+                ([number, _, isDeveloper]) => isDeveloper && number,
+              )) {
+                let data = (await this.onWhatsApp(jid))[0] || {};
+                if (data.exists)
+                  return m.reply(
+                    `*🗂️ Plugin:* ${m.plugin}\n*👤 Sender:* ${m.sender}\n*💬 Chat:* ${m.chat}\n*💻 Command:* ${usedPrefix}${command} ${args.join(" ")}\n📄 *Error Logs:*\n\n${text}`.trim(),
+                    data.jid,
+                  );
+              }
             m.reply(text);
           }
         } finally {
@@ -445,7 +466,7 @@ export async function handler(chatUpdate) {
               console.error(e);
             }
           }
-          if (m.diamond) m.reply(`Utilizaste *${+m.diamond}* 💎`);
+          if (m.credit) m.reply(`You used *${+m.credit}*`);
         }
         break;
       }
@@ -463,7 +484,9 @@ export async function handler(chatUpdate) {
     if (m) {
       if (m.sender && (user = global.db.data.users[m.sender])) {
         user.exp += m.exp;
-        user.diamond -= m.diamond * 1;
+        user.credit -= m.credit * 1;
+        user.bank -= m.bank;
+        user.chicken -= m.chicken;
       }
 
       let stat;
@@ -494,180 +517,276 @@ export async function handler(chatUpdate) {
 
     try {
       if (!opts["noprint"])
-        await (await import(`./lib/print.js`)).default(m, this);
+        await (await import("./lib/print.js")).default(m, this);
     } catch (e) {
       console.log(m, m.quoted, e);
     }
-    if (opts["autoread"])
-      await this.chatRead(
-        m.chat,
-        m.isGroup ? m.sender : undefined,
-        m.id || m.key.id,
-      ).catch(() => {});
+    if (process.env.autoRead) await conn.readMessages([m.key]);
+    if (process.env.statusview && m.key.remoteJid === "status@broadcast")
+      await conn.readMessages([m.key]);
   }
 }
 
 /**
  * Handle groups participants update
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
  */
 export async function participantsUpdate({ id, participants, action }) {
-  if (opts["self"]) return;
-  // if (id in conn.chats) return // First login will spam
-  /*if (this.isInit)
-        return*/
+  if (opts["self"] || this.isInit) return;
   if (global.db.data == null) await loadDatabase();
-  let chat = global.db.data.chats[id] || {};
-  let text = "";
+  const chat = global.db.data.chats[id] || {};
+  const emoji = {
+    promote: "👤👑",
+    demote: "👤🙅‍♂️",
+    welcome: "👋",
+    bye: "👋",
+    bug: "🐛",
+    mail: "📮",
+    owner: "👑",
+  };
+
   switch (action) {
     case "add":
+      if (chat.welcome) {
+        let groupMetadata =
+          (await this.groupMetadata(id)) || (conn.chats[id] || {}).metadata;
+        for (let user of participants) {
+          let pp, ppgp;
+          try {
+            pp = await this.profilePictureUrl(user, "image");
+            ppgp = await this.profilePictureUrl(id, "image");
+          } catch (error) {
+            console.error(`Error retrieving profile picture: ${error}`);
+            pp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
+            ppgp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
+          } finally {
+            let text = (
+              chat.sWelcome ||
+              this.welcome ||
+              conn.welcome ||
+              "Welcome, @user"
+            )
+              .replace("@group", await this.getName(id))
+              .replace("@desc", groupMetadata.desc?.toString() || "error")
+              .replace("@user", "@" + user.split("@")[0]);
+
+            let nthMember = groupMetadata.participants.length;
+            let secondText = `Welcome, ${await this.getName(user)}, our ${nthMember}th member`;
+
+            let welcomeApiUrl = `https://telegra.ph/file/72084f63fee4d5152b2f4.jpg?username=${encodeURIComponent(
+              await this.getName(user),
+            )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
+              ppgp,
+            )}&memberCount=${encodeURIComponent(
+              nthMember.toString(),
+            )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
+              "https://telegra.ph/file/861d4dde6b2fd5f808183.jpg",
+            )}`;
+
+            try {
+              let welcomeResponse = await fetch(welcomeApiUrl);
+              let welcomeBuffer = await welcomeResponse.buffer();
+
+              this.sendMessage(id, {
+                text: text,
+                contextInfo: {
+                  mentionedJid: [user],
+                  externalAdReply: {
+                    title: "ʀᴇᴍ-ʙᴏᴛ",
+                    body: "Bienvenido a esta Familia disfruta tu estadia",
+                    thumbnailUrl: welcomeApiUrl,
+                    sourceUrl:
+                      "https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5",
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                  },
+                },
+              });
+            } catch (error) {
+              console.error(`Error generating welcome image: ${error}`);
+            }
+          }
+        }
+      }
+      break;
+
     case "remove":
       if (chat.welcome) {
         let groupMetadata =
           (await this.groupMetadata(id)) || (conn.chats[id] || {}).metadata;
         for (let user of participants) {
-          let pp =
-            "https://i.ibb.co/1LKVw1n/ff2d50038c4c4dfcfe5bcd2d0a8e85a7.jpg";
-          let ppgp =
-            "https://i.ibb.co/1LKVw1n/ff2d50038c4c4dfcfe5bcd2d0a8e85a7.jpg";
+          let pp, ppgp;
           try {
             pp = await this.profilePictureUrl(user, "image");
             ppgp = await this.profilePictureUrl(id, "image");
+          } catch (error) {
+            console.error(`Error retrieving profile picture: ${error}`);
+            pp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
+            ppgp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
           } finally {
-            text = (
-              action === "add"
-                ? (
-                    chat.sWelcome ||
-                    this.welcome ||
-                    conn.welcome ||
-                    "Bienvenido, @user"
-                  )
-                    .replace("@group", await this.getName(id))
-                    .replace(
-                      "@desc",
-                      groupMetadata.desc?.toString() || "Desconocido",
-                    )
-                : chat.sBye || this.bye || conn.bye || "Adiós, @user"
+            let text = (
+              chat.sBye ||
+              this.bye ||
+              conn.bye ||
+              "HOLA, @user"
             ).replace("@user", "@" + user.split("@")[0]);
 
-            let wel = API(
-              "fgmods",
-              "/api/welcome",
-              {
-                username: await this.getName(user),
-                groupname: await this.getName(id),
-                groupicon: ppgp,
-                membercount: groupMetadata.participants.length,
-                profile: pp,
-                background:
-                  "https://i.ibb.co/1LKVw1n/ff2d50038c4c4dfcfe5bcd2d0a8e85a7.jpg",
-              },
-              "apikey",
-            );
+            let nthMember = groupMetadata.participants.length;
+            let secondText = `Goodbye, our ${nthMember}th group member`;
 
-            let lea = API(
-              "fgmods",
-              "/api/goodbye2",
-              {
-                username: await this.getName(user),
-                groupname: await this.getName(id),
-                groupicon: ppgp,
-                membercount: groupMetadata.participants.length,
-                profile: pp,
-                background:
-                  "https://i.ibb.co/1LKVw1n/ff2d50038c4c4dfcfe5bcd2d0a8e85a7.jpg",
-              },
-              "apikey",
-            );
+            let leaveApiUrl = `https://telegra.ph/file/e657782b6eb232c9b2d01.png?username=${encodeURIComponent(
+              await this.getName(user),
+            )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
+              ppgp,
+            )}&memberCount=${encodeURIComponent(
+              nthMember.toString(),
+            )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
+              "https://telegra.ph/file/cf6819f9c74de2f148e92.jpg",
+            )}`;
 
-            this.sendFile(
-              id,
-              action === "add" ? wel : lea,
-              "pp.jpg",
-              text,
-              null,
-              false,
-              { mentions: [user] },
-            );
-            //this.sendFile(id, pp, 'pp.jpg', text, null, false, { mentions: [user] })
-            /*this.sendButton(id, text, mssg.ig, action === 'add' ? wel : lea, [
-                             [(action == 'add' ? '⦙☰ MENU' : 'BYE'), (action == 'add' ? '/help' : 'khajs')], 
-                             [(action == 'add' ? '⏍ RULES' : 'ッ'), (action == 'add' ? '/rules' : ' ')] ], null, {mentions: [user]})*/
+            try {
+              let leaveResponse = await fetch(leaveApiUrl);
+              let leaveBuffer = await leaveResponse.buffer();
+
+              this.sendMessage(id, {
+                text: text,
+                contextInfo: {
+                  mentionedJid: [user],
+                  externalAdReply: {
+                    title: "ʀᴇᴍ-ʙᴏᴛ",
+                    body: "Adios del grupo que te valla bien",
+                    thumbnailUrl: leaveApiUrl,
+                    sourceUrl:
+                      "https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5",
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                  },
+                },
+              });
+            } catch (error) {
+              console.error(`Error generating leave image: ${error}`);
+            }
           }
         }
       }
       break;
     case "promote":
-      text =
+      const promoteText = (
         chat.sPromote ||
         this.spromote ||
         conn.spromote ||
-        "@user ahora es administrador";
-    case "demote":
-      let pp = await this.profilePictureUrl(participants[0], "image").catch(
-        (_) => "https://i.ibb.co/1ZxrXKJ/avatar-contact.jpg",
-      );
-      if (!text)
-        text =
-          chat.sDemote ||
-          this.sdemote ||
-          conn.sdemote ||
-          "@user ya no es administrador";
-      text = text.replace("@user", "@" + participants[0].split("@")[0]);
-      if (chat.detect)
-        this.sendFile(id, pp, "pp.jpg", text, null, false, {
-          mentions: this.parseMention(text),
+        `${emoji.promote} @user *Ahora es administrador*`
+      ).replace("@user", "@" + participants[0].split("@")[0]);
+      if (chat.detect) {
+        this.sendMessage(id, {
+          text: promoteText.trim(),
+          mentions: [participants[0]],
         });
-      //this.sendMessage(id, { text, mentions: this.parseMention(text) })
+      }
+      break;
+    case "demote":
+      const demoteText = (
+        chat.sDemote ||
+        this.sdemote ||
+        conn.sdemote ||
+        `${emoji.demote} @user *Degradado de administrador*`
+      ).replace("@user", "@" + participants[0].split("@")[0]);
+      if (chat.detect) {
+        this.sendMessage(id, {
+          text: demoteText.trim(),
+          mentions: [participants[0]],
+        });
+      }
       break;
   }
 }
 
 /**
  * Handle groups update
- * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
  */
 export async function groupsUpdate(groupsUpdate) {
   if (opts["self"]) return;
   for (const groupUpdate of groupsUpdate) {
     const id = groupUpdate.id;
     if (!id) continue;
-    let chats = global.db.data.chats[id],
-      text = "";
-    if (!chats?.detect) continue;
-    if (groupUpdate.desc)
+    let chats = global.db.data.chats[id] || {};
+    const emoji = {
+      desc: "📝",
+      subject: "📌",
+      icon: "🖼️",
+      revoke: "🔗",
+      announceOn: "🔒",
+      announceOff: "🔓",
+      restrictOn: "🚫",
+      restrictOff: "✅",
+    };
+
+    let text = "";
+    if (!chats.detect) continue;
+
+    if (groupUpdate.desc) {
       text = (
         chats.sDesc ||
         this.sDesc ||
         conn.sDesc ||
-        "Descripción cambiada a \n@desc"
+        `*${emoji.desc} La descripción ha sido cambiada a*\n@desc`
       ).replace("@desc", groupUpdate.desc);
-    if (groupUpdate.subject)
+    } else if (groupUpdate.subject) {
       text = (
         chats.sSubject ||
         this.sSubject ||
         conn.sSubject ||
-        "El nombre del grupo cambió a \n@group"
-      ).replace("@group", groupUpdate.subject);
-    if (groupUpdate.icon)
+        `*${emoji.subject} El tema ha sido cambiado a*\n@subject`
+      ).replace("@subject", groupUpdate.subject);
+    } else if (groupUpdate.icon) {
       text = (
         chats.sIcon ||
         this.sIcon ||
         conn.sIcon ||
-        "El icono del grupo cambió a"
+        `*${emoji.icon} El icono ha sido cambiado.*`
       ).replace("@icon", groupUpdate.icon);
-    if (groupUpdate.revoke)
+    } else if (groupUpdate.revoke) {
       text = (
         chats.sRevoke ||
         this.sRevoke ||
         conn.sRevoke ||
-        "El enlace del grupo cambia a\n@revoke"
+        `*${emoji.revoke} El enlace del grupo ha sido cambiado a*\n@revoke`
       ).replace("@revoke", groupUpdate.revoke);
+    } else if (groupUpdate.announce === true) {
+      text =
+        chats.sAnnounceOn ||
+        this.sAnnounceOn ||
+        conn.sAnnounceOn ||
+        `*${emoji.announceOn} El grupo ya está cerrado!*`;
+    } else if (groupUpdate.announce === false) {
+      text =
+        chats.sAnnounceOff ||
+        this.sAnnounceOff ||
+        conn.sAnnounceOff ||
+        `*${emoji.announceOff} ¡El grupo ya está abierto!*`;
+    } else if (groupUpdate.restrict === true) {
+      text =
+        chats.sRestrictOn ||
+        this.sRestrictOn ||
+        conn.sRestrictOn ||
+        `*${emoji.restrictOn} El grupo ahora está restringido solo a los participantes!*`;
+    } else if (groupUpdate.restrict === false) {
+      text =
+        chats.sRestrictOff ||
+        this.sRestrictOff ||
+        conn.sRestrictOff ||
+        `*${emoji.restrictOff} El grupo ahora está restringido solo a administradores!*`;
+    }
+
     if (!text) continue;
     await this.sendMessage(id, { text, mentions: this.parseMention(text) });
   }
 }
 
+/**
+Delete Chat
+*/
 export async function deleteUpdate(message) {
   try {
     const { fromMe, id, participant } = message;
@@ -675,53 +794,127 @@ export async function deleteUpdate(message) {
     let msg = this.serializeM(this.loadMessage(id));
     if (!msg) return;
     let chat = global.db.data.chats[msg.chat] || {};
-    if (chat.delete) return;
+    if (chat.antiDelete) return;
     await this.reply(
       msg.chat,
       `
-≡ Borró un mensaje  
-┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-▢ *Nombre :* @${participant.split`@`[0]} 
-└─────────────
-Para desactivar esta función, escriba 
-*/off antidelete*
-*.enable delete*
-`.trim(),
+          ≡ Borro un Mensaje 
+          ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
+          ▢ *Number :* @${participant.split`@`[0]} 
+          └─────────────
+          Para Desactivarlo , PRESIONE
+          */off antidelete*
+          *.enable delete*
+          `.trim(),
       msg,
       {
         mentions: [participant],
       },
     );
-    this.copyNForward(msg.chat, msg).catch((e) => console.log(e, msg));
+    this.copyNForward(msg.chat, msg, false).catch((e) => console.log(e, msg));
   } catch (e) {
     console.error(e);
   }
 }
 
-global.mssg = {
-  rownerH: "Este comando puede ser usado por el creador",
-  ownerH: "Este plugin debe ser usador por un owner",
-  modsH: "Este plugin debe ser usando por mods",
-  premH: "Solo para usuarios premium",
-  groupH: "Este comando solo sirve para grupos",
-  privateH: "Este Comando solo para el privado",
-  adminH: "Este comando es solo para administradores",
-  botAdmin: "El bot debe ser admin para poder usarlo",
-  unregH: "Debes estar registrado para usarlo",
-};
+/*
+Polling Update 
+*/
+export async function pollUpdate(message) {
+  for (const { key, update } of message) {
+    if (message.pollUpdates) {
+      const pollCreation = await this.serializeM(this.loadMessage(key.id));
+      if (pollCreation) {
+        const pollMessage = await getAggregateVotesInPollMessage({
+          message: pollCreation.message,
+          pollUpdates: pollCreation.pollUpdates,
+        });
+        message.pollUpdates[0].vote = pollMessage;
 
+        await console.log(pollMessage);
+        this.appenTextMessage(
+          message,
+          message.pollUpdates[0].vote ||
+            pollMessage.filter((v) => v.voters.length !== 0)[0]?.name,
+          message.message,
+        );
+      }
+    }
+  }
+}
+
+/*
+Update presence
+*/
+export async function presenceUpdate(presenceUpdate) {
+  const id = presenceUpdate.id;
+  const nouser = Object.keys(presenceUpdate.presences);
+  const status = presenceUpdate.presences[nouser]?.lastKnownPresence;
+  const user = global.db.data.users[nouser[0]];
+
+  if (user?.afk && status === "composing" && user.afk > -1) {
+    if (user.banned) {
+      user.afk = -1;
+      user.afkReason = "Usuario prohibido Afk";
+      return;
+    }
+
+    await console.log("AFK");
+    const username = nouser[0].split("@")[0];
+    const timeAfk = new Date() - user.afk;
+    const caption = `\n@${username} ha dejado de estar AFK y actualmente está escribiendo.\n\nRazon: ${
+      user.afkReason ? user.afkReason : "No Reason"
+    }\nFor the past ${timeAfk.toTimeString()}.\n`;
+
+    this.reply(id, caption, null, {
+      mentions: this.parseMention(caption),
+    });
+    user.afk = -1;
+    user.afkReason = "";
+  }
+}
+
+/**
+dfail
+*/
 global.dfail = (type, m, conn) => {
-  let msg = {
-    rowner: `👑 ${mssg.rownerH}`,
-    owner: `🔱 ${mssg.ownerH}`,
-    mods: `🔰 ${mssg.modsH}`,
-    premium: `💠 ${mssg.premH}`,
-    group: `⚙️ ${mssg.groupH}`,
-    private: `📮 ${mssg.privateH}`,
-    admin: `🛡️ ${mssg.adminH}`,
-    botAdmin: `💥 ${mssg.botAdmin}`,
-    unreg: `📇 ${mssg.unregH}`,
-    restrict: "🔐 Esta característica está *deshabilitada*",
+  const userTag = `👋 Hola :3 *@${m.sender.split("@")[0]}*, `;
+  const emoji = {
+    general: "⚙️",
+    owner: "👑",
+    moderator: "🛡️",
+    premium: "💎",
+    group: "👥",
+    private: "📱",
+    admin: "👤",
+    botAdmin: "🤖",
+    unreg: "🔒",
+    nsfw: "🔞",
+    rpg: "🎮",
+    restrict: "⛔",
+  };
+
+  const msg = {
+    owner: `*${emoji.owner} Consulta del propietario*\n
+  ${userTag} Este comando sólo puede ser utilizado por 𝘾𝙪𝙧𝙞!`,
+    moderator: `*${emoji.moderator} Consulta del Moderador*\n
+  ${userTag} Este comando sólo puede ser utilizado por 𝙈𝙤𝙙𝙚𝙧𝙖𝙙𝙤𝙧𝙚𝙨!`,
+    premium: `*${emoji.premium} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙋𝙧𝙚𝙢𝙞𝙪𝙢*\n
+  ${userTag} 𝙀𝙨𝙩𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙚𝙨 𝙨ó𝙡𝙤 𝙥𝙖𝙧𝙖 𝙈𝙞𝙚𝙢𝙗𝙧𝙤𝙨 𝙋𝙧𝙚𝙢𝙞𝙪𝙢!`,
+    group: `*${emoji.group} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙂𝙧𝙪𝙥𝙤𝙨*\n
+  ${userTag} Este comando solo puede ser usado en 𝙂𝙧𝙪𝙥𝙤𝙨!`,
+    private: `*${emoji.private} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙥𝙧𝙞𝙫𝙖𝙙𝙖*\n
+  ${userTag} Este comando sólo se puede utilizar en 𝘾𝙝𝙖𝙩 𝙋𝙧𝙞𝙫𝙖𝙙𝙤!`,
+    admin: `*${emoji.admin} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚𝙡 𝙖𝙙𝙢𝙞𝙣𝙞𝙨𝙩𝙧𝙖𝙙𝙤𝙧*\n
+  ${userTag} Este comando es sólo para 𝘼𝙙𝙢𝙞𝙣𝙞𝙩𝙧𝙖𝙙𝙤𝙧𝙚𝙨!`,
+    botAdmin: `*${emoji.botAdmin} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚𝙡 𝙖𝙙𝙢𝙞𝙣𝙞𝙨𝙩𝙧𝙖𝙙𝙤𝙧 𝙙𝙚𝙡 𝙗𝙤𝙩*\n
+  ${userTag} Haz que el bot sea 𝘼𝙙𝙢𝙞𝙣 para que use este comando!`,
+    unreg: `*${emoji.unreg} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙤*\n
+  ${userTag} Regístrese para utilizar esta función escribiendo:\n\n*#register nombre.años*\n\nEjemplo: *#register ${m.name}.18*!`,
+    nsfw: `*${emoji.nsfw} 𝙉𝙎𝙁𝙒 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖𝙨*\n
+  ${userTag} NSFW no está activo. Comuníquese con el administrador del grupo para habilitar esta función!`,
+    restrict: `*${emoji.restrict} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚 𝙛𝙪𝙣𝙘𝙞ó𝙣 𝙞𝙣𝙖𝙘𝙩𝙞𝙫𝙖*\n
+  ${userTag} Esta característica esta 𝘿𝙚𝙨𝙖𝙘𝙩𝙞𝙫𝙖𝙙𝙤!`,
   }[type];
   if (msg) return m.reply(msg);
 };
@@ -729,6 +922,6 @@ global.dfail = (type, m, conn) => {
 let file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
   unwatchFile(file);
-  console.log(chalk.magenta("✅ Se actualizó 'handler.js'"));
+  console.log(chalk.redBright("Update handler.js"));
   if (global.reloadHandler) console.log(await global.reloadHandler());
 });
