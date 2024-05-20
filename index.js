@@ -5,6 +5,10 @@ import figlet from "figlet";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import pino from 'pino';
+import pkg from '@whiskeysockets/baileys';
+
+const { makeWASocket, useSingleFileAuthState, DisconnectReason } = pkg;
 
 function printBanner(text, color) {
   figlet(
@@ -56,7 +60,7 @@ async function start(file) {
   });
 
   p.on("message", (data) => {
-    console.log(chalk.green(`🤖 ENVIANDO MENU :3 ${data}`));
+    console.log(chalk.bgCyanBright(` ENVIANDO MENU :3 ${data}`));
     switch (data) {
       case "reset":
         p.kill();
@@ -108,8 +112,8 @@ async function start(file) {
 
 start("Curi.js");
 
-process.on("unhandledRejection", () => {
-  console.error(chalk.red(`❌ El bot detecto un error. Reinicio requerido`));
+process.on("unhandledRejection", (reason, promise) => {
+  console.error(chalk.red('❌ Unhandled Rejection at:', promise, 'reason:', reason));
   start("Curi.js");
 });
 
@@ -119,11 +123,41 @@ process.on("exit", (code) => {
   start("Curi.js");
 });
 
-printBanner("REM - BOT 😊", "cyan");
-printBanner("Un bot creado por Curi 😄", "cyan");
+printBanner("REM - BOT ", "cyan");
+printBanner("BY GABRIEL :)", "green");
 
 console.log(chalk.yellow("==============================================="));
 console.log(chalk.yellow("🔥 REM---BOT BY Gabriel Curi! 🔥"));
 console.log(chalk.yellow("==============================================="));
 console.log(chalk.yellow("🚀 VAMOSSS CON TODO :3 🚀"));
 console.log(chalk.yellow("==============================================="));
+
+async function connectToWhatsApp() {
+  const { state, saveCreds } = await useSingleFileAuthState('./auth_info.json');
+  const sock = makeWASocket({
+    logger: pino({ level: 'silent' }),
+    auth: state,
+    printQRInTerminal: true
+  });
+
+  sock.ev.on('connection.update', (update) => {
+    const { connection, lastDisconnect } = update;
+    if (connection === 'close') {
+      const shouldReconnect = lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut;
+      if (shouldReconnect) {
+        console.log(chalk.greenBright("🔄 Reconectando a WhatsApp..."));
+        connectToWhatsApp();
+      } else {
+        console.log(chalk.red("Conexion cerrada y no pudimos reconectar"));
+      }
+    } else if (connection === 'open') {
+      console.log(chalk.green('Conexion abierta'));
+    }
+  });
+
+  sock.ev.on('creds.update', saveCreds);
+
+  return sock;
+}
+
+connectToWhatsApp().catch(err => console.log('error inesperado: ' + err));
