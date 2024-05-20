@@ -5,8 +5,8 @@ import figlet from "figlet";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import pino from 'pino';
-import pkg from '@whiskeysockets/baileys';
+import pino from "pino";
+import pkg from "@whiskeysockets/baileys";
 
 const { makeWASocket, useSingleFileAuthState, DisconnectReason } = pkg;
 
@@ -81,7 +81,7 @@ async function start(file) {
 
     fs.watchFile(args[0], () => {
       fs.unwatchFile(args[0]);
-      start("Curi.js");
+      start("remcham.js");
     });
   });
 
@@ -89,7 +89,7 @@ async function start(file) {
     console.error(chalk.red(`❌ Error: ${err}`));
     p.kill();
     isRunning = false;
-    start("Curi.js");
+    start("remcham.js");
   });
 
   const pluginsFolder = path.join(path.dirname(currentFilePath), "plugins");
@@ -110,17 +110,19 @@ async function start(file) {
   });
 }
 
-start("Curi.js");
+start("remcham.js");
 
 process.on("unhandledRejection", (reason, promise) => {
-  console.error(chalk.red('❌ Unhandled Rejection at:', promise, 'reason:', reason));
-  start("Curi.js");
+  console.error(
+    chalk.red("❌ Unhandled Rejection at:", promise, "reason:", reason),
+  );
+  start("remcham.js");
 });
 
 process.on("exit", (code) => {
   console.error(chalk.red(`❌ Salida por codigo: ${code}`));
   console.error(chalk.red(`🔄 REM-BOT REINICIANDO...`));
-  start("Curi.js");
+  start("remcham.js");
 });
 
 printBanner("REM - BOT ", "cyan");
@@ -133,31 +135,32 @@ console.log(chalk.yellow("🚀 VAMOSSS CON TODO :3 🚀"));
 console.log(chalk.yellow("==============================================="));
 
 async function connectToWhatsApp() {
-  const { state, saveCreds } = await useSingleFileAuthState('./auth_info.json');
+  const { state, saveCreds } = await useSingleFileAuthState("./auth_info.json");
   const sock = makeWASocket({
-    logger: pino({ level: 'silent' }),
+    logger: pino({ level: "silent" }),
     auth: state,
-    printQRInTerminal: true
+    printQRInTerminal: true,
   });
 
-  sock.ev.on('connection.update', (update) => {
+  sock.ev.on("connection.update", (update) => {
     const { connection, lastDisconnect } = update;
-    if (connection === 'close') {
-      const shouldReconnect = lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut;
+    if (connection === "close") {
+      const shouldReconnect =
+        lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut;
       if (shouldReconnect) {
         console.log(chalk.greenBright("🔄 Reconectando a WhatsApp..."));
         connectToWhatsApp();
       } else {
         console.log(chalk.red("Conexion cerrada y no pudimos reconectar"));
       }
-    } else if (connection === 'open') {
-      console.log(chalk.green('Conexion abierta'));
+    } else if (connection === "open") {
+      console.log(chalk.green("Conexion abierta"));
     }
   });
 
-  sock.ev.on('creds.update', saveCreds);
+  sock.ev.on("creds.update", saveCreds);
 
   return sock;
 }
 
-connectToWhatsApp().catch(err => console.log('error inesperado: ' + err));
+connectToWhatsApp().catch((err) => console.log("error inesperado: " + err));

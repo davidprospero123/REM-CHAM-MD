@@ -1,68 +1,11 @@
 {
-  "name": "whatsapp-bot (REM-BOT)",
-  "description": " Whatsapp bot.",
-  "keywords": ["whatsapp bot"],
-  "repository": "https://github.com/davidprospero123/REM-CHAM-MD",
-  "stack": "container",
-  "env": {
-    "DATABASE_URL": {
-      "description": "your mongodb database url",
-      "required": false,
-      "value": ""
-    },
-    "SESSION_ID": {
-      "description": "your session id",
-      "required": true,
-      "value": ""
-    },
-    "MODE": {
-      "description": "mode public or private",
-      "required": true,
-      "value": "public"
-    },
-    "PREFIX": {
-      "description": "put any one symbol here except @ and + , leave it Blank if you want to use multiple prefix",
-      "required": false,
-      "value": ""
-    },
-    "HKEY": {
-      "description": "Put your Heroku api key Here , Get one from here https://dashboard.heroku.com/account",
-      "required": true,
-      "value": ""
-    },
-    "HAPP": {
-      "description": "Put the Heroku app name, same as above entered",
-      "required": true,
-      "value": ""
-    },
-    "statusview": {
-      "description": "make it true if you want bot to view status",
-      "required": false,
-      "value": ""
-    },
-    "autoRead": {
-      "description": "make it true if you want bot to read messages",
-      "required": false,
-      "value": ""
-    },
-    "REMOVEBG_KEY": {
-      "description": "your RemoveBg api key",
-      "required": false,
-      "value": ""
-    }
+  "name": "REM-CHAM",
+  "displayName": "REM-CHAM",
+  "description": "Un bot avanzado para WhatsApp.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidprospero123/REM-CHAM-MD"
   },
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
-    {
-      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    },
-    {
-      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
-    }
-  ]
+  "logo": "https://raw.githubusercontent.com/davidprospero123/REM-CHAM-MD/main/logo.jpg",
+  "keywords": ["rem-bot"]
 }
