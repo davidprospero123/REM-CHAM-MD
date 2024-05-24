@@ -33,6 +33,6 @@ let handler = async (m, { conn, text }) => {
 };
 handler.help = ["pinterestsearch"];
 handler.tags = ["search"];
-handler.command = ["pinterest", "pintsearch"];
+handler.command = ["pinterest2", "pintsearch"];
 handler.register = true;
 export default handler;
