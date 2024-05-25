@@ -691,79 +691,250 @@ const choice = m.text.trim();
 
 if (choice === "1") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/625c9ff019e9636ad1de1.jpg' },
-      caption: botmenu
+      caption: botmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "2") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d8535031e1807bf0969df.jpg' },
-      caption: ownermenu
+      caption: ownermenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "3") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/77ea091931549913d7f4d.jpg' },
-      caption: groupmenu
+      caption: groupmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "4") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/3fd1dfbdcb0b8829f0c36.jpg' },
-      caption: funmenu
+      caption: funmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "5") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: reactmenu
+      caption: reactmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "6") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/4bf6202c1fc9d8510cd86.jpg' },
-      caption: dlmenu
+      caption: dlmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "7") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/22cfacba51062930f9070.jpg' },
-      caption: gamemenu
+      caption: gamemenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "8") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: logomenu
+      caption: logomenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "9") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: stickermenu
+      caption: stickermenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "10") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: audiomenu
+      caption: audiomenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "11") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: newsmenu
+      caption: newsmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "12") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: economy
+      caption: economy,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "13") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: animemenu
+      caption: animemenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "14") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/5e1674f1f89e742ee7ccb.jpg' },
-      caption: nsfwmenu
+      caption: nsfwmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "15") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/1465f362a248888d89674.jpg' },
-      caption: toolsmenu
+      caption: toolsmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "16") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6c4f644b526bb2c9486df.jpg' },
-      caption: aimenu
+      caption: aimenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else if (choice === "17") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/861d4dde6b2fd5f808183.jpg' },
-      caption: pluginmenu
+      caption: pluginmenu,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
         } else if (choice === "18") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/7e753e455c844c0c087e5.jpg' },
-      caption: serbot
+      caption: serbot,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
          } else if (choice === "19") {
       await conn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/f890e82eec9e56542c9f4.jpg' },
-      caption: imganime
+      caption: imganime,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363299269381797@newsletter',
+          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          serverMessageId: -1,
+        },
+      }
     }, { quoted:fcontact });
     } else {
       m.reply('𝙽𝙾 𝙴𝚂 𝚄𝙽 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙴𝙽𝚅𝙸𝙰 𝚄𝙽 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙼𝙴𝙽𝚄.');
