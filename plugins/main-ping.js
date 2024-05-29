@@ -3,7 +3,7 @@ import speed from 'performance-now'
 
 let handler = async (m, { conn }) => {
 
-  let pingMsg = await conn.sendMessage(m.chat, {text: 'Pinging...'})
+  let pingMsg = await conn.sendMessage(m.chat, {text: '𝙲𝚊𝚛𝚐𝚊𝚗𝚍𝚘 𝙿𝚒𝚗𝚐...'})
 
   let timestamp = speed()
 
@@ -16,7 +16,7 @@ let handler = async (m, { conn }) => {
         key: pingMsg.key,
         type: 14,
         editedMessage: {
-          conversation: `Pong! Latencia: ${latency} ms` 
+          conversation: `*𝙼𝚒 𝙿𝚒𝚗𝚐 𝙴𝚜 𝙳𝚎:* ${latency} _𝚖𝚜_` 
         }
       }
     }, {})
