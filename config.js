@@ -12,7 +12,7 @@ import axios from 'axios';
 // Variables globales
 // ╰─────────────────────────────────────────────╮
 global.owner = [
-  ['51951815121', 'CURI', true], // Mantener este numero para el reporte de los errores
+  ['51913091648', 'CURI', true], // Mantener este numero para el reporte de los errores
   ['5xxxxxxxxxx', 'Nose', true], // Ponga tu número para ser moderador
   ['']
 ];
