@@ -2,11 +2,11 @@ import { smsg } from "./lib/simple.js";
 import { format } from "util";
 import { fileURLToPath } from "url";
 import path, { join } from "path";
-import { unwatchFile, watchFile, readFileSync } from "fs";
+import { unwatchFile, watchFile } from "fs";
 import chalk from "chalk";
 import fetch from "node-fetch";
+import Pino from "pino";
 
-import { WelcomeLeave } from "./lib/welcome.js";
 /**
  * @type {import("@whiskeysockets/baileys")}
  */
@@ -27,7 +27,6 @@ const delay = (ms) =>
 const { getAggregateVotesInPollMessage, makeInMemoryStore } = await (
   await import("@whiskeysockets/baileys")
 ).default;
-import Pino from "pino";
 const store = makeInMemoryStore({
   logger: Pino().child({
     level: "fatal",
@@ -71,7 +70,7 @@ export async function handler(chatUpdate) {
         if (!("banned" in user)) user.banned = false;
         if (!isNumber(user.warn)) user.warn = 0;
         if (!isNumber(user.level)) user.level = 0;
-        if (!("role" in user)) user.role = "Tadpole";
+        if (!("role" in user)) user.role = "NUEVO";
         if (!("autolevelup" in user)) user.autolevelup = false;
       } else {
         global.db.data.users[m.sender] = {
@@ -89,7 +88,7 @@ export async function handler(chatUpdate) {
           banned: false,
           warn: 0,
           level: 0,
-          role: "Tadpole",
+          role: "Nuevo",
           autolevelup: false,
         };
       }
@@ -399,13 +398,13 @@ export async function handler(chatUpdate) {
           plugin.credit &&
           global.db.data.users[m.sender].credit < plugin.credit * 1
         ) {
-          this.reply(m.chat, `🟥 ɴᴏ ᴛɪᴇɴᴇꜱ ꜱᴜꜰɪᴄɪᴇɴᴛᴇ ᴏʀᴏ`, m);
+          this.reply(m.chat, `🟥 𝙽𝙾 𝙲𝚄𝙴𝙽𝚃𝙰𝚂 𝙲𝙾𝙽 𝙾𝚁𝙾`, m);
           continue; // Gold finished
         }
         if (plugin.level > _user.level) {
           this.reply(
             m.chat,
-            `🟥 ɴɪᴠᴇʟ ʀᴇQᴜᴇʀɪᴅᴏ ${plugin.level} ᴘᴀʀᴀ ᴜꜱᴀʀ ᴇꜱᴛᴇ ᴄᴏᴍᴀɴᴅᴏ. \nTu nivel ${_user.level}`,
+            `🟥 𝙽𝙸𝚅𝙴𝙻 𝚁𝙴𝚀𝚄𝙴𝚁𝙸𝙳𝙾 ${plugin.level} 𝙿𝙰𝚁𝙰 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾. \n𝚃𝚄 𝙽𝙸𝚅𝙴𝙻 ${_user.level}`,
             m,
           );
           continue; // If the level has not been reached
@@ -466,7 +465,7 @@ export async function handler(chatUpdate) {
               console.error(e);
             }
           }
-          if (m.credit) m.reply(`You used *${+m.credit}*`);
+          if (m.credit) m.reply(`𝚃𝚄 𝚄𝚂𝙰𝚂𝚃𝙴 *${+m.credit}*`);
         }
         break;
       }
@@ -557,30 +556,30 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, "image");
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`);
-            pp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
-            ppgp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
+            pp = "https://i.imgur.com/RsFp71l.jpg";
+            ppgp = "https://i.imgur.com/RsFp71l.jpg";
           } finally {
             let text = (
               chat.sWelcome ||
               this.welcome ||
               conn.welcome ||
-              "Welcome, @user"
+              "𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾, @user"
             )
               .replace("@group", await this.getName(id))
               .replace("@desc", groupMetadata.desc?.toString() || "error")
               .replace("@user", "@" + user.split("@")[0]);
 
             let nthMember = groupMetadata.participants.length;
-            let secondText = `Welcome, ${await this.getName(user)}, our ${nthMember}th member`;
+            let secondText = `𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾, ${await this.getName(user)}, 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾 ${nthMember}𝙼𝙸𝙴𝙼𝙱𝚁𝙾`;
 
-            let welcomeApiUrl = `https://telegra.ph/file/72084f63fee4d5152b2f4.jpg?username=${encodeURIComponent(
+            let welcomeApiUrl = `https://telegra.ph/file/72084f63fee4d5152b2f4.jpg${encodeURIComponent(
               await this.getName(user),
             )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
               ppgp,
             )}&memberCount=${encodeURIComponent(
               nthMember.toString(),
             )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
-              "https://telegra.ph/file/861d4dde6b2fd5f808183.jpg",
+              "https://telegra.ph/file/72084f63fee4d5152b2f4.jpg",
             )}`;
 
             try {
@@ -592,18 +591,20 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: "ʀᴇᴍ-ʙᴏᴛ",
-                    body: "Bienvenido a esta Familia disfruta tu estadia",
+                    title: "𝚁𝙴𝙼-𝙱𝙾𝚃",
+                    body: "𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾",
                     thumbnailUrl: welcomeApiUrl,
                     sourceUrl:
-                      "https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5",
+                      "https://github.com/davidprospero123/REM-CHAM-MD",
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
                 },
               });
             } catch (error) {
-              console.error(`Error generating welcome image: ${error}`);
+              console.error(
+                `Error al generar la imagen de bienvenida: ${error}`,
+              );
             }
           }
         }
@@ -621,27 +622,27 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, "image");
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`);
-            pp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
-            ppgp = "https://i.imgur.com/RsFp71l.jpeg"; // Assign default image URL
+            pp = "https://i.imgur.com/RsFp71l.jpg"; // Assign default image URL
+            ppgp = "https://i.imgur.com/RsFp71l.jpg"; // Assign default image URL
           } finally {
             let text = (
               chat.sBye ||
               this.bye ||
               conn.bye ||
-              "HOLA, @user"
+              "HELLO, @user"
             ).replace("@user", "@" + user.split("@")[0]);
 
             let nthMember = groupMetadata.participants.length;
-            let secondText = `Goodbye, our ${nthMember}th group member`;
+            let secondText = `Adios, ${nthMember}de este grupo`;
 
-            let leaveApiUrl = `https://telegra.ph/file/e657782b6eb232c9b2d01.png?username=${encodeURIComponent(
+            let leaveApiUrl = `https://telegra.ph/file/e657782b6eb232c9b2d01.png${encodeURIComponent(
               await this.getName(user),
             )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
               ppgp,
             )}&memberCount=${encodeURIComponent(
               nthMember.toString(),
             )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
-              "https://telegra.ph/file/cf6819f9c74de2f148e92.jpg",
+              "https://i.imgur.com/JdMcnNQ.jpg",
             )}`;
 
             try {
@@ -653,18 +654,20 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: "ʀᴇᴍ-ʙᴏᴛ",
-                    body: "Adios del grupo que te valla bien",
+                    title: "𝚁𝙴𝙼-𝙱𝙾𝚃",
+                    body: "𝙰𝙳𝙸𝙾𝚂 𝙳𝙴 𝙴𝚂𝚃𝙴 𝙶𝚁𝚄𝙿𝙸𝚃𝙾",
                     thumbnailUrl: leaveApiUrl,
                     sourceUrl:
-                      "https://chat.whatsapp.com/BXf0v0ReIUUHpxVZAK7Xa5",
+                      "https://github.com/davidprospero123/REM-CHAM-MD",
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
                 },
               });
             } catch (error) {
-              console.error(`Error generating leave image: ${error}`);
+              console.error(
+                `Error al generar la imagen de despedida: ${error}`,
+              );
             }
           }
         }
@@ -675,8 +678,9 @@ export async function participantsUpdate({ id, participants, action }) {
         chat.sPromote ||
         this.spromote ||
         conn.spromote ||
-        `${emoji.promote} @user *Ahora es administrador*`
+        `${emoji.promote} @user *AHORA ES ADMIN*`
       ).replace("@user", "@" + participants[0].split("@")[0]);
+
       if (chat.detect) {
         this.sendMessage(id, {
           text: promoteText.trim(),
@@ -689,8 +693,9 @@ export async function participantsUpdate({ id, participants, action }) {
         chat.sDemote ||
         this.sdemote ||
         conn.sdemote ||
-        `${emoji.demote} @user *Degradado de administrador*`
+        `${emoji.demote} @user *YA NO ES ADMIN*`
       ).replace("@user", "@" + participants[0].split("@")[0]);
+
       if (chat.detect) {
         this.sendMessage(id, {
           text: demoteText.trim(),
@@ -730,53 +735,53 @@ export async function groupsUpdate(groupsUpdate) {
         chats.sDesc ||
         this.sDesc ||
         conn.sDesc ||
-        `*${emoji.desc} La descripción ha sido cambiada a*\n@desc`
+        `*${emoji.desc} DESCRIPCION CAMBIADA POR*\n@desc`
       ).replace("@desc", groupUpdate.desc);
     } else if (groupUpdate.subject) {
       text = (
         chats.sSubject ||
         this.sSubject ||
         conn.sSubject ||
-        `*${emoji.subject} El tema ha sido cambiado a*\n@subject`
+        `*${emoji.subject} EL TEMA FUE CAMBIADO A*\n@subject`
       ).replace("@subject", groupUpdate.subject);
     } else if (groupUpdate.icon) {
       text = (
         chats.sIcon ||
         this.sIcon ||
         conn.sIcon ||
-        `*${emoji.icon} El icono ha sido cambiado.*`
+        `*${emoji.icon} EL ICONO FUE CAMBIADO*`
       ).replace("@icon", groupUpdate.icon);
     } else if (groupUpdate.revoke) {
       text = (
         chats.sRevoke ||
         this.sRevoke ||
         conn.sRevoke ||
-        `*${emoji.revoke} El enlace del grupo ha sido cambiado a*\n@revoke`
+        `*${emoji.revoke} EL LINK DEL GRUPO FUE ACTUALIZADO*\n@revoke`
       ).replace("@revoke", groupUpdate.revoke);
     } else if (groupUpdate.announce === true) {
       text =
         chats.sAnnounceOn ||
         this.sAnnounceOn ||
         conn.sAnnounceOn ||
-        `*${emoji.announceOn} El grupo ya está cerrado!*`;
+        `*${emoji.announceOn} GRUPO CERRADO!*`;
     } else if (groupUpdate.announce === false) {
       text =
         chats.sAnnounceOff ||
         this.sAnnounceOff ||
         conn.sAnnounceOff ||
-        `*${emoji.announceOff} ¡El grupo ya está abierto!*`;
+        `*${emoji.announceOff} GRUPO ABIERTO!*`;
     } else if (groupUpdate.restrict === true) {
       text =
         chats.sRestrictOn ||
         this.sRestrictOn ||
         conn.sRestrictOn ||
-        `*${emoji.restrictOn} El grupo ahora está restringido solo a los participantes!*`;
+        `*${emoji.restrictOn} GRUPO RESTRINGIDO ALOS MIEMBROS!*`;
     } else if (groupUpdate.restrict === false) {
       text =
         chats.sRestrictOff ||
         this.sRestrictOff ||
         conn.sRestrictOff ||
-        `*${emoji.restrictOff} El grupo ahora está restringido solo a administradores!*`;
+        `*${emoji.restrictOff} GRUPO SOLO PARA ADMINS!*`;
     }
 
     if (!text) continue;
@@ -786,39 +791,44 @@ export async function groupsUpdate(groupsUpdate) {
 
 /**
 Delete Chat
-*/
+ */
 export async function deleteUpdate(message) {
   try {
+    if (
+      typeof process.env.antidelete === "undefined" ||
+      process.env.antidelete.toLowerCase() === "false"
+    )
+      return;
+
     const { fromMe, id, participant } = message;
     if (fromMe) return;
     let msg = this.serializeM(this.loadMessage(id));
     if (!msg) return;
     let chat = global.db.data.chats[msg.chat] || {};
-    if (chat.antiDelete) return;
+
     await this.reply(
-      msg.chat,
+      conn.user.id,
       `
-          ≡ Borro un Mensaje 
-          ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
-          ▢ *Number :* @${participant.split`@`[0]} 
-          └─────────────
-          Para Desactivarlo , PRESIONE
-          */off antidelete*
-          *.enable delete*
-          `.trim(),
+            ≡ BORRASTE UN MENSAJE 
+            ┌─⊷  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀 
+            ▢ *NOMBRE :* @${participant.split`@`[0]} 
+            └─────────────
+            `.trim(),
       msg,
       {
         mentions: [participant],
       },
     );
-    this.copyNForward(msg.chat, msg, false).catch((e) => console.log(e, msg));
+    this.copyNForward(conn.user.id, msg, false).catch((e) =>
+      console.log(e, msg),
+    );
   } catch (e) {
     console.error(e);
   }
 }
 
 /*
-Polling Update 
+ Polling Update 
 */
 export async function pollUpdate(message) {
   for (const { key, update } of message) {
@@ -855,16 +865,16 @@ export async function presenceUpdate(presenceUpdate) {
   if (user?.afk && status === "composing" && user.afk > -1) {
     if (user.banned) {
       user.afk = -1;
-      user.afkReason = "Usuario prohibido Afk";
+      user.afkReason = "USUARIO BANEADO DE AFK";
       return;
     }
 
     await console.log("AFK");
     const username = nouser[0].split("@")[0];
     const timeAfk = new Date() - user.afk;
-    const caption = `\n@${username} ha dejado de estar AFK y actualmente está escribiendo.\n\nRazon: ${
-      user.afkReason ? user.afkReason : "No Reason"
-    }\nFor the past ${timeAfk.toTimeString()}.\n`;
+    const caption = `\n@${username} AHORA ESTAR AFK.\n\nRAZON: ${
+      user.afkReason ? user.afkReason : "SIN RAZON"
+    }\nPOR EL PASADO ${timeAfk.toTimeString()}.\n`;
 
     this.reply(id, caption, null, {
       mentions: this.parseMention(caption),
@@ -876,9 +886,9 @@ export async function presenceUpdate(presenceUpdate) {
 
 /**
 dfail
-*/
+ */
 global.dfail = (type, m, conn) => {
-  const userTag = `👋 Hola :3 *@${m.sender.split("@")[0]}*, `;
+  const userTag = `👋 𝙷𝙾𝙻𝙰 *@${m.sender.split("@")[0]}*, `;
   const emoji = {
     general: "⚙️",
     owner: "👑",
@@ -895,26 +905,26 @@ global.dfail = (type, m, conn) => {
   };
 
   const msg = {
-    owner: `*${emoji.owner} Consulta del propietario*\n
-  ${userTag} Este comando sólo puede ser utilizado por 𝘾𝙪𝙧𝙞!`,
-    moderator: `*${emoji.moderator} Consulta del Moderador*\n
-  ${userTag} Este comando sólo puede ser utilizado por 𝙈𝙤𝙙𝙚𝙧𝙖𝙙𝙤𝙧𝙚𝙨!`,
-    premium: `*${emoji.premium} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙋𝙧𝙚𝙢𝙞𝙪𝙢*\n
-  ${userTag} 𝙀𝙨𝙩𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙚𝙨 𝙨ó𝙡𝙤 𝙥𝙖𝙧𝙖 𝙈𝙞𝙚𝙢𝙗𝙧𝙤𝙨 𝙋𝙧𝙚𝙢𝙞𝙪𝙢!`,
-    group: `*${emoji.group} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙂𝙧𝙪𝙥𝙤𝙨*\n
-  ${userTag} Este comando solo puede ser usado en 𝙂𝙧𝙪𝙥𝙤𝙨!`,
-    private: `*${emoji.private} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙥𝙧𝙞𝙫𝙖𝙙𝙖*\n
-  ${userTag} Este comando sólo se puede utilizar en 𝘾𝙝𝙖𝙩 𝙋𝙧𝙞𝙫𝙖𝙙𝙤!`,
-    admin: `*${emoji.admin} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚𝙡 𝙖𝙙𝙢𝙞𝙣𝙞𝙨𝙩𝙧𝙖𝙙𝙤𝙧*\n
-  ${userTag} Este comando es sólo para 𝘼𝙙𝙢𝙞𝙣𝙞𝙩𝙧𝙖𝙙𝙤𝙧𝙚𝙨!`,
-    botAdmin: `*${emoji.botAdmin} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚𝙡 𝙖𝙙𝙢𝙞𝙣𝙞𝙨𝙩𝙧𝙖𝙙𝙤𝙧 𝙙𝙚𝙡 𝙗𝙤𝙩*\n
-  ${userTag} Haz que el bot sea 𝘼𝙙𝙢𝙞𝙣 para que use este comando!`,
-    unreg: `*${emoji.unreg} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙤*\n
-  ${userTag} Regístrese para utilizar esta función escribiendo:\n\n*#register nombre.años*\n\nEjemplo: *#register ${m.name}.18*!`,
-    nsfw: `*${emoji.nsfw} 𝙉𝙎𝙁𝙒 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖𝙨*\n
-  ${userTag} NSFW no está activo. Comuníquese con el administrador del grupo para habilitar esta función!`,
-    restrict: `*${emoji.restrict} 𝘾𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚 𝙛𝙪𝙣𝙘𝙞ó𝙣 𝙞𝙣𝙖𝙘𝙩𝙞𝙫𝙖*\n
-  ${userTag} Esta característica esta 𝘿𝙚𝙨𝙖𝙘𝙩𝙞𝙫𝙖𝙙𝙤!`,
+    owner: `*${emoji.owner} 𝙲𝙾𝙽𝚂𝚄𝙻𝚃𝙰 𝙳𝙴𝙻 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾*\n
+    ${userTag} 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚂𝙰𝙳𝙾 𝙿𝙾𝚁 𝙴𝙻 𝙼𝙾𝙳𝙴𝚁𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙾 𝙼𝙸 𝙲𝚁𝙴𝙰𝙳𝙾𝚁!`,
+    moderator: `*${emoji.moderator} 𝚂𝙾𝙻𝙾 𝙿𝙰𝚁𝙰 𝙼𝙾𝙳𝙴𝚁𝙰𝙳𝙾𝚁𝙴𝚂*\n
+    ${userTag} 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂𝚃𝙰 𝙷𝙰𝙱𝙸𝙻𝙸𝚃𝙰𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝙰𝚁𝙰 𝙻𝙾𝚂 𝙼𝙾𝙳𝙴𝚁𝙰𝙳𝙾𝚁𝙴𝚂 𝙳𝙴𝙻 𝙱𝙾𝚃!`,
+    premium: `*${emoji.premium} 𝙿𝚁𝙴𝙼𝙸𝚄𝙼*\n
+    ${userTag} 𝙳𝙴𝙱𝙴𝚂 𝚂𝙴𝚁 𝙿𝚁𝙴𝙼𝙸𝚄𝙼 𝙿𝙰𝚁𝙰 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾!`,
+    group: `*${emoji.group} 𝚂𝙾𝙻𝙾 𝙿𝙰𝚁𝙰 𝙶𝚁𝚄𝙿𝙾𝚂*\n
+    ${userTag} 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙿𝚄𝙴𝙳𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙴𝙽 𝙲𝙷𝙰𝚃𝚂 𝙳𝙴 𝙶𝚁𝚄𝙿𝙾𝚂!`,
+    private: `*${emoji.private} 𝙿𝚁𝙸𝚅𝙰𝙳𝙾*\n
+    ${userTag} 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝚂𝙾𝙻𝙾 𝙳𝙴𝙱𝙴 𝚂𝙴𝚁 𝚄𝚃𝙸𝙻𝙸𝚉𝙰𝙳𝙾 𝙴𝙽 𝙿𝚁𝙸𝚅𝙰𝙳𝙾!`,
+    admin: `*${emoji.admin} 𝙰𝙳𝙼𝙸𝙽𝙸𝚂𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂*\n
+    ${userTag} 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙳𝙴𝙱𝙴 𝚂𝙴𝚁 𝚄𝚂𝙰𝙳𝙾 𝙿𝙾𝚁 𝙰𝙳𝙼𝙸𝙽𝙸𝚃𝚁𝙰𝙳𝙾𝚁𝙴𝚂!`,
+    botAdmin: `*${emoji.botAdmin} 𝙱𝙾𝚃 𝙰𝙳𝙼𝙸𝙽*\n
+    ${userTag} 𝚂𝙾𝙻𝙾 𝙴𝙻 𝙰𝙳𝙼𝙸𝙽𝙸𝚃𝚁𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙿𝚄𝙴𝙳𝙴𝙽 𝚄𝚂𝙰𝚁 𝙳𝙸𝙲𝙷𝙾 𝙿𝙻𝚄𝙶𝙸𝙽!`,
+    unreg: `*${emoji.unreg} 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙾 𝙽𝙴𝙲𝙴𝚂𝙰𝚁𝙸𝙾*\n
+    ${userTag} 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙰𝚃𝙴 𝙳𝙴 𝙴𝚂𝚃𝙰 𝙼𝙰𝙽𝙴𝚁𝙰 :𝟹:\n\n*#register name.age*\n\n𝙴𝙹𝙴𝙼𝙿𝙻𝙾: *#register ${m.name}.18*!`,
+    nsfw: `*${emoji.nsfw} 𝙽𝚂𝙵𝚆*\n
+    ${userTag} 𝙽𝚂𝙵𝚆 𝙽𝙾 𝙴𝚂𝚃𝙰 𝙿𝙴𝚁𝙼𝙸𝚃𝙸𝙳𝙾 𝙴𝙽 𝙴𝙻 𝙶𝚁𝚄𝙿𝙾 𝚂𝙸 𝙴𝚁𝙴𝚂 𝙰𝙳𝙼𝙸𝙽 𝙰𝙲𝚃𝙸𝚅𝙰𝙻𝙾!`,
+    restrict: `*${emoji.restrict} 𝙲𝚘𝚗𝚜𝚞𝚕𝚝𝚊 𝚍𝚎 𝚏𝚞𝚗𝚌𝚒ó𝚗 𝚒𝚗𝚊𝚌𝚝𝚒𝚟𝚊*\n
+    ${userTag} 𝙴𝚜𝚝𝚊 𝚌𝚊𝚛𝚊𝚌𝚝𝚎𝚛í𝚜𝚝𝚒𝚌𝚊 𝚎𝚜𝚝á 𝚍𝚎𝚜𝚑𝚊𝚋𝚒𝚕𝚒𝚝𝚊𝚍𝚊!`,
   }[type];
   if (msg) return m.reply(msg);
 };
