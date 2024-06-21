@@ -4,10 +4,9 @@ export function before(m) {
     let user = global.db.data.users[m.sender]
     if (user.afk > -1) {
         m.reply(`
-  ✅ Dejaste de estar AFK
-${user.afkReason ? ' \n▢ *Razon :* ' + user.afkReason : ''}
-▢ *AFK Duracion :* ${(new Date - user.afk).toTimeString()}
-  `.trim())
+   𝙳𝚎𝚓𝚊𝚜𝚝𝚎 𝚍𝚎 𝚎𝚜𝚝𝚊𝚛 𝚊𝚏𝚔 ✅
+${user.afkReason ? ' \n▢ *𝚁𝚊𝚣𝚘𝚗 :* ' + user.afkReason : ''}
+▢ *𝙴𝚜𝚝𝚞𝚟𝚒𝚜𝚝𝚎 𝚊𝚏𝚔 𝚍𝚞𝚛𝚊𝚗𝚝𝚎* ${(new Date - user.afk).toTimeString()} :3  `.trim())
         user.afk = -1
         user.afkReason = ''
     }
@@ -21,10 +20,10 @@ ${user.afkReason ? ' \n▢ *Razon :* ' + user.afkReason : ''}
             continue
         let reason = user.afkReason || ''
         m.reply(`
-💤 El humano que mencionaste es afk 
+💤 𝙻𝚊 𝚙𝚎𝚛𝚜𝚘𝚗𝚊 𝚚𝚞𝚎 𝚖𝚎𝚗𝚌𝚒𝚘𝚗𝚊𝚜 𝚎𝚜𝚝𝚊 𝚊𝚏𝚔 💤
 
-${reason ? '▢ *Razon* : ' + reason : '▢ *Razon* : Without reason'}
-▢ *AFK Duracion :* ${(new Date - afkTime).toTimeString()}
+${reason ? '▢ *𝚁𝚊𝚣𝚘𝚗* : ' + reason : '▢ *𝚁𝚊𝚣𝚘𝚗* : Sin razon'}
+▢ *𝙻𝚕𝚎𝚟𝚊 𝚊𝚏𝚔 :* ${(new Date - afkTime).toTimeString()} :3 
   `.trim())
     }
     return true
