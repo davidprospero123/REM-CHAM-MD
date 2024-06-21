@@ -1,6 +1,4 @@
-
 import didyoumean from 'didyoumean'
-
 import similarity from 'similarity'
 
 export async function before(m, { conn, match, usedPrefix, command }) {
@@ -17,7 +15,7 @@ export async function before(m, { conn, match, usedPrefix, command }) {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
 
-    let caption = `𝙴𝚙𝚊𝚊𝚊 ${name} 𝚚𝚞𝚎𝚛𝚒𝚍𝚘 :3 ¿𝙳𝚎 𝚌𝚊𝚜𝚞𝚊𝚕𝚒𝚍𝚊𝚍 𝚗𝚘 𝚎𝚜𝚝𝚊𝚛𝚊𝚜 𝚚𝚞𝚎𝚛𝚒𝚎𝚗𝚍𝚘 𝚞𝚜𝚊𝚛?  *${usedPrefix + mean} ?*`
+    let caption = `𝙷𝚘𝚕𝚊 ${name}  :3 𝚎𝚜𝚎 𝚌𝚘𝚖𝚊𝚗𝚍𝚘 𝚗𝚘 𝚎𝚡𝚒𝚜𝚝𝚎, 𝚝𝚊𝚕𝚟𝚎𝚣 𝚚𝚞𝚒𝚜𝚒𝚜𝚝𝚎 𝚍𝚎𝚌𝚒𝚛 :  *${usedPrefix + mean} ?*`
  if (mean) this.reply(m.chat, `${caption}`, m)
       }
 }
