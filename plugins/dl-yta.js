@@ -1,8 +1,8 @@
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`;
-  if (!args[0].match(/youtu/gi)) throw `❎ Verifica bien el link de Youtube.`;
+  if (!args || !args[0]) return conn.reply(m.chat, `*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚞𝚗 𝙻𝚒𝚗𝚔 𝚍𝚎 𝚈𝚘𝚞𝚝𝚞𝚋𝚎*\n\n*_𝚎𝚓𝚎𝚖𝚙𝚕𝚘_*\n*${usedPrefix + command}* https://youtu.be/YzkTFFwxtXI`, m)
+  if (!args[0].match(/youtu/gi)) return conn.reply(m.chat,`𝙿𝚘𝚛𝚏𝚊𝚟𝚘𝚛 𝚛𝚎𝚟𝚒𝚜𝚊 𝚚𝚞𝚎 𝚂𝚎𝚊 𝚄𝚗 𝙻𝚒𝚗𝚔 𝙳𝚎 𝚈𝚘𝚞𝚝𝚞𝚋𝚎 :3`, m)
 
   m.react(rwait); 
 
@@ -13,19 +13,11 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
     const dl_url = await yt.audio[q].download(); 
     const title = await yt.title; 
 
-    conn.sendFile(
-      m.chat,
-      dl_url,
-      title + '.mp3',
-      null, 
-      m,
-      false,
-      { mimetype: 'audio/mpeg' }
-    );
+    conn.sendFile(m.chat, dl_url, title + '.mp3', null,  m, false, { mimetype: 'audio/mpeg' });
 
     m.react(xmoji); 
   } catch {
-    await m.reply(`❎ Error: No se pudo descargar el audio :c.`)
+    await m.react(error);
   }
 };
 
