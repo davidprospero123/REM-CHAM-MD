@@ -10,13 +10,7 @@ let handler = async (m, { conn }) => {
       responseType: "arraybuffer",
     });
 
-    await conn.sendFile(
-      m.chat,
-      responseImg.data,
-      "thumbnail.png",
-      `🕒 𝚃𝙸𝙴𝙼𝙿𝙾 𝙰𝙲𝚃𝙸𝚅𝙾 𝙳𝙴𝙻 𝙱𝙾𝚃: ${muptime}\n\n\`𝚁𝙴𝙼-𝙱𝙾𝚃 𝙱𝚈 𝙶𝙰𝙱𝚁𝙸𝙴𝙻 𝙲𝚄𝚁𝙸\``,
-      m,
-    );
+    await conn.sendFile( m.chat, responseImg.data, "thumbnail.png", `🕒 𝙻𝚕𝚎𝚟𝚘 𝚊𝚌𝚝𝚒𝚟𝚊 : ${muptime} :3\n\n\`𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈\``, m, null, rcanal);
 
     await m.react("✅");
   } catch (error) {
