@@ -8,7 +8,7 @@ let res = await fetch('https://api.waifu.pics/sfw/megumin')
 if (!res.ok) return m.react('❌')
 let json = await res.json()
 if (!json.url) return m.react('❌')
-await conn.sendFile(m.chat, json.url, 'megumin.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Megumin\n\nRem-Cham`,)
+await conn.sendFile(m.chat, json.url, 'megumin.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Megumin\n\n𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈`, m, null, rcanal)
 await m.react('✅')
 }
 
@@ -17,7 +17,7 @@ let res = await fetch('https://api.waifu.pics/sfw/neko')
 if (!res.ok) return m.react('❌')
 let json = await res.json()
 if (!json.url) return m.react('❌')
-await conn.sendFile(m.chat, json.url, 'neko.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Neko\n\nʀᴇᴍ-ᴄʜᴀᴍ`,)
+await conn.sendFile(m.chat, json.url, 'neko.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Neko\n\n𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈`, m, null, rcanal)
 await m.react('✅')
   }
 
@@ -26,7 +26,7 @@ let res = await fetch('https://api.waifu.pics/sfw/shinobu')
 if (!res.ok) return m.react('❌')
 let json = await res.json()
 if (!json.url) return m.react('❌')
-await conn.sendFile(m.chat, json.url, 'shinobu.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Shinobu\n\nʀᴇᴍ-ᴄʜᴀᴍ`,)
+await conn.sendFile(m.chat, json.url, 'shinobu.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Shinobu\n\n𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈`, m, null, rcanal)
 await m.react('✅')
   }
 
@@ -35,7 +35,7 @@ let res = await fetch('https://api.waifu.pics/sfw/waifu')
 if (!res.ok) return m.react('❌')
 let json = await res.json()
 if (!json.url) return m.react('❌')
-await conn.sendFile(m.chat, json.url, 'waifu.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Waifu\n\nʀᴇᴍ-ᴄʜᴀᴍ`,)
+await conn.sendFile(m.chat, json.url, 'waifu.png', `*––––『 ᴀɴɪᴍᴇ-ɪᴍɢ 』––––*\n\n*Resultado de ∙* Waifu\n\n𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈`, m, null, rcanal)
 await m.react('✅')
   }
 }
