@@ -650,8 +650,8 @@ const { result, key, timeout } = await conn.sendMessage(
     mentionedJid: [m.sender],
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363299269381797@newsletter',
-      newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+      newsletterJid: id_canal,
+      newsletterName: name_canal,
       serverMessageId: -1,
     },
     forwardingScore: 999,
@@ -696,8 +696,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -709,8 +709,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -722,8 +722,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -735,8 +735,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -748,8 +748,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -761,8 +761,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -774,8 +774,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -787,8 +787,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -800,8 +800,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -813,8 +813,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -826,8 +826,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -839,8 +839,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -852,8 +852,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -865,8 +865,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -878,8 +878,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -891,8 +891,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -904,8 +904,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -917,8 +917,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
@@ -930,8 +930,8 @@ contextInfo: {
         mentionedJid: [m.sender],
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-          newsletterJid: '120363299269381797@newsletter',
-          newsletterName: '𝚁𝙴𝙼-𝙱𝙾𝚃 𝚋𝚢 𝙲𝚞𝚛𝚒',
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
           serverMessageId: -1,
         },
       }
