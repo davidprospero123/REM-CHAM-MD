@@ -21,7 +21,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }
   if (messageType) {
     // Send a message mentioning the sender and the message type.
    
-    await this.sendMessage(m.chat, { text: `You are banned + blocked for calling the bot`, mentions: [m.sender] });
+    await this.sendMessage(m.chat, { text: `𝙰𝚑𝚘𝚛𝚊 𝙴𝚜𝚝𝚊𝚜 𝙱𝚕𝚘𝚚𝚞𝚎𝚊𝚍𝚘 𝙿𝚘𝚛 𝙻𝚕𝚊𝚖𝚊𝚛 𝙰  𝙻𝚊 𝙱𝚘𝚝 :3`, mentions: [m.sender] });
     
    
 
