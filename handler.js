@@ -926,8 +926,8 @@ global.dfail = (type, m, conn) => {
     restrict: `*${emoji.restrict} 𝙲𝚘𝚗𝚜𝚞𝚕𝚝𝚊 𝚍𝚎 𝚏𝚞𝚗𝚌𝚒ó𝚗 𝚒𝚗𝚊𝚌𝚝𝚒𝚟𝚊*\n
     ${userTag} 𝙴𝚜𝚝𝚊 𝚌𝚊𝚛𝚊𝚌𝚝𝚎𝚛í𝚜𝚝𝚒𝚌𝚊 𝚎𝚜𝚝á 𝚍𝚎𝚜𝚑𝚊𝚋𝚒𝚕𝚒𝚝𝚊𝚍𝚊!`,
   }[type];
-  //if (msg) return m.reply(msg);
-if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react(error))
+  if (msg) return m.reply(msg);
+//if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react(error))
 };
 
 let file = global.__filename(import.meta.url, true);
