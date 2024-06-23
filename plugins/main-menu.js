@@ -658,7 +658,7 @@ const { result, key, timeout } = await conn.sendMessage(
     externalAdReply: {
       title: 'ＲＥＭ－ＢＯＴ',
       body: '𝙼𝙴𝙽𝚄',
-      thumbnailUrl: 'https://telegra.ph/file/daaf1d574dc2264307c5c.jpg',
+      thumbnailUrl: 'https://i.pinimg.com/736x/59/47/a8/5947a86d35bdb1205781422d7cf9d4ed.jpg',
       sourceUrl: 'https://github.com/davidprospero123/REM-CHAM-MD.git',
       mediaType: 1,
       renderLargerThumbnail: false,
