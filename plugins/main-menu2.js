@@ -23,30 +23,30 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let str = `
 🚀 *_Cinturón de seguridad ${name}, ${greeting}! ¡Nosotros vamos en una aventura!:3_* 🚀
 
-┏━💼 _Usuario:_ 💼━┓
- ┃ 👾  *Etiqueta:* ${taguser} 
- ┃ 🎩  *Nombre:* ${name} 
- ┃ 💎  *Diamantes:* ${diamond} 
- ┃ 🏆  *Rank:* ${role}
- ┃ 🎮  *XP:* ${exp} 
+┏━💼 _𝚄𝚂𝚄𝙰𝚁𝙸𝙾:_ 💼━┓
+ ┃ 🏷  *𝙴𝚝𝚒𝚚𝚞𝚎𝚝𝚊:* ${taguser} 
+ ┃ 🎩  *𝙽𝚘𝚖𝚋𝚛𝚎:* ${name} 
+ ┃ 💎  *𝙳𝚒𝚊𝚖𝚊𝚗𝚝𝚎𝚜:* ${diamond} 
+ ┃ 🏆  *𝚁𝚊𝚗𝚔:* ${role}
+ ┃ 🎮  *𝚇𝙿:* ${exp} 
  ┗━━━━━━━━━━━┛
 
-┏━━⏰ _La salsa de hoy!_ ⏰━┓
- ┃ 📆  *Fecha:* ${date} 
+┏━━⏰ _𝙵 𝙴 𝙲 𝙷 𝙰!_ ⏰━┓
+ ┃ 📆  *𝙵𝚎𝚌𝚑𝚊:* ${date} 
  ┗━━━━━━━━━━━━━┛
 
-┏━━🤖 _Estado del Bot:_🤖━━┓
- ┃ 💻  *Plataforma:* Windows 11 
- ┃ 📣  *Prefix:* ${usedPrefix} 
- ┃ 🕓  *Activo:* ${uptime}
- ┃ 💌  *Database:* ${rtotalreg} of ${totaluser} 
- ┃ 📚  *Total Usuarios:* ${totaluser} 
- ┗━━━━━━━━━━━━━┛
+┏━━🤖 _𝙴𝚜𝚝𝚊𝚍𝚘 𝚍𝚎 𝚕𝚊 𝚋𝚘𝚝:_🤖━━┓
+┃ 💻  *𝙿𝚕𝚊𝚝𝚊𝚏𝚘𝚛𝚖𝚊:* 𝚆𝚒𝚗𝚍𝚘𝚠𝚜 𝟷𝟷
+┃ 📣  *𝙿𝚛𝚎𝚏𝚒𝚡:* ${usedPrefix} 
+┃ 🕓  *𝙰𝚌𝚝𝚒𝚟𝚊:* ${uptime}
+┃ 💌  *𝙳𝚊𝚝𝚊𝚋𝚊𝚜𝚎:* ${rtotalreg} of ${totaluser} 
+┃ 📚  *𝚃𝚘𝚝𝚊𝚕 𝚄𝚜𝚞𝚊𝚛𝚒𝚘𝚜:* ${totaluser} 
+┗━━━━━━━━━━━━━┛
 
 💡 *_Recuerde, en caso de duda, utilice ${usedPrefix}lista o ${usedPrefix}help2. ¡Es como mi libro de hechizos mágicos!_* 💡
 `
 
-    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m)
+    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rcanal)
 }
 
 handler.help = ['main']
