@@ -11,7 +11,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
   try {
     const result = await fg.fbdl(args[0]);
     const tex = `
-⊱ ─── {* 𝚁𝙴𝙼 - 𝙵𝙱*} ─── ⊰
+⊱ ─── { *𝚁𝙴𝙼 - 𝙵𝙱* } ─── ⊰
 ↳ *𝚃𝚒𝚝𝚞𝚕𝚘:* ${result.title}
 ⊱ ────── {⋆♬⋆} ────── ⊰`;
 
