@@ -4,9 +4,9 @@ import axios from 'axios';
 let handler = async function (m, { conn, text, usedPrefix }) {
     let sn = createHash('md5').update(m.sender).digest('hex');
     
-    const imgUrl = "https://i.imgur.com/Em0VBOJ.png";
+    const telegrap = "https://telegra.ph/file/602f953a6bef188b54fe9.png";
     
-    const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
+    const responseImg = await axios.get(telegrap, { responseType: 'arraybuffer' });
     await conn.sendFile(m.chat, responseImg.data, "thumbnail.png", `
 ┌─「 *𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝚂𝙴𝚁𝙸𝙴* 」
 │
