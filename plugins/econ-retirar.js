@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const sendMessageWithImage = async (conn, m, message) => {
-    const imgUrl = 'https://i.imgur.com/DuEgPNA.png';
+    const imgUrl = 'https://telegra.ph/file/95c0cc90d069fea2cdf0d.png';
     try {
         const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
         await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", message, m);
