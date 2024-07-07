@@ -27,7 +27,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ╰────────═┅═────────
 `
 
-    let img = 'https://telegra.ph/file/c775e80b9043a37191b98.png'
+    let img = 'https://telegra.ph/file/36011cc2271ee4dd87159.jpg'
     conn.sendFile(m.chat, img, 'img.png', creatorInfo, m, null, rpyp)
     //conn.sendPayment(m.chat, '2000', 'USD', creatorInfo, m.sender, m)
 }
