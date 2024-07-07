@@ -37,7 +37,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
             delete rouletteBets[chatId];
 
             // Envía la imagen junto con el mensaje del resultado
-            const url = "https://i.imgur.com/APg4Nl7.jpg";
+            const url = "https://telegra.ph/file/602f953a6bef188b54fe9.png";
             const responseImg = await axios.get(url, { responseType: 'arraybuffer' });
             const thumbnail = await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", resultMessage, m);
         }
