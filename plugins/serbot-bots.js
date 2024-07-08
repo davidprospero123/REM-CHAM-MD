@@ -17,8 +17,8 @@ async function handler(m, { conn, usedPrefix }) {
 
     const connectedUserCount = connectedUsers.size;
     if (connectedUserCount > 0) {
-      const imageBuffer = await axios.get("https://i.imgur.com/APg4Nl7.jpg", { responseType: "arraybuffer" });
-      await conn.sendFile(m.chat, imageBuffer.data, 'image.jpg', '⌛ _𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊..._▰▰▰▱▱▱▱▱ 𝘚𝘜𝘉-𝘉𝘖𝘛𝘚');
+      const imageBuffer = await axios.get("https://telegra.ph/file/70d9e3cd0815ea641b788.jpg", { responseType: "arraybuffer" });
+      await conn.sendFile(m.chat, imageBuffer.data, 'image.jpg', '⌛ _𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊..._▰▰▰▱▱▱▱▱-𝘉𝘖𝘛𝘚');
 
       const userList = [...connectedUsers].join(`\n`);
       await m.reply(`𝐄𝐒𝐓𝐎𝐒 𝐒𝐎𝐍 𝐋𝐎𝐒 𝐒𝐔𝐁 𝐁𝐎𝐓𝐒 𝐀𝐂𝐓𝐈𝐕𝐎𝐒 𝐃𝐄 𝐑𝐄𝐌:\n${userList}`);
