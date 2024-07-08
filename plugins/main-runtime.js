@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
     const uptime = process.uptime();
     const muptime = `${Math.floor(uptime / 3600)} 𝙷𝚘𝚛𝚊𝚜, ${Math.floor((uptime % 3600) / 60)} 𝚖𝚒𝚗𝚞𝚝𝚘𝚜 𝚢 ${Math.floor(uptime % 60)} 𝚜𝚎𝚐𝚞𝚗𝚍𝚘𝚜`;
 
-    const imgUrl = "https://i.imgur.com/rbRGvNu.jpeg";
+    const imgUrl = "https://telegra.ph/file/85baef354c4035ff205a4.jpg";
     const responseImg = await axios.get(imgUrl, {
       responseType: "arraybuffer",
     });
