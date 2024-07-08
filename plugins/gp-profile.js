@@ -2,7 +2,7 @@ import { createHash } from 'crypto';
 import { canLevelUp, xpRange } from '../lib/levelling.js';
 import axios from 'axios';
 
-const imgUrl = 'https://i.imgur.com/8UcEEzK.jpeg';
+const imgUrl = 'https://telegra.ph/file/877a52fd8121b5dade97b.jpg';
 
 let handler = async (m, { conn, usedPrefix, command }) => {
         if (typeof conn.profilePictureUrl !== 'function' || typeof conn.fetchStatus !== 'function') {
