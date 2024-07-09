@@ -2,7 +2,7 @@ import fg from 'api-dylux';
 import yts from 'yt-search';
 import axios from 'axios';
 
-const imgUrl = 'https://i.imgur.com/j66eqjB.png';
+const imgUrl = 'https://telegra.ph/file/46bc902de024bf8f9b03c.jpg';
 
 let handler = async (m, { conn, text }) => {
     try {
