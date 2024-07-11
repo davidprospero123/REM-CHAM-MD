@@ -52,7 +52,7 @@
     "@xct007/frieren-scraper": "*",
     "@xct007/tiktok-scraper": "*",
     "acrcloud": "^1.4.0",
-    "api-dylux": "^1.6.9",
+    "api-dylux": "1.8.5",
     "aptoide-scraper": "^1.0.1",
     "awesome-phonenumber": "^3.4.0",
     "axios": "^1.4.0",
@@ -120,7 +120,7 @@
     "xfarr-api": "^1.0.3",
     "yargs": "^17.6.0",
     "youtube-yts": "^2.0.0",
-    "youtubedl-core": "npm:@distube/ytdl-core"
+    "ytdl-core": "^4.11.5"
   },
   "overrides": {
     "cache-manager": "5.2.2"
