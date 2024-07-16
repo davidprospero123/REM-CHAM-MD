@@ -191,7 +191,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - Discord: https://discord.flarex.cloud
 
  #### DESPLIEGUE EN INFINITY HOST
- <a href="https://dash.infinity-wa.com/"><img src="https://telegra.ph/file/3a7bfffd9a7edff5bf8ee.jpg" height="60px"></a>
+ <a href="https://dash.infinity-wa.com/"><img src="https://telegra.ph/file/3a7bfffd9a7edff5bf8ee.jpg" height="220px"></a>
  - Tutorial: https://www.youtube.com/watch?v=c9RCnOV418E
  - Panel: https://panel.infinity-wa.com/
  - Discord: https://discord.com/invite/DegsQMuB
