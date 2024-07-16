@@ -189,10 +189,14 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - Game Panel: https://gamepanel.flarex.cloud
 - Contacto: hi@flarex.cloud / support@flarex.cloud / partnerships@flarex.cloud
 - Discord: https://discord.flarex.cloud
-  
 
-
-
+ #### DESPLIEGUE EN INFINITY HOST
+ <a href="https://dash.infinity-wa.com/"><img src="https://telegra.ph/file/3a7bfffd9a7edff5bf8ee.jpg" height="60px"></a>
+ - Tutorial: https://www.youtube.com/watch?v=c9RCnOV418E
+ - Panel: https://panel.infinity-wa.com/
+ - Discord: https://discord.com/invite/DegsQMuB
+ - Soporte: www.facebook.com/elrebelde21
+ wa.me/5492964650915
 
  ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Características" width="42" height="42"> Características
 > REM-BOT
@@ -231,12 +235,9 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 
 <a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
 
-`© 𝚁̷𝙴̷𝙼̷-𝙱̷𝙾̷𝚃̷  - By 𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷`
-
-
-
-
-
+`© 𝚁̷𝙴̷𝙼̷-𝙱̷𝙾̷𝚃̷  - By Gabriel Curi`
+### 𝘾𝙤𝙡𝙖𝙗𝙤𝙧𝙖𝙙𝙤𝙧𝙚𝙨
+<a href="https://github.com/AleXD0009"><img src="https://i.pinimg.com/564x/7e/2c/5b/7e2c5b5e1cad07427cf3a9a9c2203cfe.jpg" width="200" height="200" alt="Jtxs"/></a>
 
 <h2 align="center">  Recordatorio
 </h2>
