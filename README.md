@@ -181,6 +181,17 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
     <br>
 <p align="center"><a href="https://www.youtube.com/watch?v=h7kMNdm6dZ4"> <img src="https://img.shields.io/badge/codesandbox%20Tutorial-blue?style=for-the-badge&logo=codesandbox" width="220" height="38.45"/></a></p>
 
+#### DESPLIEGUE EN FLAREXCLOUD 
+<a href="https://www.flarex.cloud"><img src="https://cdn.flarex.cloud/deploy.png" height="60px"></a>
+- Pagina Web: https://www.flarex.cloud
+- Tutorial: en proceso
+- Área de Pagos: https://billing.flarex.cloud
+- Game Panel: https://gamepanel.flarex.cloud
+- Contacto: hi@flarex.cloud / support@flarex.cloud / partnerships@flarex.cloud
+- Discord: https://discord.flarex.cloud
+  
+
+
 
 
  ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Características" width="42" height="42"> Características
