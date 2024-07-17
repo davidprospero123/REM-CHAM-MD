@@ -556,8 +556,8 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, "image");
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`);
-            pp = "https://i.imgur.com/RsFp71l.jpg";
-            ppgp = "https://i.imgur.com/RsFp71l.jpg";
+            pp = "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg";
+            ppgp = "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg";
           } finally {
             let text = (
               chat.sWelcome ||
@@ -570,9 +570,14 @@ export async function participantsUpdate({ id, participants, action }) {
               .replace("@user", "@" + user.split("@")[0]);
 
             let nthMember = groupMetadata.participants.length;
-            let secondText = `𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾, ${await this.getName(user)}, 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾 ${nthMember}𝙼𝙸𝙴𝙼𝙱𝚁𝙾`;
+            let secondText = `
+╭───[ 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾 ]───
+│ 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾, ${await this.getName(user)}, 𝙵𝙴𝙻𝙸𝙲𝙸𝙳𝙰𝙳 𝚀𝚄𝙴 ${nthMember}𝙼𝙴𝙼𝙱𝚁𝙾
+│
+│ 𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘 𝚊 𝚎𝚜𝚝𝚊 𝚑𝚞𝚖𝚒𝚕𝚍𝚎 𝚏𝚊𝚖𝚒𝚕𝚒𝚊 :3
+╰────────═┅═────────`;
 
-            let welcomeApiUrl = `https://telegra.ph/file/72084f63fee4d5152b2f4.jpg${encodeURIComponent(
+            let welcomeApiUrl = `https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg${encodeURIComponent(
               await this.getName(user),
             )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
               ppgp,
@@ -593,7 +598,7 @@ export async function participantsUpdate({ id, participants, action }) {
                   externalAdReply: {
                     title: "𝚁𝙴𝙼-𝙱𝙾𝚃",
                     body: "𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾",
-                    thumbnailUrl: welcomeApiUrl,
+                    thumbnailUrl: "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg",
                     sourceUrl:
                       "https://github.com/davidprospero123/REM-CHAM-MD",
                     mediaType: 1,
@@ -622,27 +627,32 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, "image");
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`);
-            pp = "https://i.imgur.com/RsFp71l.jpg"; // Assign default image URL
-            ppgp = "https://i.imgur.com/RsFp71l.jpg"; // Assign default image URL
+            pp = "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg"; // Assign default image URL
+            ppgp = "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg"; // Assign default image URL
           } finally {
             let text = (
               chat.sBye ||
               this.bye ||
               conn.bye ||
-              "HELLO, @user"
+              "Hola, @user"
             ).replace("@user", "@" + user.split("@")[0]);
 
             let nthMember = groupMetadata.participants.length;
-            let secondText = `Adios, ${nthMember}de este grupo`;
+            let secondText = `
+╭───[ 𝙰𝙳𝙸𝙾𝚂 ]───
+│ 𝙰𝚍𝚒𝚘𝚜, ${nthMember}𝚍𝚎 𝚎𝚜𝚝𝚎 𝚐𝚛𝚞𝚙𝚘
+│
+│ 𝚓𝚊𝚖𝚊𝚜 𝚚𝚞𝚎𝚛𝚒𝚖𝚘𝚜 𝚟𝚎𝚛𝚝𝚎
+╰────────═┅═────────`;
 
-            let leaveApiUrl = `https://telegra.ph/file/e657782b6eb232c9b2d01.png${encodeURIComponent(
+            let leaveApiUrl = `https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg${encodeURIComponent(
               await this.getName(user),
             )}&guildName=${encodeURIComponent(await this.getName(id))}&guildIcon=${encodeURIComponent(
               ppgp,
             )}&memberCount=${encodeURIComponent(
               nthMember.toString(),
             )}&avatar=${encodeURIComponent(pp)}&background=${encodeURIComponent(
-              "https://i.imgur.com/JdMcnNQ.jpg",
+              "https://i.pinimg.com/564x/92/05/f0/9205f0b8b38e296f91cd09690a0ab3b2.jpg",
             )}`;
 
             try {
@@ -656,7 +666,7 @@ export async function participantsUpdate({ id, participants, action }) {
                   externalAdReply: {
                     title: "𝚁𝙴𝙼-𝙱𝙾𝚃",
                     body: "𝙰𝙳𝙸𝙾𝚂 𝙳𝙴 𝙴𝚂𝚃𝙴 𝙶𝚁𝚄𝙿𝙸𝚃𝙾",
-                    thumbnailUrl: leaveApiUrl,
+                    thumbnailUrl: "https://i.pinimg.com/564x/75/d1/e5/75d1e55eaca123a2815cf465d5c0d219.jpg",
                     sourceUrl:
                       "https://github.com/davidprospero123/REM-CHAM-MD",
                     mediaType: 1,
