@@ -1,95 +1,46 @@
-import fetch from 'node-fetch';
-import fs from 'fs';
-import { pipeline } from 'stream';
-import { promisify } from 'util';
-import os from 'os';
+import fs from 'fs'
+import os from 'os'
+import fetch from 'node-fetch'
 
-const streamPipeline = promisify(pipeline);
+let limit = 500
+let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
+  let chat = global.db.data.chats[m.chat]
+  if (!args || !args[0]) throw `✳️ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:\n${usedPrefix + command} https://www.youtube.com/watch?v=k6ltpkNnNPY`
+  if (!args[0].match(/youtu/gi)) throw ` 𝚅𝙴𝚁𝙸𝙵𝙸𝙲𝙰 𝚀𝚄𝙴 𝚂𝚄 𝙴𝙽𝙻𝙰𝙲𝙴 𝚂𝙴𝙰 𝚅𝙰𝙻𝙸𝙳𝙾`
 
-const handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!text) return conn.reply(m.chat, '𝚒𝚗𝚐𝚛𝚎𝚜𝚊 𝚒𝚗 𝚕𝚒𝚗𝚔 𝚍𝚎 𝚢𝚘𝚞𝚝𝚞𝚇', m);
+  var ggapi = `https://youtube-api-thepapusteam.koyeb.app/api/video?url=${encodeURIComponent(args[0])}`
 
-  const videoUrl = text.trim();
-  const apiUrl = `https://youtube-api-thepapusteam.koyeb.app/api/video?url=${videoUrl}`;
-
-  try {
-    console.log(`Solicitando información del video desde: ${apiUrl}`);
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-
-    if (!data.status) {
-      throw new Error('Error al obtener información del video');
-    }
-
-    console.log('Información del video recibida:', data);
-
-    const { title, thumbnails, author } = data.data;
-    const thumbnail = thumbnails[0].url;
-    const videoUrlMp4 = data.downloads.mp4.url;
-
-    const tmpDir = os.tmpdir();
-    const filePath = `${tmpDir}/${title}.mp4`;
-    const writableStream = fs.createWriteStream(filePath);
-
-    console.log('Descargando video desde:', videoUrlMp4);
-    const videoResponse = await fetch(videoUrlMp4);
-    if (!videoResponse.ok) {
-      throw new Error('Error al descargar el video');
-    }
-
-    await streamPipeline(videoResponse.body, writableStream);
-    console.log('Descarga de video completada');
-
-    await m.react('🕓');
-
-    const txt = `> » Titulo: ${title}\n` +
-                `> » Autor: ${author.name}\n` +
-                `> » Canal: ${author.url}\n\n`;
-
-    await conn.reply(m.chat, txt, m);
-
-    await conn.sendMessage(m.chat, {
-      video: { url: filePath },
-      mimetype: "video/mp4",
-      fileName: `${title}.mp4`,
-      quoted: m,
-      contextInfo: {
-        'forwardingScore': 200,
-        'isForwarded': true,
-        externalAdReply: {
-          showAdAttribution: true,
-          title: title,
-          body: author.name,
-          mediaType: 2,
-          sourceUrl: global.canal,
-          thumbnail: await (await conn.getFile(thumbnail)).data,
-          mediaType: 1,
-          showAdAttribution: true,
-          renderLargerThumbnail: true,
-        }
-      }
-    }, { quoted: m });
-
-    await m.react('✅');
-
-    fs.unlink(filePath, (err) => {
-      if (err) {
-        console.error(`Ocurrió un error al borrar el archivo de video: ${err}`);
-        m.react('❌');
-      } else {
-        console.log(`Borrando archivo de video: ${filePath}`);
-        m.react('✅');
-      }
-    });
-  } catch (error) {
-    console.error('Error en el proceso:', error);
-    await conn.reply(m.chat, 'Ocurrió un error al procesar tu solicitud', m);
-    await m.react('❌');
+  const response = await fetch(ggapi)
+  if (!response.ok) {
+    console.log('Error al obtener los detalles del video:', response.statusText)
+    throw 'Error al obtener los detalles del video'
   }
-};
+  const data = await response.json()
 
-handler.help = ["ytmp4"].map((v) => v + " <link>");
-handler.tags = ['dl'];
-handler.command = /^(ytmp4|ytvideo)$/i;
+  if (!data.status) throw 'Error al procesar el video'
 
-export default handler;
+  const caption = `\`⋆｡˚꒰ঌ 𝚈𝙾𝚄𝚃𝚄𝙱𝙴 - 𝚅𝙸𝙳𝙴𝙾 ໒꒱˚｡⋆\`
+  
+  
+  ꨄ︎ \`𝚃𝚒𝚝𝚞𝚕𝚘\`: ${data.data.title}
+  ꨄ︎ \`𝙰𝚞𝚝𝚘𝚛\`: ${data.data.author.name}
+  ꨄ︎ \`𝙲𝚊𝚗𝚊𝚕\`: ${data.data.author.url}
+  ꨄ︎ \`𝙴𝚗𝚕𝚊𝚌𝚎\`: ${data.data.src_url}
+  ꨄ︎ \`𝙼𝚒𝚗𝚒𝚊𝚝𝚞𝚛𝚊\` ${data.data.picture}
+  ⊱─━─━⊱༻˗ˏˋ ♡ ˎˊ˗༺⊰━━──⊰
+  `
+
+  let vres = data.downloads.mp4.url
+
+  let vid = await fetch(vres)
+  const vidBuffer = await vid.buffer()
+
+  conn.sendFile(m.chat, vidBuffer, 'video.mp4', caption, m, false, { asDocument: false })
+}
+
+handler.help = ['ytmp4 <yt-link>']
+handler.tags = ['descargador']
+handler.command = ['ytmp4', 'video', 'ytv']
+handler.diamond = false
+
+export default handler
