@@ -13,7 +13,7 @@ let handler = async function (m, { conn, args, usedPrefix }) {
 
     m.reply(`💙 ¡𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘 𝚎𝚕𝚒𝚖𝚒𝚗𝚊𝚍𝚘 𝚌𝚘𝚛𝚛𝚎𝚌𝚝𝚊𝚖𝚎𝚗𝚝𝚎!\n𝙴𝚜𝚙𝚎𝚛𝚊𝚖𝚘𝚜 𝚝𝚞 𝚛𝚎𝚐𝚛𝚎𝚜𝚘 𝚙𝚛𝚘𝚗𝚝𝚘.`);
 
-    const imgUrl = "https://i.imgur.com/P3u2et7.jpg";
+    const imgUrl = "https://i.pinimg.com/564x/9e/d3/90/9ed390807819ddd00ed59b406b16a031.jpg";
     const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
     let txt = `
 ┌─「 *𝚁𝚎𝚐𝚒𝚜𝚝𝚛𝚘 𝙴𝚕𝚒𝚖𝚒𝚗𝚊𝚍𝚘* 」
