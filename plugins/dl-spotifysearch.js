@@ -5,30 +5,31 @@ let handler = async (m, { conn, usedPrefix, text }) => {
   await m.react("💚");
   let results;
   try {
-    results = await fetch(`https://delirius-api-oficial.vercel.app/api/spotify?q=${encodeURIComponent(text)}`).then(res => res.json());
-  } catch {
-m.react("❌")
+    results = await fetch(`https://thepapusteamspotify.koyeb.app/api/spotify/search?q=${encodeURIComponent(text)}`).then(res => res.json());
+  } catch (error) {
+    console.error(error);
+    await m.react("❌");
+    return conn.reply(m.chat,"𝙷𝚞𝚋𝚘 𝚞𝚗 𝚎𝚛𝚛𝚘𝚛 𝚊𝚕 𝚌𝚘𝚗𝚜𝚞𝚕𝚝𝚊𝚛 𝚎𝚗 𝚂𝚙𝚘𝚝𝚒𝚏𝚢.", m);
   }
-  
-  if (!results || !results.data || results.data.length === 0)
+
+  if (!results || !results.data || results.data.tracks.length === 0)
     return conn.reply(m.chat,"𝙽𝚘 𝚜𝚎 𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚊𝚛𝚘𝚗 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘𝚜, 𝚒𝚗𝚝𝚎𝚗𝚝𝚊 𝚌𝚘𝚗 𝚘𝚝𝚛𝚘 𝚝é𝚛𝚖𝚒𝚗𝚘 𝚍𝚎 𝚋ú𝚜𝚚𝚞𝚎𝚍𝚊.", m).then((_) => m.react("❌"));
 
   let txt = `*Ｓｐｏｔｉｆｙ-Ｓｅａｒｃｈ \n ⇄ Ⅰ<    ⅠⅠ    >Ⅰ   ↻*`;
-  for (let i = 0; i < (results.data.length >= 10 ? 10 : results.data.length); i++) {
-    const track = results.data[i];
+  for (let i = 0; i < (results.data.tracks.length >= 10 ? 10 : results.data.tracks.length); i++) {
+    const track = results.data.tracks[i];
     txt += `\n\n`;
-    txt += `	❧  *𝚃𝚒𝚝𝚞𝚕𝚘* : ${track.title}\n`;
-    txt += `	❧  *𝙰𝚛𝚝𝚒𝚜𝚝𝚊* : ${track.artist}\n`;
-    txt += `	❧  *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* : ${track.duration}\n`;
-    txt += `	❧  *𝙿𝚘𝚙𝚞𝚕𝚊𝚛𝚒𝚍𝚊𝚍* : ${track.popularity}\n`;
-    txt += `	❧  *𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘* : ${track.publish}\n`;
-    txt += `	❧  *𝙻𝚒𝚗𝚔* : ${track.url}\n`;
+    txt += `	❧  *𝚃𝚒𝚝𝚞𝚕𝚘* : ${track.name}\n`;
+    txt += `	❧  *𝙰𝚛𝚝𝚒𝚜𝚝𝚊* : ${track.artists}\n`;
+    txt += `	❧  *Á𝚕𝚋𝚞𝚖* : ${track.album}\n`;
+    txt += `	❧  *𝙻𝚒𝚗𝚔* : ${track.external_urls.spotify}\n`;
   }
-  await conn.reply(m.chat, txt, m);
-  await m.react("✅");
+
+  conn.reply(m.chat, txt, m);
 };
+
 handler.help = ["spotifysearch"];
 handler.tags = ["search"];
-handler.command = ["spotifysearch", "spotisearch", "spotifys", "spts"];
-handler.register = true;
+handler.command = /^(spotifysearch)$/i;
+
 export default handler;
