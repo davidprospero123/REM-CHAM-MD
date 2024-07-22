@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
     txt += `	❧  *𝙻𝚒𝚗𝚔* : ${track.external_urls.spotify}\n`;
   }
 
-  conn.reply(m.chat, txt, m);
+  conn.reply(m.chat, txt, m, rcanal);
 };
 
 handler.help = ["spotifysearch"];
