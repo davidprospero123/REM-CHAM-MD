@@ -1,62 +1,95 @@
-import ytdl from 'ytdl-core';
+import fetch from 'node-fetch';
 import fs from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
+import os from 'os';
 
 const streamPipeline = promisify(pipeline);
 
 const handler = async (m, { conn, command, text, usedPrefix }) => {
-    if (!text) throw `𝚄𝚜𝚎: ${usedPrefix}${command} <𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚅𝚒𝚍𝚎𝚘 𝚄𝚁𝙻>`;
+  if (!text) return conn.reply(m.chat, '𝚒𝚗𝚐𝚛𝚎𝚜𝚊 𝚒𝚗 𝚕𝚒𝚗𝚔 𝚍𝚎 𝚢𝚘𝚞𝚝𝚞𝚇', m);
 
-    const videoUrl = text.trim();
+  const videoUrl = text.trim();
+  const apiUrl = `https://youtube-api-thepapusteam.koyeb.app/api/video?url=${videoUrl}`;
 
-    const videoInfo = await ytdl.getInfo(videoUrl);
+  try {
+    console.log(`Solicitando información del video desde: ${apiUrl}`);
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
-    const { videoDetails } = videoInfo;
-    const { title, thumbnails, lengthSeconds, viewCount, uploadDate } = videoDetails;
-    const thumbnail = thumbnails[0].url; 
+    if (!data.status) {
+      throw new Error('Error al obtener información del video');
+    }
 
-    const videoStream = ytdl(videoUrl, {
-        filter: 'audioandvideo',
-        quality: 'highest',
-    });
+    console.log('Información del video recibida:', data);
 
-    const tmpFilePath = `tmp/${title}.mp4`;
-    const writableStream = fs.createWriteStream(tmpFilePath);
+    const { title, thumbnails, author } = data.data;
+    const thumbnail = thumbnails[0].url;
+    const videoUrlMp4 = data.downloads.mp4.url;
 
-    await streamPipeline(videoStream, writableStream);
+    const tmpDir = os.tmpdir();
+    const filePath = `${tmpDir}/${title}.mp4`;
+    const writableStream = fs.createWriteStream(filePath);
 
-    const doc = {
-        video: {
-            url: tmpFilePath,
-        },
-        mimetype: 'video/mp4',
-        fileName: title,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                mediaType: 2,
-                mediaUrl: videoUrl,
-                title: title,
-                sourceUrl: videoUrl,
-                thumbnail: await conn.getFile(thumbnail).then((file) => file.data),
-            },
-        },
-    };
+    console.log('Descargando video desde:', videoUrlMp4);
+    const videoResponse = await fetch(videoUrlMp4);
+    if (!videoResponse.ok) {
+      throw new Error('Error al descargar el video');
+    }
 
-    await conn.sendMessage(m.chat, doc, { quoted: m });
+    await streamPipeline(videoResponse.body, writableStream);
+    console.log('Descarga de video completada');
 
-    fs.unlink(tmpFilePath, (err) => {
-        if (err) {
-            console.error(`Failed to delete video file: ${err}`);
-        } else {
-            console.log(`Deleted video file: ${tmpFilePath}`);
+    await m.react('🕓');
+
+    const txt = `> » Titulo: ${title}\n` +
+                `> » Autor: ${author.name}\n` +
+                `> » Canal: ${author.url}\n\n`;
+
+    await conn.reply(m.chat, txt, m);
+
+    await conn.sendMessage(m.chat, {
+      video: { url: filePath },
+      mimetype: "video/mp4",
+      fileName: `${title}.mp4`,
+      quoted: m,
+      contextInfo: {
+        'forwardingScore': 200,
+        'isForwarded': true,
+        externalAdReply: {
+          showAdAttribution: true,
+          title: title,
+          body: author.name,
+          mediaType: 2,
+          sourceUrl: global.canal,
+          thumbnail: await (await conn.getFile(thumbnail)).data,
+          mediaType: 1,
+          showAdAttribution: true,
+          renderLargerThumbnail: true,
         }
+      }
+    }, { quoted: m });
+
+    await m.react('✅');
+
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error(`Ocurrió un error al borrar el archivo de video: ${err}`);
+        m.react('❌');
+      } else {
+        console.log(`Borrando archivo de video: ${filePath}`);
+        m.react('✅');
+      }
     });
+  } catch (error) {
+    console.error('Error en el proceso:', error);
+    await conn.reply(m.chat, 'Ocurrió un error al procesar tu solicitud', m);
+    await m.react('❌');
+  }
 };
 
-handler.help = ['ytmp4 <URL>'];
-handler.tags = ['downloader'];
-handler.command = /^(ytmp4)$/i;
+handler.help = ["ytmp4"].map((v) => v + " <link>");
+handler.tags = ['dl'];
+handler.command = /^(ytmp4|ytvideo)$/i;
 
 export default handler;
