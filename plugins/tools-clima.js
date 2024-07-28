@@ -45,7 +45,7 @@ let handler = async (m, { args }) => {
     const footer = '╰─────────────────────';
     const space = '\n'.repeat(5); 
     
-    const wea = `
+const clima = `
 ${space}${border}│ 🌍 𝙻𝚄𝙶𝙰𝚁: ${name}, ${Country}
 ${divider}│ ☁️ 𝙲𝙻𝙸𝙼𝙰: ${Weather}
 ${divider}│ 🌡️ 𝚃𝙴𝙼𝙿𝙴𝚁𝙰𝚃𝚄𝚁𝙰: ${Temperature}°C (Mín: ${Minimum_Temperature}°C, Máx: ${Maximum_Temperature}°C)
@@ -55,7 +55,7 @@ ${divider}│
 ${divider}│ 𝙴𝚙𝚊𝚊𝚊: ${advice}
 ${footer}`;
 
-    m.reply(wea);
+    m.reply(clima);
   } catch {
     return "*Ha ocurrido un error al obtener el clima*";
   }
