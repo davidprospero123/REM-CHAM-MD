@@ -33,7 +33,7 @@ global.keysxteammm = [
 global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())];
 global.keysneoxrrr = ['5VC9rvNx', 'cfALv5'];
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())];
-global.lolkeysapi = ['GataDios'];
+global.lolkeysapi = ['GataDiosV2'];
 
 // ────╮
 // APIs
@@ -68,10 +68,10 @@ global.APIKeys = {
 // Otras variables globales
 // ╰─────────────────────────────────────────────╮
 global.id_canal = '120363274577422945@newsletter' //ID CANAL REM = 120363299269381797@newsletter
-global.name_canal = '𝐑 𝐄 𝐌 - 𝐁 𝐎 𝐓  - 𝐁 𝐘  - 𝐂 𝐔 𝐑 𝐈'
+global.name_canal = '𝚁𝙴𝙼𝙲𝙷𝙰𝙼 𝙱𝚈 𝙶𝙰𝙱𝚁𝙸𝙴𝙻 - 𝙹𝚃𝚇𝚂'
 global.rcanal = 'https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n'
 global.canal = 'https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n'
-global.botname = 'ＲＥＭ－ＢＯＴ';
+global.botname = '𝚁𝙴𝙼𝙲𝙷𝙰𝙼';
 global.premium = 'true';
 global.packname = 'ℭ𝔲𝔯𝔦-𝔅𝔬𝔱';
 global.author = '@holabb123';
