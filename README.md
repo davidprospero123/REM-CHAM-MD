@@ -10,14 +10,14 @@
     </p>
     <p>
         <a href="https://github.com/davidprospero123"><img title="Seguidores" src="https://img.shields.io/github/followers/davidprospero123?color=blue&style=flat-square"></a>
-        <a href="https://github.com/davidprospero123/REM-CHAM/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM?color=red&style=flat-square"></a>
+        <a href="https://github.com/davidprospero123/REM-CHAM-MD/stargazers/"><img title="Estrellas" src="https://img.shields.io/github/stars/davidprospero123/REM-CHAM-MD?color=red&style=flat-square"></a>
     </p>
     <p>
         <a href="#"><img title="Avanzado WhatsApp Bot" src="https://img.shields.io/badge/-Avanzado%20WhatsApp%20Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
     </p>
     <p>
         <a href="#"><img src="https://img.shields.io/badge/MANTENIMIENTO-SI-blue.svg"></a>
-        <img src="https://img.shields.io/github/repo-size/davidprospero123/REM-CHAM"> <br> 
+        <img src="https://img.shields.io/github/repo-size/davidprospero123/REM-CHAM-MD"> <br> 
     </p>
 </div>
 
@@ -34,7 +34,7 @@ mejorando la experiencia del usuario en la plataforma.
 
 1. Haz un fork del repositorio
     <br>
-<a href='https://github.com/davidprospero123/REM-CHAM/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
+<a href='https://github.com/davidprospero123/REM-CHAM-MD/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 # 𝙂𝙪𝙞𝙖 𝙥𝙖𝙧𝙖 𝙡𝙖 𝙞𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝙙𝙚 𝙧𝙚𝙢 𝙚𝙣 𝙩𝙚𝙧𝙢𝙪𝙭
 
@@ -87,7 +87,7 @@ pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn
 ```
 
 ```bash
-git clone https://github.com/davidprospero123/REM-CHAM.git && cd REM-CHAM
+git clone https://github.com/davidprospero123/REM-CHAM-MD.git && cd REM-CHAM
 ```
 
 ```bash
@@ -163,7 +163,7 @@ npm start
 
 2. Ahora, despliega
     <br>
-<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM"> <img src="https://img.shields.io/badge/replit%20Despegar-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://repl.it/github/davidprospero123/REM-CHAM-MD"> <img src="https://img.shields.io/badge/replit%20Despegar-blue?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>
 
 #### DESPLIEGUE EN CODESANDBOX
 Si no tienes una cuenta en CodeSandbox, crea una cuenta.
@@ -217,7 +217,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 ## 🤩 PAGINA WEB PRESIONA LA IMAGEN
 
 <div align="center">
-  <a href="https://rem-cham.replit.app">
+  <a href="https://rem-cham-md-web.vercel.app/">
     <img src="https://telegra.ph/file/068ad375f7c4b256bd786.jpg" alt="Página Web de Soporte" width="400">
   </a>
 </div>
@@ -230,7 +230,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 <div><button id="boton" type="button">Baileys - Por WhiskeySockets y adiwajshing</button></div>
 <a href="https://github.com/WhiskeySockets/Baileys"><img src="https://github.com/WhiskeySockets.png" width="150" height="150" alt="adiwajshing"/></a>
 
-<div><button id="boton" type="button">Base - Por FG98F</button></div>
+<div><button id="boton" type="button">Base - FG98F</button></div>
 <a href="https://github.com/FG98F"><img src="https://github.com/FG98F.png" width="150" height="150" alt="adiwajshing"/></a>
 
 <a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
