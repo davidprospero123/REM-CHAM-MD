@@ -9,9 +9,9 @@ let handler = async (m, { conn }) => {
   let ciwi = await(await fetch(cita.cewe)).buffer()
   await conn.sendFile(m.chat, ciwi, '', '♀️', m, null, rcanal)
 }
-handler.help = ['ppcouple', 'ppcp']
+handler.help = ['couplepp']
 handler.tags = ['img']
-handler.command = ['couplepp','ppcouple'] 
+handler.command = ['couplepp'] 
 
 
 export default handler
