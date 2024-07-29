@@ -1,4 +1,3 @@
-
 let handler = m => m
 handler.all = async function (m) {
   let setting = global.db.data.settings[this.user.jid]
@@ -14,7 +13,7 @@ handler.all = async function (m) {
       }) * 1000
     }
     let muptime = clockString(_muptime)
-    let bio = `\n💙 𝙇𝙡𝙚𝙫𝙤 𝙖𝙘𝙩𝙞𝙫𝙖: ${muptime}\n\n ┃ ♛╰┈➤𝘾𝙧𝙚𝙖𝙙𝙤𝙧 𝙙𝙚𝙡 𝙗𝙤𝙩 : 𝘾𝙪𝙧𝙞`
+    let bio = `💙 𝙇𝙡𝙚𝙫𝙤 𝙖𝙘𝙩𝙞𝙫𝙖: ${muptime}\n\n╰┈➤ 𝘾𝙧𝙚𝙖𝙙𝙤𝙧 𝙙𝙚𝙡 𝙗𝙤𝙩 : 𝘾𝙪𝙧𝙞`
     await this.updateProfileStatus(bio).catch(_ => _)
     setting.status = new Date() * 1
   }
