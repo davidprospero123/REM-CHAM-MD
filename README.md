@@ -190,14 +190,6 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - Contacto: hi@flarex.cloud / support@flarex.cloud / partnerships@flarex.cloud
 - Discord: https://discord.flarex.cloud
 
- #### DESPLIEGUE EN INFINITY HOST
- <a href="https://dash.infinity-wa.com/"><img src="https://telegra.ph/file/3a7bfffd9a7edff5bf8ee.jpg" height="220px"></a>
- - Tutorial: https://www.youtube.com/watch?v=c9RCnOV418E
- - Panel: https://dash.infinity-wa.com/
- - Discord: https://discord.com/invite/DegsQMuB
- - Soporte: www.facebook.com/elrebelde21
- wa.me/5492964650915
-
  ## <img src="https://telegra.ph/file/f0c5100afea52569b7efd.gif" alt="Características" width="42" height="42"> Características
 > REM-BOT
 - [x] Interacción con voz y texto
