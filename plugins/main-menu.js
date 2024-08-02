@@ -1,13 +1,6 @@
-import {
-  promises,
-  readFileSync
- } from "fs"
- import {
-  join
- } from "path"
- import {
-  xpRange
- } from "../lib/levelling.js"
+import { promises, readFileSync } from "fs"
+ import { join } from "path"
+ import { xpRange } from "../lib/levelling.js"
  import moment from "moment-timezone"
  import os from "os"
 
@@ -533,20 +526,8 @@ const handler = async (m, {
  let tag = `@${m.sender.split("@")[0]}`
  let mode = global.opts["self"] ? "Private" : "Public"
 
- let {
-age,
-exp,
-limit,
-level,
-role,
-registered,
-credit
- } = glb[m.sender]
- let {
-min,
-xp,
-max
- } = xpRange(level, global.multiplier)
+ let { age, exp, limit, level, role, registered, credit } = glb[m.sender]
+ let { min, xp, max } = xpRange(level, global.multiplier)
  let name = await conn.getName(m.sender)
  let premium = glb[m.sender].premiumTime
  let prems = `${premium > 0 ? "Premium": "Free"}`
@@ -656,7 +637,7 @@ const { result, key, timeout } = await conn.sendMessage(
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: 'ＲＥＭ－ＢＯＴ',
+      title: global.botname,
       body: '𝙼𝙴𝙽𝚄',
       thumbnailUrl: 'https://i.pinimg.com/736x/59/47/a8/5947a86d35bdb1205781422d7cf9d4ed.jpg',
       sourceUrl: 'https://github.com/davidprospero123/REM-CHAM-MD.git',
