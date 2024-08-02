@@ -1,10 +1,3 @@
-//Curi ka Maal Hai 
-//Made For Curi Bot
-//created on Diwali(12th Nov)
-//copy with credits
-//lodusheks stay away
-
-
 
 let handler = m => m
 handler.all = async function (m, conn) {
@@ -12,7 +5,7 @@ handler.all = async function (m, conn) {
     let url = "https://github.com/davidprospero123"
     let murl = "https://www.instagram.com/Josecurisoto"
     let hash = global.botname
-    let img = "https://i.imgur.com/qiUXqFF.png"
+    let img = "https://i.pinimg.com/564x/1b/d2/10/1bd2103a57609748edb8e84ee671edfa.jpg"
     let num = "51913091648"
 
     let doc = {
