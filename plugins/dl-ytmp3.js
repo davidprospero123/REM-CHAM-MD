@@ -1,42 +1,68 @@
-import fs from 'fs'
-import os from 'os'
-import fetch from 'node-fetch'
+import axios from "axios";
+import fs from "fs";
+import { pipeline } from "stream";
+import { promisify } from "util";
+import os from "os";
 
-let limit = 500
-let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
-  let chat = global.db.data.chats[m.chat]
-  if (!args || !args[0]) throw `✳️ Ejemplo:\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
-  if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el enlace de YouTube sea válido`
+let streamPipeline = promisify(pipeline);
 
-  var ggapi = `https://youtube-api-thepapusteam.koyeb.app/api/video?url=${encodeURIComponent(args[0])}`
-
-  const response = await fetch(ggapi)
-  if (!response.ok) {
-    console.log('Error al obtener los detalles del audio:', response.statusText)
-    throw 'Error al obtener los detalles del audio'
-  }
-  const data = await response.json()
-
-  if (!data.status) throw 'Error al procesar el audio'
-
-  let mp3Url = data.downloads.mp3.url
+let handler = async (m, { conn, command, text, usedPrefix }) => {
+  if (!text) return conn.reply(m.chat, `*_々 Ingresa un enlace de YouTube*\n\n*ejemplo:*\n${usedPrefix + command} https://youtu.be/w_ufjahQlyw?si=jMBHaX8SgkNdcG2v`, m);
 
   try {
-    let mp3 = await fetch(mp3Url)
-    if (!mp3.ok) throw 'Error al descargar el MP3'
+    let videoUrl = text; 
+    let apiUrl = `https://rembotapi.vercel.app/api/yt?url=${encodeURIComponent(videoUrl)}`;
+    
+    let response = await axios.get(apiUrl);
+    let data = response.data;
 
-    const mp3Buffer = await mp3.buffer()
+    if (!data.status) throw new Error("Error al obtener datos del video");
 
-    conn.sendFile(m.chat, mp3Buffer, 'audio.mp3', '', m, false, { asDocument: false })
+    let { title, thumbnail, audioUrl } = data.data;
+    await m.react("⏱");
+
+    let tmpDir = os.tmpdir();
+    let fileName = `${title}.mp3`;
+    let filePath = `${tmpDir}/${fileName}`;
+
+    let audioResponse = await axios({
+      url: audioUrl,
+      method: 'GET',
+      responseType: 'stream'
+    });
+
+    let writableStream = fs.createWriteStream(filePath);
+    await streamPipeline(audioResponse.data, writableStream);
+
+    let doc = {
+      audio: {
+        url: filePath,
+      },
+      mimetype: "audio/mp4",
+      fileName: `${title}`,
+      contextInfo: {
+        externalAdReply: {
+          showAdAttribution: true,
+          mediaType: 2,
+          mediaUrl: videoUrl,
+          title: title,
+          sourceUrl: videoUrl,
+          thumbnail: await (await conn.getFile(thumbnail)).data,
+        },
+      },
+    };
+
+    await conn.sendMessage(m.chat, doc, { quoted: m });
+    await m.react("✅");
   } catch (error) {
-    console.log('Error al descargar o enviar el archivo MP3:', error)
-    conn.sendMessage(m.chat, '❌ Error al descargar el archivo MP3', { quoted: m })
+    console.error(error);
+    await conn.reply(m.chat, `${global.error}`, m).then(_ => m.react('❌'));
   }
-}
+};
 
-handler.help = ['ytmp3 <yt-link>']
-handler.tags = ['descargador']
-handler.command = ['ytmp3', 'audio', 'yta']
-handler.diamond = false
+handler.help = ["ytmp3"].map((v) => v + " <url>");
+handler.tags = ["dl"];
+handler.command = /^(yta|ytmp3)$/i;
+handler.register = true
 
-export default handler
+export default handler;
