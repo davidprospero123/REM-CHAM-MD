@@ -1,4 +1,4 @@
-// Este codigo fue por Gabriel Curi si vas cargar mis plugis dame creditos crack Saludos
+// Este codigo fue echo por Gabriel Curi, si vas cargar mis plugins dame creditos crack Saludos
 import axios from 'axios';
 const baileys = (await import("@whiskeysockets/baileys")).default;
 const { proto } = baileys;
