@@ -1,7 +1,7 @@
 <div align="center">
     <p>  
         <a href="https://www.youtube.com/watch?v=MoiO-2NorRA&t=3s">
-            <img alt="Rem-Cham" height="300" src="https://telegra.ph/file/20de2569329583088aeee.gif">
+            <img alt="Rem-Cham" height="300" src="https://i.pinimg.com/736x/e4/7c/be/e47cbe22aae75ef2f22962cc022d6bac.jpg">
             <h1>REM-BOT</h1>
         </a>
     </p>
@@ -206,11 +206,11 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - [x] Gemini
 - [ ] Muy pronto lenguaje Ingles 
  
-## 🤩 PAGINA WEB PRESIONA LA IMAGEN
+## PAGINA WEB DEL BOT 
 
 <div align="center">
-  <a href="https://rem-cham-md-web.vercel.app/">
-    <img src="https://telegra.ph/file/068ad375f7c4b256bd786.jpg" alt="Página Web de Soporte" width="400">
+  <a href="https://remcham-md.vercel.app/">
+    <img src="https://i.pinimg.com/564x/c6/a7/b3/c6a7b3cc93d41877698bfdc2cb27c553.jpg" alt="Página Web de Soporte" width="400">
   </a>
 </div>
 
@@ -221,15 +221,10 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 ### Base del Bot
 <div><button id="boton" type="button">Baileys - Por WhiskeySockets y adiwajshing</button></div>
 <a href="https://github.com/WhiskeySockets/Baileys"><img src="https://github.com/WhiskeySockets.png" width="150" height="150" alt="adiwajshing"/></a>
-
-<div><button id="boton" type="button">Base - FG98F</button></div>
-<a href="https://github.com/FG98F"><img src="https://github.com/FG98F.png" width="150" height="150" alt="adiwajshing"/></a>
-
-<a href="https://github.com/davidprospero123"><img src="https://i.imgur.com/ejbURho.png" alt="𝙶̷𝚊̷𝚋̷𝚛̷𝚒̷𝚎̷𝚕̷ 𝙲̷𝚞̷𝚛̷𝚒̷"/></a>
-
-`© 𝚁̷𝙴̷𝙼̷-𝙱̷𝙾̷𝚃̷  - By Gabriel Curi`
 ### 𝘾𝙤𝙡𝙖𝙗𝙤𝙧𝙖𝙙𝙤𝙧𝙚𝙨
 <a href="https://github.com/AleXD0009"><img src="https://i.pinimg.com/564x/7e/2c/5b/7e2c5b5e1cad07427cf3a9a9c2203cfe.jpg" width="200" height="200" alt="Jtxs"/></a>
+### 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊
+<a href="https://github.com/davidprospero123"><img src="https://i.pinimg.com/736x/3e/5d/d5/3e5dd5c1ae496627b4225f154f53edae.jpg" width="200" height="200" alt="Jtxs"/></a>
 
 <h2 align="center">  Recordatorio
 </h2>
@@ -238,6 +233,5 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - Este bot no está hecho por `WhatsApp Inc.` Así que el mal uso del bot podría resultar en la `prohibición` de tu cuenta de `WhatsApp`. (Aunque tu cuenta de WhatsApp solo puede ser desbloqueada una vez).
 - No soy responsable de la prohibición de tu cuenta.
 - Úsalo bajo tu propio riesgo teniendo en cuenta esta advertencia.
-- No está en venta
 - No olvides dar créditos si estás usando o volviendo a cargar mis plugins/archivos.
 - Que tengas un buen día por delante
