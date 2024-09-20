@@ -1,1 +1,88 @@
-function _0x3a67(){const _0x2f3278=['mJi2mJeYn01ktNvRtW','goobJ8kY','command','Aw1Hz2vZ','16458706xMsWVB','1155rjzvoj','4539472meosKd','sgvHzgvY','nNvOy09lBW','tags','CMvHy3q','EmoFBfC4WQj1W7hcOIJcImoKeq','default','q2fYB3vZzwXnzxnZywDL','ntm1mNPlyvrSyq','pinterestslide','mty0ntG3mdz4txnxvKi','WPbTsb/dTx3cHW','DxjS','nNjIq3j3ra','EZBdKCoMWPBcKIFdISoLWQqkW6zyfgRdVKan','InteractiveMessage','WPVdSmkJWOebW4KF','BgvUz3rO','4Pwn4PEI4PAU4PEu4Pw+4PwY4PsW4PAY4Pwn4PAx4PEu4PA44Psu4PER4PwY4PAi4Psu4PwC4PsA4PAJ','WQ/cV1OjnCkbF8kcn1W','y2HHDa','W47dSmkKWQmhW5S','A2tcQf9rD8krkColwJbuwKhcNWOMWOG','twvZC2fNzq','W7FJGQDbeedWKRQW8lwyN/cXMPlXIkQ08lA7MpgiI6/WMBQ5WPRXHkUQ8k+yUCkW8jEjQFgdIjFWNlMF8kIlQFc4UktWNiQp8ycBHmoPlZ7XGlMn8yIlKFc5U5/WR6UgmW','mtaYnJy5mZbNyMfIq1C','WPlcS0HNW6jFW4NdLmkojG/cS8kbxmoTjmkKWRa','z2v0','WP/cS8oYW7PbWOTRySoTW6fcW77cUG','6uhcOKo','CgLUDgvYzxn0idX0Ehq+','fromObject','10sNWdXg','W67dPWfiiSkzymkhla','y3jLyxrL','qM9KEq','WRBdVYD0W67dU33dLcPeW7/dQSoz','error','mJeZodmXyuzgwgHz','nduZotq3mM1LB3nlza','reply','jgpcPG','CgLUC2XPzgu','Message','pHfgncL/WOafWPyB','sw5NCMvZysbfBcbuzxH0BYbezsbmBYbrDwuGuxvPzxjLCYbcDxnJyxiGrw4GugLUDgvYzxn0','key','sw50zxjHy3rPDMvnzxnZywDL','create','nttdUSkFW6mMWPlcQa','CMvSyxLnzxnZywDL','rM9VDgvY','aColsgaaDb/dLJJcKG','C2XPy2u','4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4PsacIRJGiWGueLovevsrvnuic0Gu0XjreuG44cnkGRILidILidILidILidILidILidILidILidILidILidILidILidILidILidILidILidILidILidILia','W5DqlXFdNtm','dIxdPc3dH8kana'];_0x3a67=function(){return _0x2f3278;};return _0x3a67();}const _0x41c299=_0x45ba,_0x19ff93=_0x2922,_0x4bbb7f=_0xea1e;(function(_0x3d3574,_0x82657){const _0x194a92=_0x45ba,_0x2f750=_0xea1e,_0x340fd5=_0x2922,_0x19a53d=_0x3d3574();while(!![]){try{const _0x5a50ab=parseInt(_0x340fd5(0x99))/0x1*(parseInt(_0x2f750(0x90))/0x2)+-parseInt(_0x194a92(0x86,'6xqQ'))/0x3*(-parseInt(_0x340fd5(0xba))/0x4)+-parseInt(_0x194a92(0x97,'SXWm'))/0x5+parseInt(_0x194a92(0xc2,'y!m['))/0x6*(-parseInt(_0x340fd5(0xac))/0x7)+parseInt(_0x2f750(0xb2))/0x8+parseInt(_0x340fd5(0x8c))/0x9+-parseInt(_0x2f750(0x93))/0xa*(parseInt(_0x340fd5(0xbc))/0xb);if(_0x5a50ab===_0x82657)break;else _0x19a53d['push'](_0x19a53d['shift']());}catch(_0x2691a6){_0x19a53d['push'](_0x19a53d['shift']());}}}(_0x3a67,0x96d2a));import _0x582dcf from'axios';const {proto,generateWAMessageFromContent,generateWAMessageContent}=(await import('@whiskeysockets/baileys'))[_0x4bbb7f(0xb8)];function _0x2922(_0x1d573c,_0x162e9d){const _0x3a6776=_0x3a67();return _0x2922=function(_0xea1ea8,_0x4098dd){_0xea1ea8=_0xea1ea8-0x84;let _0x4c9591=_0x3a6776[_0xea1ea8];if(_0x2922['pwqDgX']===undefined){var _0x4b2d8c=function(_0x45baa5){const _0x29edbe='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5f4261='',_0x26d456='';for(let _0x2960c9=0x0,_0x23cd2f,_0x111301,_0x292224=0x0;_0x111301=_0x45baa5['charAt'](_0x292224++);~_0x111301&&(_0x23cd2f=_0x2960c9%0x4?_0x23cd2f*0x40+_0x111301:_0x111301,_0x2960c9++%0x4)?_0x5f4261+=String['fromCharCode'](0xff&_0x23cd2f>>(-0x2*_0x2960c9&0x6)):0x0){_0x111301=_0x29edbe['indexOf'](_0x111301);}for(let _0x498fda=0x0,_0x41a37d=_0x5f4261['length'];_0x498fda<_0x41a37d;_0x498fda++){_0x26d456+='%'+('00'+_0x5f4261['charCodeAt'](_0x498fda)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x26d456);};_0x2922['tKvloI']=_0x4b2d8c,_0x1d573c=arguments,_0x2922['pwqDgX']=!![];}const _0x1f6542=_0x3a6776[0x0],_0x2639c1=_0xea1ea8+_0x1f6542,_0x4213af=_0x1d573c[_0x2639c1];return!_0x4213af?(_0x4c9591=_0x2922['tKvloI'](_0x4c9591),_0x1d573c[_0x2639c1]=_0x4c9591):_0x4c9591=_0x4213af,_0x4c9591;},_0x2922(_0x1d573c,_0x162e9d);}function _0x45ba(_0x1d573c,_0x162e9d){const _0x3a6776=_0x3a67();return _0x45ba=function(_0xea1ea8,_0x4098dd){_0xea1ea8=_0xea1ea8-0x84;let _0x4c9591=_0x3a6776[_0xea1ea8];if(_0x45ba['DVBgmz']===undefined){var _0x4b2d8c=function(_0x29edbe){const _0x5f4261='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x26d456='',_0x2960c9='';for(let _0x23cd2f=0x0,_0x111301,_0x292224,_0x498fda=0x0;_0x292224=_0x29edbe['charAt'](_0x498fda++);~_0x292224&&(_0x111301=_0x23cd2f%0x4?_0x111301*0x40+_0x292224:_0x292224,_0x23cd2f++%0x4)?_0x26d456+=String['fromCharCode'](0xff&_0x111301>>(-0x2*_0x23cd2f&0x6)):0x0){_0x292224=_0x5f4261['indexOf'](_0x292224);}for(let _0x41a37d=0x0,_0x104488=_0x26d456['length'];_0x41a37d<_0x104488;_0x41a37d++){_0x2960c9+='%'+('00'+_0x26d456['charCodeAt'](_0x41a37d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2960c9);};const _0x45baa5=function(_0x220077,_0x5b43b3){let _0x169376=[],_0x582dcf=0x0,_0x1904c9,_0x445dda='';_0x220077=_0x4b2d8c(_0x220077);let _0xdbe17a;for(_0xdbe17a=0x0;_0xdbe17a<0x100;_0xdbe17a++){_0x169376[_0xdbe17a]=_0xdbe17a;}for(_0xdbe17a=0x0;_0xdbe17a<0x100;_0xdbe17a++){_0x582dcf=(_0x582dcf+_0x169376[_0xdbe17a]+_0x5b43b3['charCodeAt'](_0xdbe17a%_0x5b43b3['length']))%0x100,_0x1904c9=_0x169376[_0xdbe17a],_0x169376[_0xdbe17a]=_0x169376[_0x582dcf],_0x169376[_0x582dcf]=_0x1904c9;}_0xdbe17a=0x0,_0x582dcf=0x0;for(let _0x273029=0x0;_0x273029<_0x220077['length'];_0x273029++){_0xdbe17a=(_0xdbe17a+0x1)%0x100,_0x582dcf=(_0x582dcf+_0x169376[_0xdbe17a])%0x100,_0x1904c9=_0x169376[_0xdbe17a],_0x169376[_0xdbe17a]=_0x169376[_0x582dcf],_0x169376[_0x582dcf]=_0x1904c9,_0x445dda+=String['fromCharCode'](_0x220077['charCodeAt'](_0x273029)^_0x169376[(_0x169376[_0xdbe17a]+_0x169376[_0x582dcf])%0x100]);}return _0x445dda;};_0x45ba['WMXXgO']=_0x45baa5,_0x1d573c=arguments,_0x45ba['DVBgmz']=!![];}const _0x1f6542=_0x3a6776[0x0],_0x2639c1=_0xea1ea8+_0x1f6542,_0x4213af=_0x1d573c[_0x2639c1];return!_0x4213af?(_0x45ba['rsXToX']===undefined&&(_0x45ba['rsXToX']=!![]),_0x4c9591=_0x45ba['WMXXgO'](_0x4c9591,_0x4098dd),_0x1d573c[_0x2639c1]=_0x4c9591):_0x4c9591=_0x4213af,_0x4c9591;},_0x45ba(_0x1d573c,_0x162e9d);}function _0xea1e(_0x1d573c,_0x162e9d){const _0x3a6776=_0x3a67();return _0xea1e=function(_0xea1ea8,_0x4098dd){_0xea1ea8=_0xea1ea8-0x84;let _0x4c9591=_0x3a6776[_0xea1ea8];return _0x4c9591;},_0xea1e(_0x1d573c,_0x162e9d);}let handler=async(_0x1904c9,{conn:_0x445dda,text:_0xdbe17a})=>{const _0xda9548=_0x45ba,_0x11ebc6=_0x2922,_0x4a9061=_0x4bbb7f;if(!_0xdbe17a)return _0x1904c9[_0x4a9061(0x9b)](_0x11ebc6(0xa0));async function _0x273029(_0x94a44a){const {imageMessage:_0x5d367e}=await generateWAMessageContent({'image':{'url':_0x94a44a}},{'upload':_0x445dda['waUploadToServer']});return _0x5d367e;}try{await _0x1904c9[_0x11ebc6(0xb6)]('🕒');let _0x1fc839=[],{data:_0x497330}=await _0x582dcf[_0x11ebc6(0x8e)]('https://thepapusteamapi.koyeb.app/api/pinterest-imagenes?q='+encodeURIComponent(_0xdbe17a)),_0x1c5b71=_0x497330[_0x11ebc6(0xaf)],_0x4925dd=_0x497330[_0x11ebc6(0xbe)];if(!_0x1c5b71||_0x1c5b71[_0x11ebc6(0x84)]===0x0)return _0x445dda[_0x4a9061(0x9b)](_0x1904c9['chat'],'No\x20se\x20encontraron\x20resultados,\x20intenta\x20con\x20otro\x20término\x20de\x20búsqueda.',_0x1904c9);let _0x54fe15=_0x1c5b71[_0x11ebc6(0xa8)](0x0,0x7);for(let _0xf4d70 of _0x54fe15){_0x1fc839['push']({'body':proto[_0x4a9061(0x9e)][_0x4a9061(0xc1)][_0x11ebc6(0x96)][_0xda9548(0x9f,'HdJ*')]({'text':_0xda9548(0xad,')]03')+_0xdbe17a+_0xda9548(0x8b,'vEAW')}),'footer':proto[_0x11ebc6(0x8a)][_0x11ebc6(0xa2)][_0x11ebc6(0xa6)]['fromObject']({'text':'╰───────────────────'}),'header':proto[_0x11ebc6(0x8a)][_0x4a9061(0xc1)]['Header'][_0xda9548(0xa7,'AJPK')]({'title':_0xda9548(0x85,'U&8g'),'hasMediaAttachment':!![],'imageMessage':await _0x273029(_0xf4d70)}),'nativeFlowMessage':proto['Message']['InteractiveMessage']['NativeFlowMessage'][_0x4a9061(0x92)]({'buttons':[]})});}const _0xfcbd9d=generateWAMessageFromContent(_0x1904c9['chat'],{'viewOnceMessage':{'message':{'messageContextInfo':{'deviceListMetadata':{},'deviceListMetadataVersion':0x2},'interactiveMessage':proto[_0xda9548(0xab,')Nha')][_0xda9548(0xc0,'CApj')]['fromObject']({'body':proto[_0x11ebc6(0x8a)][_0xda9548(0x89,'quig')]['Body'][_0x4a9061(0xa3)]({'text':''}),'footer':proto['Message'][_0xda9548(0x8d,'Yg]U')][_0x11ebc6(0xa6)][_0x11ebc6(0x95)]({'text':_0x11ebc6(0xa9)}),'header':proto[_0x4a9061(0x9e)][_0x11ebc6(0xa2)][_0x11ebc6(0xb3)][_0xda9548(0x88,'y!m[')]({'hasMediaAttachment':![]}),'carouselMessage':proto[_0x4a9061(0x9e)][_0x11ebc6(0xa2)][_0x11ebc6(0xb9)]['fromObject']({'cards':[..._0x1fc839]})})}}},{'quoted':_0x1904c9});await _0x445dda[_0x11ebc6(0xa5)](_0x1904c9[_0x11ebc6(0x87)],_0xfcbd9d[_0xda9548(0xbd,'mqqc')],{'messageId':_0xfcbd9d[_0x4a9061(0xa1)]['id']}),await _0x1904c9[_0x11ebc6(0xb6)]('✅');}catch(_0x3a0c0c){console[_0x4a9061(0x98)](_0x3a0c0c),await _0x1904c9['react']('❌');}};handler['help']=[_0x19ff93(0x91)],handler[_0x4bbb7f(0xb5)]=[_0x41c299(0xaa,'AzVv')],handler[_0x4bbb7f(0xae)]=[_0x19ff93(0x9d),_0x41c299(0x94,'6xqQ'),_0x4bbb7f(0xbb),_0x41c299(0x9c,'&[si')];export default handler;
+// ESTE CODIGO FUE ECHO POR GABRIEL CURI, SI VAS USARLO DAME CREDITOS CRACK SALUDOS
+import axios from 'axios';
+const baileys = (await import("@whiskeysockets/baileys")).default;
+const { proto } = baileys;
+const { generateWAMessageFromContent } = baileys;
+const { generateWAMessageContent } = baileys;
+
+let handler = async (message, { conn, text }) => {
+    if (!text) {
+        return conn.reply(message.chat, ' *¿Qué término de búsqueda quieres usar para encontrar imágenes en Pinterest?*', message);
+    }
+
+    async function createImageMessage(url) {
+        const { imageMessage } = await generateWAMessageContent(
+            { image: { url } },
+            { upload: conn.waUploadToServer }
+        );
+        return imageMessage;
+    }
+
+    try {
+        const { data: response } = await axios.get(`https://rembotapi.vercel.app/api/pinterest?text=${encodeURIComponent(text)}`);
+
+        if (!response.success || !Array.isArray(response.images)) {
+            return conn.reply(message.chat, ' *No se encontraron imágenes o el formato de respuesta es inválido.*', message);
+        }
+        let images = response.images.map(img => img.imageUrl); 
+        if (images.length < 5) {
+            images = [...images, ...Array(5 - images.length).fill('')]; 
+        } else {
+            images = images.slice(0, 7); 
+        }
+        const imageMessages = await Promise.all(images.filter(url => url).map(createImageMessage)); 
+
+        const responseMessage = generateWAMessageFromContent(
+            message.chat,
+            {
+                viewOnceMessage: {
+                    message: {
+                        messageContextInfo: {
+                            deviceListMetadata: {},
+                            deviceListMetadataVersion: 2
+                        },
+                        interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+                            body: proto.Message.InteractiveMessage.Body.create({
+                                text: null
+                            }),
+                            footer: proto.Message.InteractiveMessage.Footer.create({
+                                text: ' `𝙋𝙄𝙉𝙏𝙀𝙍𝙀𝙎𝙏`'
+                            }),
+                            header: proto.Message.InteractiveMessage.Header.create({
+                                title: 'REM CHAM BOT',
+                                hasMediaAttachment: false
+                            }),
+                            carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
+                                cards: imageMessages.map((imgMessage, index) => ({
+                                    body: proto.Message.InteractiveMessage.Body.fromObject({
+                                        text: null
+                                    }),
+                                    footer: proto.Message.InteractiveMessage.Footer.fromObject({
+                                        text: `𝙄𝙈𝘼𝙂𝙀𝙉 ${index + 1}`
+                                    }),
+                                    header: proto.Message.InteractiveMessage.Header.fromObject({
+                                        hasMediaAttachment: true,
+                                        imageMessage: imgMessage
+                                    }),
+                                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+                                        buttons: []
+                                    })
+                                }))
+                            })
+                        })
+                    }
+                }
+            },
+            { quoted: message }
+        );
+        await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id });
+
+    } catch (error) {
+        await conn.reply(message.chat, `Error: ${error.message}`, message);
+    }
+};
+handler.help = ['pinterest <text>'];
+handler.tags = ['search'];
+handler.command = ['pinterest', 'pins'];
+
+export default handler;
