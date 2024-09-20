@@ -1,7 +1,7 @@
 <div align="center">
     <p>  
         <a href="https://www.youtube.com/watch?v=MoiO-2NorRA&t=3s">
-            <img alt="Rem-Cham" height="400" src="https://i.pximg.net/img-master/img/2024/04/16/20/00/05/117895022_p0_master1200.jpg">
+            <img alt="Rem-Cham" height="400" src="https://i.imgur.com/3oFGWh5.jpeg">
             <h1>𝙍𝙀𝙈 𝘾𝙃𝘼𝙈 𝘽𝙊𝙏</h1>
         </a>
     </p>
