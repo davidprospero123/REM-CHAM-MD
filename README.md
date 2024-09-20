@@ -219,15 +219,34 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 ## Agradecimientos y Créditos
 
 ### Base del Bot
-<div><button id="boton" type="button">Baileys - Por WhiskeySockets y adiwajshing</button></div>
-<a href="https://github.com/WhiskeySockets/Baileys"><img src="https://github.com/WhiskeySockets.png" width="150" height="150" alt="adiwajshing"/></a>
-### 𝘾𝙤𝙡𝙖𝙗𝙤𝙧𝙖𝙙𝙤𝙧𝙚𝙨
-<a href="https://github.com/AleXD0009"><img src="https://i.pinimg.com/564x/7e/2c/5b/7e2c5b5e1cad07427cf3a9a9c2203cfe.jpg" width="200" height="200" alt="Jtxs"/></a>
-### 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊
-<a href="https://github.com/davidprospero123"><img src="https://i.pinimg.com/736x/3e/5d/d5/3e5dd5c1ae496627b4225f154f53edae.jpg" width="200" height="200" alt="Jtxs"/></a>
+<div>
+    <button id="boton" type="button">Baileys - Por WhiskeySockets y adiwajshing</button>
+</div>
+<a href="https://github.com/WhiskeySockets/Baileys">
+    <img src="https://github.com/WhiskeySockets.png" width="150" height="150" alt="adiwajshing"/>
+</a>
 
-<h2 align="center">  Recordatorio
-</h2>
+<hr> 
+
+### 𝘾𝙤𝙡𝙖𝙗𝙤𝙧𝙖𝙙𝙤𝙧𝙚𝙨
+<div>
+    <a href="https://github.com/AleXD0009">
+        <img src="https://i.pinimg.com/564x/7e/2c/5b/7e2c5b5e1cad07427cf3a9a9c2203cfe.jpg" width="200" height="200" alt="Jtxs"/>
+    </a>
+</div>
+
+<hr> 
+
+### 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊
+<div>
+    <a href="https://github.com/davidprospero123">
+        <img src="https://i.pinimg.com/736x/3e/5d/d5/3e5dd5c1ae496627b4225f154f53edae.jpg" width="200" height="200" alt="Jtxs"/>
+    </a>
+</div>
+
+<hr> 
+
+<h2 align="center"> 𝙄𝙈𝙋𝙊𝙍𝙏𝘼𝙉𝙏𝙀 </h2>
    
 ## 
 - Este bot no está hecho por `WhatsApp Inc.` Así que el mal uso del bot podría resultar en la `prohibición` de tu cuenta de `WhatsApp`. (Aunque tu cuenta de WhatsApp solo puede ser desbloqueada una vez).
