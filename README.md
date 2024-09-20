@@ -240,7 +240,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 ### 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊
 <div>
     <a href="https://github.com/davidprospero123">
-        <img src="https://i.pinimg.com/736x/3e/5d/d5/3e5dd5c1ae496627b4225f154f53edae.jpg" width="200" height="200" alt="Jtxs"/>
+        <img src="https://i.pinimg.com/736x/b2/86/4a/b2864af6cdfa8b56b74a463f33f4d3b3.jpg" width="200" height="200" alt="Jtxs"/>
     </a>
 </div>
 
