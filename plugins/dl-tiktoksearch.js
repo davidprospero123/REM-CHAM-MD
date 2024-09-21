@@ -1,35 +1,92 @@
-import axios from "axios";
+// Este código fue por Gabriel Curi si vas a cargar mis plugis dame créditos crack Saludos
+import axios from 'axios';
+const baileys = (await import("@whiskeysockets/baileys")).default;
+const { proto } = baileys;
+const { generateWAMessageFromContent } = baileys;
+const { generateWAMessageContent } = baileys;
 
-let handler = async (m, { conn, usedPrefix, text }) => {
-  if (!text)
-    return conn.reply(m.chat, "*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚕𝚘 𝚚𝚞𝚎 𝚍𝚎𝚜𝚎𝚊𝚜 𝚋𝚞𝚜𝚌𝚊𝚛 𝚎𝚗 𝚃𝚒𝚔𝚃𝚘𝚔.*", m);
-  await m.react("💙");
-  try {
-    let response = await axios.get(`https://delirius-api-oficial.vercel.app/api/tiktoksearch?query=${encodeURIComponent(text)}`);
-    let results = response.data.meta;
-    if (!results.length) return conn.reply(m.chat, "𝙽𝚘 𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚎 𝚛𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘𝚜, 𝚒𝚗𝚝𝚎𝚗𝚝𝚊 𝚋𝚞𝚜𝚌𝚊𝚗𝚍𝚘 𝚘𝚝𝚛𝚊 𝚌𝚘𝚜𝚊 :𝟹", m).then((_) => m.react("✖️"));
-    
-    let txt = `*ＴｉｋＴｏｋ－Ｓｅａｒｃｈ \n ⇄ Ⅰ<    ⅠⅠ    >Ⅰ   ↻*\n\n`;
-    for (let i = 0; i < (30 <= results.length ? 30 : results.length); i++) {
-      let video = results[i];
-      txt += `\n`;
-      txt += `	❧  *𝚃𝚒𝚝𝚞𝚕𝚘* : ${video.title}\n`;
-      txt += `	❧  *𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗* : ${video.duration} segundos\n`;
-      txt += `	❧  *𝚄𝚛𝚕* : ${video.url}\n`;
-      txt += `	❧  *𝙰𝚞𝚝𝚘𝚛* : ${video.author.username || "×"}\n`;
-      txt += `	❧  *𝚅𝚒𝚜𝚒𝚝𝚊𝚜* : ${video.play}\n`;
-      txt += `	❧  *𝙲𝚘𝚛𝚊𝚣𝚘𝚗𝚎𝚜* : ${video.like}\n\n`;
+let handler = async (message, { conn, text }) => {
+    if (!text) {
+        return conn.reply(message.chat, ' *¿Qué video de TikTok quieres descargar?*', message);
     }
-    const url = "https://i.imgur.com/BO4TfMR.png"; 
-    const responseImg = await axios.get(url, { responseType: 'arraybuffer' });
-    await conn.sendFile(m.chat, responseImg.data, "thumbnail.png", txt, m, null, rcanal); 
-    await m.react("✅");
-  } catch {
-    m.react("❌");
-  }
+    async function createVideoMessage(url) {
+        const { videoMessage } = await generateWAMessageContent(
+            { video: { url } },
+            { upload: conn.waUploadToServer }
+        );
+        return videoMessage;
+    }
+    try {
+        const { data: response } = await axios.get(`https://rembotapi.vercel.app/api/tiktoksearch?text=${encodeURIComponent(text)}`);
+
+        if (!response.status) {
+            return conn.reply(message.chat, ' *No se pudo descargar el video de TikTok.*', message);
+        }
+        const videos = response.resultado; 
+        if (videos.length < 4) {
+            return conn.reply(message.chat, ' *No se encontraron suficientes videos.*', message);
+        }
+        const responseMessages = await Promise.all(videos.slice(0, 4).map(async (video) => {
+            const videoMessage = await createVideoMessage(video.videoUrl);
+            return {
+                body: proto.Message.InteractiveMessage.Body.fromObject({
+                    text: null
+                }),
+                footer: proto.Message.InteractiveMessage.Footer.fromObject({
+                    text: `𝚃𝚒𝚝𝚞𝚕𝚘: ${video.description}`
+                }),
+                header: proto.Message.InteractiveMessage.Header.fromObject({
+                    hasMediaAttachment: true,
+                    videoMessage
+                }),
+                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+                    buttons: []
+                })
+            };
+        }));
+
+        const carouselMessage = proto.Message.InteractiveMessage.CarouselMessage.fromObject({
+            cards: responseMessages
+        });
+
+        const responseMessage = generateWAMessageFromContent(
+            message.chat,
+            {
+                viewOnceMessage: {
+                    message: {
+                        messageContextInfo: {
+                            deviceListMetadata: {},
+                            deviceListMetadataVersion: 2
+                        },
+                        interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+                            body: proto.Message.InteractiveMessage.Body.create({
+                                text: null
+                            }),
+                            footer: proto.Message.InteractiveMessage.Footer.create({
+                                text: ' `𝙏 𝙄 𝙆 𝙏 𝙊 𝙆  𝙎𝙀𝘼𝙍𝘾𝙃`'
+                            }),
+                            header: proto.Message.InteractiveMessage.Header.create({
+                                title: null,
+                                hasMediaAttachment: false
+                            }),
+                            carouselMessage
+                        })
+                    }
+                }
+            },
+            { quoted: message }
+        );
+
+        await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id });
+
+    } catch (error) {
+        await conn.reply(message.chat, error.toString(), message);
+    }
 };
-handler.help = ["tiktoksearch"];
-handler.tags = ["search"];
-handler.command = ["tiktoksearch", "tiks"];
-handler.register = true;
+
+handler.help = ['tiktokdl <url>'];
+handler.tags = ['downloader'];
+handler.command = ['tiktoksearch','tts','ttsearch'];
+handler.register = true
+
 export default handler;
