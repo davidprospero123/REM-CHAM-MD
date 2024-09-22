@@ -1,7 +1,7 @@
 <div align="center">
     <p>  
         <a href="https://www.youtube.com/watch?v=MoiO-2NorRA&t=3s">
-            <img alt="Rem-Cham" height="400" src="https://i.imgur.com/3oFGWh5.jpeg">
+            <img alt="Rem-Cham" height="350" src="https://i.imgur.com/3oFGWh5.jpeg">
             <h1>𝙍𝙀𝙈 𝘾𝙃𝘼𝙈 𝘽𝙊𝙏</h1>
         </a>
     </p>
@@ -240,7 +240,7 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 ### 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊
 <div>
     <a href="https://github.com/davidprospero123">
-        <img src="https://i.pinimg.com/736x/b2/86/4a/b2864af6cdfa8b56b74a463f33f4d3b3.jpg" width="200" height="200" alt="Jtxs"/>
+        <img src="https://i.pinimg.com/736x/b2/86/4a/b2864af6cdfa8b56b74a463f33f4d3b3.jpg" width="200" height="200" alt="Gabriel Curi"/>
     </a>
 </div>
 
