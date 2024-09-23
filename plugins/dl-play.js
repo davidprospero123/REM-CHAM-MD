@@ -25,15 +25,17 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     txt += '===========================\n';
     txt += '*𝙿𝚘𝚠𝚎𝚛𝚎𝚍 𝚋𝚢 𝙶𝚊𝚋𝚛𝚒𝚎𝚕 𝙲𝚞𝚛𝚒*';
 
-    await conn.sendButton2(m.chat, txt, '-ThePapusTeam-', thumbnail, [
-        ['Audio', `${usedPrefix}ytmp3 ${url}`],
-        ['Video', `${usedPrefix}ytmp4 ${url}`]
-    ], null, [['Canal', 'https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n']], m);
+    await conn.sendButton2(m.chat, txt, '𝙍𝙀𝙈-𝘾𝙃𝘼𝙈 𝘽𝙊𝙏', thumbnail, [
+        ['ʏᴛᴍᴘ3', `${usedPrefix}ytmp3 ${url}`],
+        ['ʏᴛᴍᴘ4', `${usedPrefix}ytmp4 ${url}`],
+        ['ʏᴛᴍᴘ4ᴅᴏᴄ', `${usedPrefix}ytmp4doc ${url}`],
+        ['ʏᴛᴍᴘ3ᴅᴏᴄ', `${usedPrefix}ytmp3doc ${url}`]
+    ], null, [['ᴄᴀɴᴀʟ', 'https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n']], m);
 
     await m.react('✅');
 };
 
-handler.help = ['play', 'play2', 'ytmp3'];
+handler.help = ['play', 'play2', ];
 handler.tags = ['dl'];
 handler.command = ['play',];
 
