@@ -203,8 +203,8 @@ Pega la URL de tu repositorio forked de REM-CHAM y haz clic en importar.
 - [x] Juego RPG
 - [x] Descarga de música y video de YT
 - [x] ChatGpt
-- [x] Gemini
-- [ ] Muy pronto lenguaje Ingles 
+- [x] Descargas ANIMEFLV
+- [ ] Gemini
  
 ## PAGINA WEB DEL BOT 
 
