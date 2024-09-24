@@ -511,6 +511,13 @@ let imganime = `
 ❤️ .𝚆𝚊𝚒𝚏𝚞
 ❤️ .𝙶𝚘𝚘𝚐𝚕𝚎𝙸𝚖𝚐 <𝙰𝚗𝚒𝚖𝚎>
 `
+let animeflv = `
+✦ ───『 *𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎 𝘼𝙉𝙄𝙈𝙀𝙁𝙇𝙑* 』─── ⚝
+💜 .𝙰𝚗𝚒𝚖𝚎𝚏𝚕𝚟𝚜𝚎𝚊𝚛𝚌𝚑 <𝚃𝙴𝚇𝚃>
+💜 .𝙰𝚗𝚒𝚖𝚎𝚏𝚕𝚟𝚍𝚕 <𝙸𝙳> <𝙲𝙰𝙿𝙸𝚃𝚄𝙻𝙾>
+💜 .𝙰𝚗𝚒𝚖𝚎𝚍𝚕 <𝙸𝙳> <𝙲𝙰𝙿𝙸𝚃𝚄𝙻𝙾>
+`
+
 
 const handler = async (m, {
   conn,
@@ -916,7 +923,22 @@ contextInfo: {
           serverMessageId: -1,
         },
       }
-    }, { quoted:fcontact });
+    },
+    { quoted:fcontact });
+         } else if (choice === "20") {
+      await conn.sendMessage(m.chat, { image: { url: 'https://i.postimg.cc/vZh4krqx/wallpaperflare-com-wallpaper.png' },
+      caption: animeflv,
+contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: id_canal,
+          newsletterName: name_canal,
+          serverMessageId: -1,
+        },
+      }
+    },
+     { quoted:fcontact });
     } else {
       m.reply('𝙽𝙾 𝙴𝚂 𝚄𝙽 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙴𝙽𝚅𝙸𝙰 𝚄𝙽 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝙻𝙰 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝙼𝙴𝙽𝚄.');
     }
