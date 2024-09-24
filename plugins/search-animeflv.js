@@ -10,7 +10,7 @@ let handler = async (message, { conn, text }) => {
     if (!text) {
         return conn.reply(message.chat, ' *¿Qué anime estás buscando?*', message);
     }
-    
+
     async function createImageMessage(url) {
         const { imageMessage } = await generateWAMessageContent(
             { image: { url } },
@@ -26,12 +26,9 @@ let handler = async (message, { conn, text }) => {
             return conn.reply(message.chat, ' *No se encontraron animes.*', message);
         }
 
-        const animes = response.results; 
-        if (animes.length < 4) {
-            return conn.reply(message.chat, ' *No se encontraron suficientes animes.*', message);
-        }
+        const animes = response.results;
 
-        const responseMessages = await Promise.all(animes.slice(0, 4).map(async (anime) => {
+        const responseMessages = await Promise.all(animes.map(async (anime) => {
             const imageMessage = await createImageMessage(anime.poster);
             return {
                 body: proto.Message.InteractiveMessage.Body.fromObject({
