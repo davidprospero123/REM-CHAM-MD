@@ -1,52 +1,30 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 
-const apiURL = 'https://delirius-api-oficial.vercel.app/api/instagram';
-
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-  if (!args[0] || !args[0].match(/instagram\.com/i)) 
-    throw `Usa el comando así: ${usedPrefix}${command} [enlace de Instagram]`;
-
-  const url = args[0].trim();
-  const apiUrl = `${apiURL}?url=${encodeURIComponent(url)}`;
-
-  const response = await fetch(apiUrl);
-  if (!response.ok) {
-    console.error('Error al buscar el contenido de Instagram:', response.statusText);
-    throw 'Ocurrió un error al buscar el contenido de Instagram';
-  }
-  
-  const data = await response.json();
-  const mediaData = data.data;
-
-  if (!mediaData || mediaData.length === 0) 
-    throw 'No se encontraron datos válidos de la publicación de Instagram';
-
-  for (const media of mediaData) {
-    if (!media.url) continue;
-    
-    const mediaResponse = await fetch(media.url);
-    if (!mediaResponse.ok) {
-      console.error('Error al descargar el contenido de Instagram:', mediaResponse.statusText);
-      throw 'Ocurrió un error al descargar el contenido de Instagram';
+let handler = async (m, { conn, args }) => {
+  if (!args[0]) return conn.reply(m.chat, 'Ingresa un enlace de Instagram', m);
+  try {
+    let response = await axios.get(`https://rembotapi.vercel.app/api/instagramdl?url=${encodeURIComponent(args[0])}`);
+    let result = response.data;
+    if (!result.success || !result.data) {
+      return conn.reply(m.chat, 'No se pudo obtener el video, intenta nuevamente', m);
     }
-  
-    const mediaBuffer = await mediaResponse.buffer();
+    let videoLink = result.data.downloads[0].video_link;
+    let title = result.data.title;
+    let likeCount = result.data.likeCount;
+    let commentCount = result.data.commentCount;
+    await conn.sendMessage(m.chat, {
+      video: { url: videoLink },
+      caption: `🎬 ＴＩＴＵＬＯ: ${title}\n👍 ʟɪᴋᴇꜱ: ${likeCount}\n💬 ᴄᴏᴍᴇɴᴛᴀʀɪᴏꜱ: ${commentCount}`,
+      mimetype: 'video/mp4',
+      fileName: 'igdl.mp4'
+    }, { quoted: m });
 
-    const caption = `𝙳𝙴𝚂𝙲𝙰𝙶𝙰𝚁𝙳𝙾𝚁 𝙳𝙴 𝙸𝙽𝚂𝚃𝙰𝙶𝚁𝙰𝙼:\n${url}\n𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 - 𝙲𝚄𝚁𝙸`;
-
-    conn.sendFile(
-      m.chat,
-      mediaBuffer,
-      'video.mp4',
-      caption,
-      m
-    );
+  } catch (error) {
+    console.error(error);
+    conn.reply(m.chat, 'Hubo un error al procesar el video, intenta nuevamente', m);
   }
-};
+}
 
-handler.help = ['instagram <enlace>'];
-handler.tags = ['downloader'];
-handler.command = ['instagram', 'ig'];
-handler.register = true;
+handler.command = ['ig','instagram'];
 
 export default handler;
