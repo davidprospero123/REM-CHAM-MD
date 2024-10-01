@@ -2,7 +2,7 @@ import { createHash } from 'crypto';
 import { canLevelUp, xpRange } from '../lib/levelling.js';
 import axios from 'axios';
 
-const imgUrl = 'https://telegra.ph/file/877a52fd8121b5dade97b.jpg';
+const imgUrl = 'https://i.pinimg.com/564x/2f/5f/4e/2f5f4e0bca776a01149d5af831ad295e.jpg';
 
 let handler = async (m, { conn, usedPrefix, command }) => {
         if (typeof conn.profilePictureUrl !== 'function' || typeof conn.fetchStatus !== 'function') {
@@ -67,7 +67,7 @@ ${about}
     │
     │ 𝚅𝚒𝚜𝚒𝚝𝚊 𝚗𝚞𝚎𝚜𝚝𝚛𝚘 𝚜𝚒𝚝𝚒𝚘 𝚠𝚎𝚋:
     │
-    │ https://rem-cham-md-web.vercel.app
+    │ https://remcham-md.vercel.app
     │
     │ 𝚁𝚎𝚙𝚘𝚜𝚒𝚝𝚘𝚛𝚒𝚘: [𝙶𝚒𝚝𝙷𝚞𝚋]
     │
