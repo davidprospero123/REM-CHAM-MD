@@ -76,7 +76,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 │
 │ 🔗 𝙴𝙽𝙻𝙰𝙲𝙴𝚂:
 │ └── 🌐 [𝙿𝙰𝙶𝙸𝙽𝙰 𝚆𝙴𝙱]
-│ └── https://rem-cham-md-web.vercel.app
+│ └── https://remcham-md.vercel.app
 │
 │ 🔍 𝚄𝚂𝙾 𝙳𝙴 𝙼𝙴𝙼𝙾𝚁𝙸𝙰 𝙽𝙾𝙳𝙴.𝙹𝚂:
 │ ${'```' + Object.keys(process.memoryUsage()).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(process.memoryUsage()[key])}`).join('\n') + '```'}
