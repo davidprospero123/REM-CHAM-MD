@@ -39,8 +39,8 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   │
   │💻 *𝚁𝙴𝙿𝙾𝚂𝙸𝚃𝙾𝚁𝙸𝙾 𝙶𝙸𝚃𝙷𝚄𝙱:* 
   │https://github.com/davidprospero123/REM-CHAM
-  │🌐 *𝙿𝙰𝙶𝙸𝙽𝙰 𝚆𝙴𝙱:
-  │https://rem-cham-bot.replit.app
+  │🌐 𝙿𝙰𝙶𝙸𝙽𝙰 𝚆𝙴𝙱:
+  │https://remcham-md.vercel.app
   │
   │🔒 *𝙱𝙾𝚅𝙴𝙳𝙰:* ${user.bank} 𝙾𝚁𝙾
   │⚠️ *𝙰𝙳𝚅𝙴𝚁𝚃𝙴𝙽𝙲𝙸𝙰𝚂:* ${user.warn}
