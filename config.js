@@ -67,14 +67,14 @@ global.APIKeys = {
 // ─────────────╮
 // Otras variables globales
 // ╰─────────────────────────────────────────────╮
-global.id_canal = '7420600042736521478@newsletter' //ID CANAL REM = 120363299269381797@newsletter
-global.name_canal = '𝚁𝙴𝙼𝙲𝙷𝙰𝙼 𝙱𝚈 𝙶𝙰𝙱𝚁𝙸𝙴𝙻 - 𝙹𝚃𝚇𝚂'
+global.id_canal = '120363323192692909@newsletter'
+global.name_canal = '𝐑𝐄𝐌 - 𝐁𝐎𝐓 - 𝐁𝐘 - 𝐂𝐔𝐑𝐈'
 global.rcanal = 'https://whatsapp.com/channel/0029VaqEpTQBPzjbuTwGDN1U'
 global.canal = 'https://whatsapp.com/channel/0029VaqEpTQBPzjbuTwGDN1U'
-global.botname = '𝚁𝙴𝙼𝙲𝙷𝙰𝙼';
+global.botname = '𝚁𝙴𝙼-𝙲𝙷𝙰𝙼';
 global.premium = 'true';
-global.packname = 'ℭ𝔲𝔯𝔦-𝔅𝔬𝔱';
-global.author = '@holabb123';
+global.packname = 'ʀᴇᴍ ᴄʜᴀᴍ ᴍᴅ';
+global.author = 'GabrielCuri';
 global.menuvid = 'https://telegra.ph/file/c92cd247a11a336199650.mp4';
 global.igfg = '▢ Sigueme en Instagram\nhttps://www.instagram.com/Josecurisoto\n';
 global.dygp = 'https://chat.whatsapp.com/BFfD1C0mTDDDfVdKPkxRAA';
