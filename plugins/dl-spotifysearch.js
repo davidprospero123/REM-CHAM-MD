@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, text }) => {
   await m.react("💚");
   let results;
   try {
-    results = await fetch(`https://thepapusteamspotify.koyeb.app/api/spotify/search?q=${encodeURIComponent(text)}`).then(res => res.json());
+    results = await fetch(`https://rembotapi.vercel.app/api/spotify/search?q=${encodeURIComponent(text)}`).then(res => res.json());
   } catch (error) {
     console.error(error);
     await m.react("❌");
