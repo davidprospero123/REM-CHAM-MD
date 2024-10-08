@@ -9,7 +9,7 @@
 		"plugins": "plugins"
 	},
 	"scripts": {
-		"start": "node starlights.js",
+		"start": "node remcham.js",
 		"test": "node test.js",
 		"test2": "nodemon index.js"
 	},
