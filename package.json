@@ -65,6 +65,7 @@
     "moment-timezone": "*",
     "node-gtts": "*",
     "node-webpmux": "*",
+    "node-cache": "^5.1.2",
     "pdfkit": "^0.13.0",
     "pino": "*",
     "perf_hooks": "*",
