@@ -1,94 +1,39 @@
 // EL CODIGO COMO LA API FUE ECHO POR GABRIEL CURI, SI VAS, USAR MIS PLUGINS DAME CREDITOS
 // DAME CREDITOS P NO SEAS LACRA :v
-import axios from 'axios';
-const baileys = (await import("@whiskeysockets/baileys")).default;
-const { proto } = baileys;
-const { generateWAMessageFromContent } = baileys;
-const { generateWAMessageContent } = baileys;
+import fetch from "node-fetch";
 
-let handler = async (message, { conn, text }) => {
-    if (!text) {
-        return conn.reply(message.chat, ' *¿Qué anime estás buscando?*', message);
+let handler = async (m, { conn, usedPrefix, text }) => {
+  if (!text) return conn.reply(m.chat, "*𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚗𝚘𝚖𝚋𝚛𝚎 𝚍𝚎𝚕 𝚊𝚗𝚒𝚖𝚎 𝚚𝚞𝚎 𝚚𝚞𝚒𝚎𝚛𝚎𝚜 𝚋𝚞𝚜𝚌𝚊𝚛 :𝟹*", m);
+
+  await m.react("💜");
+  try {
+    let response = await fetch(`https://animeflvapi.vercel.app/search?text=${encodeURIComponent(text)}`);
+    let data = await response.json();
+
+    if (!data.results.length) {
+      return conn.reply(m.chat, "𝚂𝚒𝚗 𝚁𝚎𝚜𝚞𝚕𝚝𝚊𝚍𝚘𝚜, 𝙸𝚗𝚝𝚎𝚗𝚝𝚊 𝚋𝚞𝚜𝚌𝚊𝚛 𝚘𝚝𝚛𝚘 𝚝𝚒𝚝𝚞𝚕𝚘", m);
     }
 
-    async function createImageMessage(url) {
-        const { imageMessage } = await generateWAMessageContent(
-            { image: { url } },
-            { upload: conn.waUploadToServer }
-        );
-        return imageMessage;
+    let txt = `*ᴀɴɪᴍᴇꜰʟᴠ - ꜱᴇᴀʀᴄʜ↻*`;
+    for (let i = 0; i < (30 <= data.results.length ? 30 : data.results.length); i++) {
+      txt += `\n\n`;
+      txt += `	❧  *𝚃𝚒𝚝𝚞𝚕𝚘* : ${data.results[i].title}\n`;
+      txt += `	❧  *𝚁𝚊𝚗𝚔𝚒𝚗𝚐* : ${data.results[i].rating || "N/A"}\n`;
+      txt += `	❧  *𝚂𝚒𝚗𝚘𝚙𝚜𝚒𝚜* : ${data.results[i].synopsis || "No disponible"}\n`;
+      txt += `	❧  *𝙸𝙳* :  ( *ɪᴍᴘᴏʀᴛᴀɴᴛᴇ ᴘᴀʀᴀ ʟᴀ ᴅᴇꜱᴄᴀʀɢᴀ* )\n *${data.results[i].id}*\n`;
     }
 
-    try {
-        const { data: response } = await axios.get(`https://animeflvapi.vercel.app/search?text=${encodeURIComponent(text)}`);
-
-        if (!response.results || response.results.length === 0) {
-            return conn.reply(message.chat, ' *No se encontraron animes.*', message);
-        }
-
-        const animes = response.results;
-
-        const responseMessages = await Promise.all(animes.map(async (anime) => {
-            const imageMessage = await createImageMessage(anime.poster);
-            return {
-                body: proto.Message.InteractiveMessage.Body.fromObject({
-                    text: `𝙏𝙞𝙩𝙪𝙡𝙤: ${anime.title}\n\n${anime.synopsis}\n\n🔖 𝙄𝘿: ${anime.id}\n*Usa este ID para descargar el anime*`
-                }),
-                footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                    text: `Rating: ${anime.rating}`
-                }),
-                header: proto.Message.InteractiveMessage.Header.fromObject({
-                    hasMediaAttachment: true,
-                    imageMessage
-                }),
-                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                    buttons: []
-                })
-            };
-        }));
-
-        const carouselMessage = proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-            cards: responseMessages
-        });
-
-        const responseMessage = generateWAMessageFromContent(
-            message.chat,
-            {
-                viewOnceMessage: {
-                    message: {
-                        messageContextInfo: {
-                            deviceListMetadata: {},
-                            deviceListMetadataVersion: 2
-                        },
-                        interactiveMessage: proto.Message.InteractiveMessage.fromObject({
-                            body: proto.Message.InteractiveMessage.Body.create({
-                                text: null
-                            }),
-                            footer: proto.Message.InteractiveMessage.Footer.create({
-                                text: ' `𝘼𝙣𝙞𝙢𝙚 𝙎𝙚𝙖𝙧𝙘𝙝`'
-                            }),
-                            header: proto.Message.InteractiveMessage.Header.create({
-                                title: null,
-                                hasMediaAttachment: false
-                            }),
-                            carouselMessage
-                        })
-                    }
-                }
-            },
-            { quoted: message }
-        );
-
-        await conn.relayMessage(message.chat, responseMessage.message, { messageId: responseMessage.key.id });
-
-    } catch (error) {
-        await conn.reply(message.chat, error.toString(), message);
-    }
+    await conn.sendFile(m.chat, "https://i.ibb.co/CvBHJSF/117895022-p0-master1200-1.jpg", "", txt, m, null, rcanal);
+    await m.react("✅");
+  } catch (error) {
+    conn.reply(m.chat, "𝙷𝚞𝚋𝚘 𝚞𝚗 𝚎𝚛𝚛𝚘𝚛 𝚊𝚕 𝚋𝚞𝚜𝚌𝚊𝚛 𝚕𝚘𝚜 𝚍𝚊𝚝𝚘𝚜. 𝙸𝚗𝚝𝚎𝚗𝚝𝚊 𝚍𝚎 𝚗𝚞𝚎𝚟𝚘 𝚖á𝚜 𝚝𝚊𝚛𝚍𝚎.", m, null, rcanal);
+    console.error(error);
+  }
 };
 
-handler.help = ['animedl <nombre>'];
-handler.tags = ['downloader'];
-handler.command = ['animeflvsearch', 'animeflv', 'animesearch'];
+handler.help = ["animeflvsearch"];
+handler.tags = ["search"];
+handler.command = ["animeflvsearch", "aflvs" , 'animeflvs', 'animeflv'];
 handler.register = true;
 
 export default handler;
