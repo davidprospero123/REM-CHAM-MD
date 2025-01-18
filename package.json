@@ -75,7 +75,7 @@
 		"url-regex-safe": "*",
 		"perf_hooks": "*",
 		"url-file-size": "*",
-		"pdfkit": "^0.13.0",
+		"pdfkit": "^0.15.0",
 		"pino": "*",
 		"qrcode": "*",
 		"qrcode-terminal": "*",
